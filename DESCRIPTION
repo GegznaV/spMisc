@@ -1,0 +1,26 @@
+Package: spMisc
+Type: Package
+Title: Miscelaneous functions
+Description: ... MISSING ...
+Version: 0.0.1
+Date: 2016-06-02
+Encoding: UTF-8
+Authors@R: person("Vilmantas", "Gegzna", email = "GegznaV@gmail.com", role = c("aut", "cre"))
+Maintainer: Vilmantas Gegzna <GegeznaV@gmail.com>
+License: GPL (>= 3)
+LazyData: yes
+LazyLoad: yes
+RoxygenNote: 5.0.1
+VignetteBuilder: knitr
+Depends:
+    R (>= 3.2),
+    magrittr
+Imports:
+    pander,
+    pkgmaker,
+    dplyr
+Suggests:
+    knitr,
+    rmarkdown,
+    testthat,
+    covr
