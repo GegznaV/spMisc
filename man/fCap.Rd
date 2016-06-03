@@ -26,6 +26,7 @@ fCap('laa laa laa')
 }
 \seealso{
 Other \pkg{spMisc} utilities: \code{\link{bru}},
-  \code{\link{isFALSE}}, \code{\link{list_AddRm}}
+  \code{\link{isFALSE}}, \code{\link{list_AddRm}},
+  \code{\link{open_wd}}
 }
 

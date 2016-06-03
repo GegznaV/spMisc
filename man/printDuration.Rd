@@ -57,7 +57,7 @@ Vilmantas Gegzna
 \code{\link[base]{difftime}}
 
 Other \pkg{spHelper} utilities: \code{\link{clear}},
-  \code{\link{make.filenames}}, \code{\link{open_wd}},
-  \code{\link{regexp2df}}, \code{\link{st01}}
+  \code{\link{make.filenames}}, \code{\link{regexp2df}},
+  \code{\link{st01}}
 }
 

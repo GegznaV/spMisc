@@ -27,6 +27,7 @@ Vilmantas Gegzna
 \code{\link[base]{isTRUE}}
 
 Other \pkg{spMisc} utilities: \code{\link{bru}},
-  \code{\link{fCap}}, \code{\link{list_AddRm}}
+  \code{\link{fCap}}, \code{\link{list_AddRm}},
+  \code{\link{open_wd}}
 }
 

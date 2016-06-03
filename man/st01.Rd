@@ -33,7 +33,7 @@ st01(x, MIN = .2)
 \code{\link[scales]{rescale}}
 
 Other \pkg{spHelper} utilities: \code{\link{clear}},
-  \code{\link{make.filenames}}, \code{\link{open_wd}},
+  \code{\link{make.filenames}},
   \code{\link{printDuration}}, \code{\link{regexp2df}}
 }
 

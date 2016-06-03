@@ -18,7 +18,7 @@
 #' }}
 #'
 #' @seealso \code{\link[base]{shell.exec}}
-#' @family \pkg{spHelper} utilities
+#' @family \pkg{spMisc} utilities
 #'
 
 open_wd <- function(){

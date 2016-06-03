@@ -95,6 +95,7 @@ Vilmantas Gegzna
 }
 \seealso{
 Other \pkg{spMisc} utilities: \code{\link{fCap}},
-  \code{\link{isFALSE}}, \code{\link{list_AddRm}}
+  \code{\link{isFALSE}}, \code{\link{list_AddRm}},
+  \code{\link{open_wd}}
 }
 

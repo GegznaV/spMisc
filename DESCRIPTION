@@ -17,6 +17,7 @@ Depends:
     magrittr
 Remotes:
     github::GegznaV/spHelper
+    github::jimhester/covr
 Imports:
     pander,
     pkgmaker,

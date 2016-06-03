@@ -22,6 +22,7 @@ Vilmantas Gegzna
 }
 \seealso{
 Other \pkg{spMisc} utilities: \code{\link{bru}},
-  \code{\link{fCap}}, \code{\link{isFALSE}}
+  \code{\link{fCap}}, \code{\link{isFALSE}},
+  \code{\link{open_wd}}
 }
 

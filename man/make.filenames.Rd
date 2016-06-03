@@ -43,7 +43,7 @@ a string \code{s} with \code{replacement} (by default it is underscore
 }
 \seealso{
 Other \pkg{spHelper} utilities: \code{\link{clear}},
-  \code{\link{open_wd}}, \code{\link{printDuration}},
-  \code{\link{regexp2df}}, \code{\link{st01}}
+  \code{\link{printDuration}}, \code{\link{regexp2df}},
+  \code{\link{st01}}
 }
 
