@@ -4,7 +4,7 @@
 \name{spMisc}
 \alias{spMisc}
 \alias{spMisc-package}
-\title{Extension for `spMisc` and convenience functions}
+\title{Various functions}
 \description{
 [+] - function is well described. \cr
 [!] - a description is incomplete and needs revision.\cr\cr

@@ -1,6 +1,6 @@
 #' @name spMisc
 #'
-#' @title Extension for `spMisc` and convenience functions
+#' @title Various functions
 #'
 #' @docType package
 #'
