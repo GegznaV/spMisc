@@ -16,7 +16,7 @@ Depends:
     R (>= 3.2),
     magrittr
 Remotes:
-    github::GegznaV/spHelper
+    github::GegznaV/spHelper,
     github::jimhester/covr
 Imports:
     pander,
