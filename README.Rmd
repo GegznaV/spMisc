@@ -27,7 +27,7 @@ knitr::opts_chunk$set(
 [![codecov.io](https://codecov.io/github/GegznaV/spMisc/coverage.svg?branch=master)](https://codecov.io/github/GegznaV/spMisc?branch=master)
 
   
-Developement version of package `spMisc` 
+Development version of package `spMisc` 
 ==========================================
 
 
