@@ -18,7 +18,7 @@
 #'
 #' @seealso \code{\link[scales]{rescale}}
 #'
-#' @family \pkg{spHelper} utilities
+#' @family \pkg{spMisc} utilities
 #'
 st01 <- function(x, MIN = min(x), MAX = 1) {
     (x-MIN)/(MAX-MIN)

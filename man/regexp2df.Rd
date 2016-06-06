@@ -140,8 +140,10 @@ More about regular expressions used in R: \link[base]{regex}\cr
          \code{\link{regcapturedmatches}},
          operator from package \pkg{magrittr} \code{\link[magrittr]{\%>\%}}.
 
-Other \pkg{spHelper} utilities: \code{\link{clear}},
-  \code{\link{make.filenames}},
+Other \pkg{spMisc} utilities: \code{\link{bru}},
+  \code{\link{clear}}, \code{\link{fCap}},
+  \code{\link{isFALSE}}, \code{\link{list_AddRm}},
+  \code{\link{make.filenames}}, \code{\link{open_wd}},
   \code{\link{printDuration}}, \code{\link{st01}}
 }
 

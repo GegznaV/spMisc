@@ -18,7 +18,7 @@ Evaluated expression
 }
 \description{
 A wrapper function to parse a string and evaluate it as an expression.
-\code{eval_(X)} is the same as \code{eval(parse(text = X)}.
+\code{eval_(X)} is the same as \code{eval(parse(text = X))}.
 }
 \examples{
 if (any(ls() == "A")) rm(A)

@@ -56,8 +56,10 @@ Vilmantas Gegzna
 \seealso{
 \code{\link[base]{difftime}}
 
-Other \pkg{spHelper} utilities: \code{\link{clear}},
-  \code{\link{make.filenames}}, \code{\link{regexp2df}},
-  \code{\link{st01}}
+Other \pkg{spMisc} utilities: \code{\link{bru}},
+  \code{\link{clear}}, \code{\link{fCap}},
+  \code{\link{isFALSE}}, \code{\link{list_AddRm}},
+  \code{\link{make.filenames}}, \code{\link{open_wd}},
+  \code{\link{regexp2df}}, \code{\link{st01}}
 }
 

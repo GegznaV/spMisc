@@ -32,8 +32,10 @@ st01(x, MIN = .2)
 \seealso{
 \code{\link[scales]{rescale}}
 
-Other \pkg{spHelper} utilities: \code{\link{clear}},
-  \code{\link{make.filenames}},
+Other \pkg{spMisc} utilities: \code{\link{bru}},
+  \code{\link{clear}}, \code{\link{fCap}},
+  \code{\link{isFALSE}}, \code{\link{list_AddRm}},
+  \code{\link{make.filenames}}, \code{\link{open_wd}},
   \code{\link{printDuration}}, \code{\link{regexp2df}}
 }
 

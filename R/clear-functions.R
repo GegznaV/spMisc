@@ -87,8 +87,8 @@
 #' ls()
 #'
 #'
-#' @family \pkg{spHelper} utilities
-#' @family \pkg{spHelper} \code{clear} family functions
+#' @family \pkg{spMisc} utilities
+#' @family \pkg{spMisc} \code{clear} family functions
 #'
 #' @seealso Remove objects from a specified environment \code{\link[base]{rm}},
 #'          list objects \code{\link[base]{ls}}.

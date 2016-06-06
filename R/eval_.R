@@ -1,7 +1,7 @@
 #' [!] Parse a string and evaluate expression
 #'
 #' A wrapper function to parse a string and evaluate it as an expression.
-#' \code{eval_(X)} is the same as \code{eval(parse(text = X)}.
+#' \code{eval_(X)} is the same as \code{eval(parse(text = X))}.
 #'
 #' @param X A string to be evaluated as an expression.
 #' @inheritParams base::eval

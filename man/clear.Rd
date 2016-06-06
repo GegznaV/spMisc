@@ -120,8 +120,10 @@ Vilmantas Gegzna
 Remove objects from a specified environment \code{\link[base]{rm}},
          list objects \code{\link[base]{ls}}.
 
-Other \pkg{spHelper} utilities: \code{\link{make.filenames}},
-  \code{\link{printDuration}}, \code{\link{regexp2df}},
-  \code{\link{st01}}
+Other \pkg{spMisc} utilities: \code{\link{bru}},
+  \code{\link{fCap}}, \code{\link{isFALSE}},
+  \code{\link{list_AddRm}}, \code{\link{make.filenames}},
+  \code{\link{open_wd}}, \code{\link{printDuration}},
+  \code{\link{regexp2df}}, \code{\link{st01}}
 }
 

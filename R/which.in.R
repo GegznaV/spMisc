@@ -61,7 +61,7 @@
 #'
 #'  which.in(triupp, m1)
 #'
-#' @family matrix operations in \pkg{spHelper}
+#' @family matrix operations in \pkg{spMisc}
 #' @author Vilmantas Gegzna
 
 which.in <- function(type, x,  ...){

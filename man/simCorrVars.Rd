@@ -54,5 +54,7 @@ Vilmantas Gegzna
 }
 \seealso{
 \code{\link{corr_vec2mat}}, \link[MASS]{mvrnorm}, \link[base]{chol}
+
+Other simmulation functions in \pkg{spMisc}: \code{\link{corr_vec2mat}}
 }
 

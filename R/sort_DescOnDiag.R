@@ -29,7 +29,7 @@
 #'
 #'
 #' @author Vilmantas Gegzna
-#' @family matrix operations in \pkg{spHelper}
+#' @family matrix operations in \pkg{spMisc}
 #'
 sort_DescOnDiag <- function(M) {
 
