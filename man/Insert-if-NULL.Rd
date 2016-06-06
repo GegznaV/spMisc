@@ -38,6 +38,6 @@ b  <- "Default value"
 
 }
 \seealso{
-\code{\link[spHelper]{insertIfNULL_Addin}}
+\code{\link[spAddins]{insertIfNULL_Addin}}
 }
 

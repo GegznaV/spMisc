@@ -6,11 +6,14 @@
 #'
 #' @description Generate a string of repeated symbols.
 #'  Useful for R Markdown (.rmd) files and console output to highlight results.\cr\cr
-#'  \code{bru} prints the result. \cr
-#'  \code{bru0} returns a string.
+#'  \code{bru} prints the string. Use \code{bru} to print the string directly
+#'  to console or in R Markdown reports. \cr
+#'  \code{bru0} returns a string. Use \code{bru0} in combination with functions
+#'  such as \code{\link[base]{sprintf}}.
 #'
-#' @param symbol A desired symbol or sequence of symbols. Default is \code{"="}.
-#' @param n    A number of symbols: a length of a string. Default is 60 symbols.
+#' @param symbol A symbol or sequence of symbols to be used. Default is \code{"="}.
+#' @param n    A number of symbols to return: a length of a string.
+#'             Default is 60 symbols.
 #' @param after A number of new (empty) lines/rows to be added afterwards.
 #'        \code{0} means that following text continues in the same row.
 #'        Default is \cr\code{if (print==TRUE) 1 else 0}.
@@ -23,6 +26,7 @@
 #' @export
 #'
 #' @examples
+#' library(spMisc)
 #'
 #' bru()
 #' ## ============================================================
@@ -85,10 +89,9 @@ bru <- function(symbol = "=",
                 print  = TRUE)
 {
     # Create sequences of symbols
-    nlA <- paste0(rep('\n', after),  collapse = "")
-    nlB <- paste0(rep('\n', before), collapse = "")
-    lineC <- paste0(rep(symbol,n),   collapse = "")
-
+    nlB   <- bru_n('\n', before)
+    lineC <- bru_n(symbol,n)
+    nlA   <- bru_n('\n', after)
     # Adjust the length
     lineC <- substr(lineC, 1, n)
 
@@ -105,3 +108,11 @@ bru <- function(symbol = "=",
 #' @export
 
 bru0 <- function(..., print = FALSE) {bru(..., print = print)}
+
+
+# --------------------------------------------------------------
+# times how many times shopuld be repeated
+
+bru_n <- function(symbol, times) {
+    paste0(rep(symbol, times),   collapse = "")
+}

@@ -17,7 +17,7 @@
 #' \href{http://adv-r.had.co.nz/Functions.html#function-arguments}{Advanced R}
 #' by Hadley Wickham.
 #'
-#' @seealso \code{\link[base]{paste}}, \code{\link[spHelper]{insertPaste_Addin}}
+#' @seealso \code{\link[base]{paste}}, \code{\link[spAddins]{insertPaste_Addin}}
 #'
 #' @examples
 #' "a" %++% "b"
@@ -47,7 +47,7 @@
 #' @source Inspired by "Inxix functions" in
 #' \href{http://adv-r.had.co.nz/Functions.html#function-arguments}{Advanced R}
 #' by Hadley Wickham.
-#' @seealso \code{\link[base]{paste}}, \code{\link[spHelper]{insertPaste0_Addin}}
+#' @seealso \code{\link[base]{paste}}, \code{\link[spAddins]{insertPaste0_Addin}}
 #'
 #' @examples
 #' "a" %++% "b"
@@ -79,7 +79,7 @@
 #' epression \code{b} otherwise.
 #' @export
 #'
-#' @seealso \code{\link[spHelper]{insertIfNULL_Addin}}
+#' @seealso \code{\link[spAddins]{insertIfNULL_Addin}}
 #' @examples
 #' a1 <- 1
 #' a2 <- NULL
@@ -109,6 +109,8 @@
 #'  each element of \code{x}: thus the values are \code{TRUE} or \code{FALSE}
 #'  and never \code{NA}.
 #' @export
+#'
+#' @seealso \code{\link[spAddins]{insertNotIn_Addin}}
 #'
 #' @examples
 #'

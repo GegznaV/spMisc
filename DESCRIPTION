@@ -2,7 +2,7 @@ Package: spMisc
 Type: Package
 Title: Miscelaneous functions
 Description: ... MISSING ...
-Version: 0.0.2
+Version: 0.0.3
 Date: 2016-06-06
 Encoding: UTF-8
 Authors@R: person("Vilmantas", "Gegzna", email = "GegznaV@gmail.com", role = c("aut", "cre"))
@@ -13,7 +13,7 @@ LazyLoad: yes
 RoxygenNote: 5.0.1
 VignetteBuilder: knitr
 Remotes:
-    github::GegznaV/spHelper,
+    github::GegznaV/spAddins
     github::jimhester/covr
 Depends:
     R (>= 3.2),
@@ -21,11 +21,11 @@ Depends:
 Imports:
     pander,
     pkgmaker,
-    dplyr,
-    spHelper
+    dplyr
 Suggests:
     knitr,
     rmarkdown,
     testthat,
     covr,
-    devtools
+    devtools,
+    spAddins

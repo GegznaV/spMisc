@@ -27,4 +27,7 @@ Operator, oposite to \link[base]{\%in\%}.
 #> [1] FALSE  TRUE FALSE  TRUE FALSE  TRUE  TRUE  TRUE FALSE  TRUE
 
 }
+\seealso{
+\code{\link[spAddins]{insertNotIn_Addin}}
+}
 

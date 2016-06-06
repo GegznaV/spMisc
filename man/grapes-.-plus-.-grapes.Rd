@@ -30,6 +30,6 @@ Infix versions of \code{paste0} and \code{paste}.
 
 }
 \seealso{
-\code{\link[base]{paste}}, \code{\link[spHelper]{insertPaste_Addin}}
+\code{\link[base]{paste}}, \code{\link[spAddins]{insertPaste_Addin}}
 }
 
