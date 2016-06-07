@@ -10,7 +10,7 @@
 #' @return A list with captured matches
 #'
 #'
-#' @author  Daniel Marcelino (MrFlick)
+#' @author Daniel Marcelino (MrFlick)
 #' @source
 #' \url{https://gist.github.com/danielmarcelino/8209cfdf2cd993eeb1b3}[github.com/danielmarcelino]
 #' \url{https://gist.github.com/MrFlick/10413321}
