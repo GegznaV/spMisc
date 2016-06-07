@@ -2,6 +2,8 @@
 
 language: R
 sudo: false
+before_install:
+  - tlmgr install index
 cache: packages
 r_github_packages:
   - jimhester/covr
