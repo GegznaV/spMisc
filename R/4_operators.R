@@ -13,7 +13,7 @@
 #'
 #'
 #' @export
-#' @source Inspired by "Inxix functions" in
+#' @source Inspired by "Infix functions" in
 #' \href{http://adv-r.had.co.nz/Functions.html#function-arguments}{Advanced R}
 #' by Hadley Wickham.
 #'
@@ -81,15 +81,15 @@
 #'
 #' @seealso \code{\link[spAddins]{insertIfNULL_Addin}}
 #' @examples
-#' a1 <- 1
+#' a1 <- "Default value"
 #' a2 <- NULL
-#' b  <- "Default value"
+#' b  <- "Alternative"
 #'
 #'  a1 %if.NULL% b
-#' #> [1] 1
+#' #> [1] "Default value"
 #'
 #'  a2 %if.NULL% b
-#'#> "Default value"
+#'#> "Alternative"
 #'
 `%if.NULL%` <- function(a, b) {if (!is.null(a)) a else b}
 

@@ -4,7 +4,7 @@
 \alias{\%.+.\%}
 \title{Infix versions of \code{paste0} and \code{paste}}
 \source{
-Inspired by "Inxix functions" in
+Inspired by "Infix functions" in
 \href{http://adv-r.had.co.nz/Functions.html#function-arguments}{Advanced R}
 by Hadley Wickham.
 }

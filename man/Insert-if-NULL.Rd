@@ -26,15 +26,15 @@ The function is useful as a way of providing a default value
  in case the output of another function is \code{NULL}.
 }
 \examples{
-a1 <- 1
+a1 <- "Default value"
 a2 <- NULL
-b  <- "Default value"
+b  <- "Alternative"
 
  a1 \%if.NULL\% b
-#> [1] 1
+#> [1] "Default value"
 
  a2 \%if.NULL\% b
-#> "Default value"
+#> "Alternative"
 
 }
 \seealso{
