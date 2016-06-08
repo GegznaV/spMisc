@@ -1,3 +1,4 @@
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/spMisc)](https://cran.r-project.org/package=spMisc) [![Travis-CI Build Status](https://travis-ci.org/GegznaV/spMisc.png?branch=master)](https://travis-ci.org/GegznaV/spMisc) [![codecov.io](https://codecov.io/github/GegznaV/spMisc/coverage.svg?branch=master)](https://codecov.io/github/GegznaV/spMisc?branch=master)
 
@@ -30,5 +31,5 @@ install_github("GegznaV/spMisc")
 ------------------------------------------------------------------------
 
 <p align="right">
-File updated on <b>2016-06-08</b> with version of package <b>0.0.3 (build 1007)</b>
+File updated on <b>2016-06-08</b> with version of package <b>0.0.3.1008</b>
 </p>

@@ -25,7 +25,7 @@ open_wd()
 
 }
 \seealso{
-\code{\link[base]{shell.exec}}
+Function \code{shell.exec}
 
 Other \pkg{spMisc} utilities: \code{\link{bru}},
   \code{\link{clear}}, \code{\link{fCap}},

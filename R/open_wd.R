@@ -17,7 +17,7 @@
 #' open_wd()
 #' }}
 #'
-#' @seealso \code{\link[base]{shell.exec}}
+#' @seealso Function \code{shell.exec}
 #' @family \pkg{spMisc} utilities
 #'
 

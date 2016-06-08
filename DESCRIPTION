@@ -2,7 +2,7 @@ Package: spMisc
 Type: Package
 Title: Miscelaneous functions
 Description: (... MISSING ...)
-Version: 0.0.3.1007
+Version: 0.0.3.1008
 Date: 2016-06-07
 Encoding: UTF-8
 Authors@R: person("Vilmantas", "Gegzna", email = "GegznaV@gmail.com", role = c("aut", "cre"))
