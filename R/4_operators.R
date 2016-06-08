@@ -61,7 +61,7 @@
 
 # %if.NULL%  -----------------------------------------------------------------
 
-#' @name If .NULL
+#' @name If is NULL
 #'
 #' @title Infix operator to insert default value if result is NULL
 #'
@@ -82,12 +82,14 @@
 #' a2 <- NULL
 #' b  <- "Alternative"
 #'
+#' \donttest{
+#' \dontrun{
 #'  a1 %if.NULL% b
 #' #> [1] "Default value"
 #'
 #'  a2 %if.NULL% b
 #'#> "Alternative"
-#'
+#'}}
 `%if.NULL%` <- function(a, b) {
     .Deprecated("%if_null%")
     if (!is.null(a)) a else b
@@ -123,11 +125,9 @@
 #'  a2 %if_null% b
 #'#> "Alternative"
 #'
-
 `%if_null%` <- function(a, b) {if (!is.null(a)) a else b}
 
 # %if_null_or_len0% -----------------------------------------------------------------
-
 
 #' @name If NULL or length is 0
 #' @title [.] Infix operator \%if_null_or_len0\%
@@ -155,10 +155,13 @@
 #' #> [1] "Default value"
 #'
 #'  a2 %if_null_or_len0% b
-#'#> "Alternative"
+#' #> "Alternative"
 #'
+#'  a3 %if_null_or_len0% b
+#' #> "Alternative"
+
 `%if_null_or_len0%` <- function(a, b) {
-    if (!is.null(a) & length(a)>0 & nchar(a)>0) a  else b
+    if (isTRUE(!is.null(a) & length(a)>0 & nchar(a)>0)) a  else b
 }
 
 

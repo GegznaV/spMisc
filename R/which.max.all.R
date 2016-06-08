@@ -5,7 +5,7 @@
 #'
 #' @inheritParams base::which.min
 #' @inheritParams base::which
-#' @param ... Further parameters for \code{\link[base]{which}}.
+#' @param ... Further parameters to be passed to \code{\link[base]{which}}.
 #' @export
 #' @details Internaly functions \code{\link[base]{which}} and
 #' \code{\link[base]{as.vector}} are used.

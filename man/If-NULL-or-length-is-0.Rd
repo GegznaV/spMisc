@@ -33,5 +33,7 @@ b  <- "Alternative"
  a2 \%if_null_or_len0\% b
 #> "Alternative"
 
+ a3 \%if_null_or_len0\% b
+#> "Alternative"
 }
 

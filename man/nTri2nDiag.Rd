@@ -28,9 +28,9 @@ nTri2nDiag(6)
 Vilmantas Gegzna
 }
 \seealso{
-Other matrix operations in \pkg{spMisc}: \code{\link{corr_vec2mat}},
-  \code{\link{indMatrix}}, \code{\link{newMatrix}},
-  \code{\link{sort_DescOnDiag}}, \code{\link{which.in}},
+Other matrix operations in \pkg{spMisc}: \code{\link{Sort_matrix_elements}},
+  \code{\link{corr_vec2mat}}, \code{\link{indMatrix}},
+  \code{\link{newMatrix}}, \code{\link{which.in}},
   \code{\link{which.max.all}},
   \code{\link{which.max.perRow}}
 }

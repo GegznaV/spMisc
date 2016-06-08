@@ -141,9 +141,10 @@ More about regular expressions used in R: \link[base]{regex}\cr
          operator from package \pkg{magrittr} \code{\link[magrittr]{\%>\%}}.
 
 Other \pkg{spMisc} utilities: \code{\link{bru}},
-  \code{\link{clear}}, \code{\link{fCap}},
-  \code{\link{isFALSE}}, \code{\link{list_AddRm}},
-  \code{\link{make.filenames}}, \code{\link{open_wd}},
-  \code{\link{printDuration}}, \code{\link{st01}}
+  \code{\link{clc}}, \code{\link{clear}},
+  \code{\link{fCap}}, \code{\link{isFALSE}},
+  \code{\link{list_AddRm}}, \code{\link{make.filenames}},
+  \code{\link{open_wd}}, \code{\link{printDuration}},
+  \code{\link{st01}}
 }
 

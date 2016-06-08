@@ -25,9 +25,9 @@ Vilmantas Gegzna
 \seealso{
 \link[base]{row},\link[base]{col}
 
-Other matrix operations in \pkg{spMisc}: \code{\link{corr_vec2mat}},
-  \code{\link{nTri2nDiag}}, \code{\link{newMatrix}},
-  \code{\link{sort_DescOnDiag}}, \code{\link{which.in}},
+Other matrix operations in \pkg{spMisc}: \code{\link{Sort_matrix_elements}},
+  \code{\link{corr_vec2mat}}, \code{\link{nTri2nDiag}},
+  \code{\link{newMatrix}}, \code{\link{which.in}},
   \code{\link{which.max.all}},
   \code{\link{which.max.perRow}}
 }

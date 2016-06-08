@@ -14,7 +14,7 @@ which.min.all(x, useNames = FALSE, ...)
     for which the internal coercion to \code{\link{double}} works whose
     \code{\link{min}} or \code{\link{max}} is searched for.}
 
-\item{...}{Further parameters for \code{\link[base]{which}}.}
+\item{...}{Further parameters to be passed to \code{\link[base]{which}}.}
 
 \item{useNames}{logical indicating if the value of \code{arrayInd()}
    should have (non-null) dimnames at all.}
@@ -40,9 +40,9 @@ which.min.all(x)
 Vilmantas Gegzna
 }
 \seealso{
-Other matrix operations in \pkg{spMisc}: \code{\link{corr_vec2mat}},
-  \code{\link{indMatrix}}, \code{\link{nTri2nDiag}},
-  \code{\link{newMatrix}}, \code{\link{sort_DescOnDiag}},
+Other matrix operations in \pkg{spMisc}: \code{\link{Sort_matrix_elements}},
+  \code{\link{corr_vec2mat}}, \code{\link{indMatrix}},
+  \code{\link{nTri2nDiag}}, \code{\link{newMatrix}},
   \code{\link{which.in}}, \code{\link{which.max.perRow}}
 }
 

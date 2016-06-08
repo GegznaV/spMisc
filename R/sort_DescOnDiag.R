@@ -1,37 +1,78 @@
-#' [!!!] Sort rows and columns of a matrix
+#' @name Sort_matrix_elements
+#' @title Sort rows and columns of a matrix according to a criterion
+#'
+#' @description
+#' \code{sort_descOnDiag()}  where possible, sort rows and columns of a matrix
+#' to put the highest values on diagonal in a descending order. The highest
+#' value is paced at the top left corner.
+#'
+#' \code{sort_colSums()} sorts columns of a matrix according to the values of column sums.\cr
+#' \code{sort_colMax()} sorts columns of a matrix according to the maximum value in each column.\cr
+#'
+#' \code{sort_rowSums()} sorts rows of a matrix according to the values of row sums.\cr
+#' \code{sort_rowMax()} sorts rows of a matrix according to the maximum value in each row.\cr
+#'
+#' Possible application: in a cluster analysis sort rows and columns of a cross
+#' tablation by the best match (illustration in section "Expamples"). \cr
 #'
 #' @param M A matrix.
-#'
+#' @param na.rm	Logical. Should missing values (including NaN) be omitted from the calculations?
+#' @param decreasing Logical. Should the sort be increasing or decreasing?
 #' @export
 #'
+#'
+#' @seealso \code{\link[base]{order}}, \code{\link[base]{sort}}.
 #' @examples
 #' library(spMisc)
 #'
+#' # Create matrix
 #' M0 <- matrix(c(0, 11,8, 0,
 #'                12,0, 0, 0,
 #'                0, 0, 0, 9,
-#'                0, 0, 9, 0),byrow=TRUE,nc=4)
+#'                0, 0, 9, 0,
+#'                0, 0, 1, 0),byrow=TRUE,nc=4)
+#'
+#' # Give names for rows and columns
 #' M0 <- pkgmaker::addnames(M0)
 #'
+#' # Sort and print
 #' M0
-#' sort_DescOnDiag(M0)
+#' sort_descOnDiag(M0)
 #' sort_colSums(M0)
 #' sort_rowSums(M0)
-#' sort_maxValueInRow(M0)
-#' sort_maxValueInCol(M0)
+#' sort_colMax(M0)
+#' sort_rowMax(M0)
 #'
+#' # Application in cluster analysis ==========================================
+#' set.seed(1)
+#' Clusters <- kmeans(iris[,-5], 3)$cluster
+#' Species <- iris$Species
 #'
+#' # Regular cross tabulation
+#' TABLE <- table(Species, Clusters)
+#' TABLE
 #'
-#' M1 <- sort_DescOnDiag(M0)
-#' print(M0)
-#' print(M1)
+#' ##                Clusters
+#' ##  Species       1  2  3
+#' ##  setosa       50  0  0
+#' ##  versicolor    0  2 48
+#' ##  virginica     0 36 14
 #'
+#' # Arranged by the best match
+#' TABLE_best_match <- sort_descOnDiag(TABLE)
+#' TABLE_best_match
+#'
+#' ##              Clusters
+#' ##  Species       1  3  2
+#' ##  setosa       50  0  0
+#' ##  versicolor    0 48  2
+#' ##  virginica     0 14 36
 #'
 #'
 #' @author Vilmantas Gegzna
 #' @family matrix operations in \pkg{spMisc}
 #'
-sort_DescOnDiag <- function(M) {
+sort_descOnDiag <- function(M, na.rm = TRUE) {
 
     # Eliminate rows and columns by converting to `NA`
     RC.elim <- function(x) {
@@ -40,7 +81,7 @@ sort_DescOnDiag <- function(M) {
         return(x)
     }
 
-    n    <- min(dim(M), na.rm = TRUE)
+    n    <- min(dim(M), na.rm = na.rm)
     iCol <- iRow <- rep(NA, n)
     iM   <- indMatrix(M)
 
@@ -54,12 +95,12 @@ sort_DescOnDiag <- function(M) {
     # Replace NA's with a value that is smaller than
     # the smallest non NA value
 
-    y_min <- min(y, na.rm = TRUE)
-    y[is.na(y)] <- min(y, na.rm = TRUE)-1
+    # y_min <- min(y, na.rm = na.rm)
+    y[is.na(y)] <- min(y, na.rm = na.rm)-1
 
-    #In each cycle find best match and eliminate rows and columns of thar match
+    #In each cycle find best match and eliminate rows and columns of that match
     for (i in 1:n) {
-        ind <- iM[y == max(y, na.rm = T)]
+        ind <- iM[y == max(y, na.rm = na.rm)]
         ind <- ind[!is.na(ind)]
 
         #if there are several maxima, chose (first) one with greater row/column values
@@ -83,31 +124,33 @@ sort_DescOnDiag <- function(M) {
 }
 
 
-#' @rdname sort_DescOnDiag
+#' @name Sort_matrix_elements
 #' @export
-sort_colSums <- function(M){
-    ind <- colSums(M)  %>% order(decreasing = TRUE)
+sort_colSums <- function(M, decreasing = TRUE, na.rm = TRUE){
+    ind <- colSums(M, na.rm = na.rm) %>% order(decreasing = decreasing)
     M[,ind]
 }
 
-#' @rdname sort_DescOnDiag
+#' @name Sort_matrix_elements
 #' @export
-sort_rowSums <- function(M){
-    ind <- rowSums(M)  %>% order(decreasing = TRUE)
+sort_rowSums <- function(M, decreasing = TRUE, na.rm = TRUE){
+    ind <- rowSums(M, na.rm = na.rm)  %>% order(decreasing = decreasing)
     M[ind,]
 }
 
-#' @rdname sort_DescOnDiag
+#' @name Sort_matrix_elements
 #' @export
-sort_maxValueInRow <- function(M){
-    ind <- apply(M,1,max)  %>% order(decreasing = TRUE)
+sort_rowMax <- function(M, decreasing = TRUE, na.rm = TRUE){
+    MAX <- function(x){base::max(x, na.rm = na.rm)}
+    ind <- apply(M,1,MAX)  %>% order(decreasing = decreasing)
     M[ind,]
 }
 
-#' @rdname sort_DescOnDiag
+#' @name Sort_matrix_elements
 #' @export
-sort_maxValueInCol <- function(M){
-    ind <- apply(M,2,max) %>% order(decreasing = TRUE)
+sort_colMax <- function(M, decreasing = TRUE, na.rm = TRUE){
+    MAX <- function(x){base::max(x, na.rm = na.rm)}
+    ind <- apply(M,2,MAX) %>% order(decreasing = decreasing)
     M[,ind]
 }
 

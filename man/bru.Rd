@@ -98,10 +98,11 @@ bru('*', 10, before = 5) # 5 empty rows are added
 Vilmantas Gegzna
 }
 \seealso{
-Other \pkg{spMisc} utilities: \code{\link{clear}},
-  \code{\link{fCap}}, \code{\link{isFALSE}},
-  \code{\link{list_AddRm}}, \code{\link{make.filenames}},
-  \code{\link{open_wd}}, \code{\link{printDuration}},
-  \code{\link{regexp2df}}, \code{\link{st01}}
+Other \pkg{spMisc} utilities: \code{\link{clc}},
+  \code{\link{clear}}, \code{\link{fCap}},
+  \code{\link{isFALSE}}, \code{\link{list_AddRm}},
+  \code{\link{make.filenames}}, \code{\link{open_wd}},
+  \code{\link{printDuration}}, \code{\link{regexp2df}},
+  \code{\link{st01}}
 }
 

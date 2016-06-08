@@ -65,15 +65,17 @@ Vilmantas Gegzna
 \code{\link[base]{difftime}}
 
 Other \pkg{spMisc} utilities: \code{\link{bru}},
-  \code{\link{clear}}, \code{\link{fCap}},
-  \code{\link{isFALSE}}, \code{\link{list_AddRm}},
-  \code{\link{make.filenames}}, \code{\link{open_wd}},
-  \code{\link{regexp2df}}, \code{\link{st01}}
+  \code{\link{clc}}, \code{\link{clear}},
+  \code{\link{fCap}}, \code{\link{isFALSE}},
+  \code{\link{list_AddRm}}, \code{\link{make.filenames}},
+  \code{\link{open_wd}}, \code{\link{regexp2df}},
+  \code{\link{st01}}
 
 Other \pkg{spMisc} utilities: \code{\link{bru}},
-  \code{\link{clear}}, \code{\link{fCap}},
-  \code{\link{isFALSE}}, \code{\link{list_AddRm}},
-  \code{\link{make.filenames}}, \code{\link{open_wd}},
-  \code{\link{regexp2df}}, \code{\link{st01}}
+  \code{\link{clc}}, \code{\link{clear}},
+  \code{\link{fCap}}, \code{\link{isFALSE}},
+  \code{\link{list_AddRm}}, \code{\link{make.filenames}},
+  \code{\link{open_wd}}, \code{\link{regexp2df}},
+  \code{\link{st01}}
 }
 

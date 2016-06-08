@@ -43,9 +43,10 @@ a string \code{s} with \code{replacement} (by default it is underscore
 }
 \seealso{
 Other \pkg{spMisc} utilities: \code{\link{bru}},
-  \code{\link{clear}}, \code{\link{fCap}},
-  \code{\link{isFALSE}}, \code{\link{list_AddRm}},
-  \code{\link{open_wd}}, \code{\link{printDuration}},
-  \code{\link{regexp2df}}, \code{\link{st01}}
+  \code{\link{clc}}, \code{\link{clear}},
+  \code{\link{fCap}}, \code{\link{isFALSE}},
+  \code{\link{list_AddRm}}, \code{\link{open_wd}},
+  \code{\link{printDuration}}, \code{\link{regexp2df}},
+  \code{\link{st01}}
 }
 

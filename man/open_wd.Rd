@@ -28,9 +28,9 @@ open_wd()
 Function \code{shell.exec}
 
 Other \pkg{spMisc} utilities: \code{\link{bru}},
-  \code{\link{clear}}, \code{\link{fCap}},
-  \code{\link{isFALSE}}, \code{\link{list_AddRm}},
-  \code{\link{make.filenames}},
+  \code{\link{clc}}, \code{\link{clear}},
+  \code{\link{fCap}}, \code{\link{isFALSE}},
+  \code{\link{list_AddRm}}, \code{\link{make.filenames}},
   \code{\link{printDuration}}, \code{\link{regexp2df}},
   \code{\link{st01}}
 }

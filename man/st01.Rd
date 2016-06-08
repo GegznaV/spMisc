@@ -33,9 +33,10 @@ st01(x, MIN = .2)
 \code{\link[scales]{rescale}}
 
 Other \pkg{spMisc} utilities: \code{\link{bru}},
-  \code{\link{clear}}, \code{\link{fCap}},
-  \code{\link{isFALSE}}, \code{\link{list_AddRm}},
-  \code{\link{make.filenames}}, \code{\link{open_wd}},
-  \code{\link{printDuration}}, \code{\link{regexp2df}}
+  \code{\link{clc}}, \code{\link{clear}},
+  \code{\link{fCap}}, \code{\link{isFALSE}},
+  \code{\link{list_AddRm}}, \code{\link{make.filenames}},
+  \code{\link{open_wd}}, \code{\link{printDuration}},
+  \code{\link{regexp2df}}
 }
 

@@ -157,7 +157,7 @@ clear_class <- function(clrClass = NULL, exceptVar = NULL,
         # Objects of classes to remove
         clrList <- names(Filter(function(i) inherits(i, clrClass), objs))
         # Objects to keep
-        clrList <- Filter(function(i) i %NOTin% exceptVar, clrList)
+        clrList <- Filter(function(i) i %!in% exceptVar, clrList)
 
         # Clear
         clear(list = clrList, envir = envir, all.names = all.names)
@@ -189,9 +189,6 @@ clear_except_class <- function(exceptClass = NULL, all.names = FALSE, envir = pa
 clear_fun <- function(all.names = TRUE, envir = parent.frame()) {
     clear_class("function", envir = envir, all.names = all.names)
 }
-
-
-
 
 
 ##  BUG 1: FIXED
