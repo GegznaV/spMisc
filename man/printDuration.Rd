@@ -2,13 +2,16 @@
 % Please edit documentation in R/printDuration.R
 \name{printDuration}
 \alias{printDuration}
-\title{[+] Evaluate how much time passed}
+\alias{time_elapsed}
+\title{[+!] Evaluate how much time passed}
 \usage{
 printDuration(Start, Message = "Analysis completed in",
-  returnString = FALSE)
+  returnString = FALSE, End = Sys.time())
+
+time_elapsed(start = stop("'start' is missing"), end = Sys.time())
 }
 \arguments{
-\item{Start}{Moment of time which is treated as a beggining (object of class
+\item{Start, start}{Moment of time which is treated as the beggining (object of class
 \code{\link[=POSIXct-class]{POSIXct}}).}
 
 \item{Message}{Message before time stamp that describes it. Default is
@@ -17,6 +20,9 @@ printDuration(Start, Message = "Analysis completed in",
 \item{returnString}{If \code{TRUE}, returns result as a string.
 If \code{FALSE} (default), function \code{\link[pander]{pander}} prints the
 result.}
+
+\item{End, end}{Moment of time which is treated as the end (object of class
+\code{\link[=POSIXct-class]{POSIXct}}).}
 }
 \value{
 Text indicating how much time has passed (either printed in console or as a string).
@@ -47,14 +53,22 @@ my_duration
 
 my_duration <- printDuration(Start, returnString = TRUE)
 my_duration
-## Analysis completed in 2.4 mins
+## [1] "Analysis completed in 2.4 mins"
 
 }
 \author{
 Vilmantas Gegzna
+
+Vilmantas Gegzna
 }
 \seealso{
 \code{\link[base]{difftime}}
+
+Other \pkg{spMisc} utilities: \code{\link{bru}},
+  \code{\link{clear}}, \code{\link{fCap}},
+  \code{\link{isFALSE}}, \code{\link{list_AddRm}},
+  \code{\link{make.filenames}}, \code{\link{open_wd}},
+  \code{\link{regexp2df}}, \code{\link{st01}}
 
 Other \pkg{spMisc} utilities: \code{\link{bru}},
   \code{\link{clear}}, \code{\link{fCap}},

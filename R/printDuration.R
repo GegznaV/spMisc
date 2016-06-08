@@ -1,11 +1,14 @@
-#' [+] Evaluate how much time passed
+#' [+!] Evaluate how much time passed
 #'
 #' Evaluate and print difference between moment of time at which time
 #' interval began (usually captured by function \code{\link[base]{Sys.time}} some time ago) and
 #' the present (i.e., moment when function \code{printDuration} is called).
 #'
 #'
-#' @param Start Moment of time which is treated as a beggining (object of class
+#' @param Start,start Moment of time which is treated as the beggining (object of class
+#' \code{\link[=POSIXct-class]{POSIXct}}).
+#'
+#' @param End,end Moment of time which is treated as the end (object of class
 #' \code{\link[=POSIXct-class]{POSIXct}}).
 #'
 #' @param Message Message before time stamp that describes it. Default is
@@ -38,19 +41,33 @@
 #'
 #' my_duration <- printDuration(Start, returnString = TRUE)
 #' my_duration
-#' ## Analysis completed in 2.4 mins
+#' ## [1] "Analysis completed in 2.4 mins"
 #'
 #' @family \pkg{spMisc} utilities
 #' @author Vilmantas Gegzna
 #'
 printDuration <- function(Start,
                           Message = "Analysis completed in",
-                          returnString = FALSE){
-    Duration_of_analysis <- Sys.time() - Start;
+                          returnString = FALSE,
+                          End = Sys.time()){
+    Duration_of_analysis <- End - Start;
     AnDuration <- paste(Message,
                         round(Duration_of_analysis, 1),
                         attributes(Duration_of_analysis)$units
     )
 
     if (returnString == T) return(AnDuration) else  pander::pander(AnDuration)
+}
+
+#' @rdname printDuration
+#' @export
+#' @family \pkg{spMisc} utilities
+#' @author Vilmantas Gegzna
+time_elapsed <- function(start = stop("'start' is missing"), end = Sys.time()){
+    DIFFERENCE <- end - start
+    AnDuration <- paste(round(DIFFERENCE, 1),
+                        attributes(DIFFERENCE)$units
+    )
+
+    return(AnDuration)
 }

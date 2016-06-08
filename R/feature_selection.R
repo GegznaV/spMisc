@@ -1,8 +1,8 @@
 feature_selection <- function(features, groups, forceToExclude, forceToInclude,
-                              CV_object)
+                              CV_object){
 
-    # R imports ---------------------------------------------------------------
-    `%>%` <- magrittr::'%>%'
+# R imports ---------------------------------------------------------------
+`%>%` <- magrittr::'%>%'
 
 #  ------------------------------------------------------------------------
 data("Scores2", package = "spHelper")
@@ -57,19 +57,20 @@ cat(paste('>>> Included groups:', paste(grNames, collapse = ", "), '<<<\n'))
 # direction_i - i-th direction
 # direction_i = 1
 for (direction_i in 1:2){
-    FSkryptis = FSdirections[direction_i]
+    FS_direction = FSdirections[direction_i]
     nKomp = ncol(k_amp) # % visų komponentų skaičius
     # % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # % visų naudosimų analizėje komponentų indeksų vektorius
     k_all = setdiff(1:nKomp, forceToExclude)
 
-    switch (FSkryptis,# % jau pasirinktų komponentų indeksų vektorius
+    switch (FS_direction,# % jau pasirinktų komponentų indeksų vektorius
         'forward'  = {k_in = forceToInclude}, # %tuščia arba tik "privalomi" požymiai
         'backward' = {k_in = k_all}          # % visi požymiai
     )
 
     info = data.frame()
-    sprintf('Nuoseklus požymių atrinkimas kryptimi "%s". ', FSkryptis)
+    sprintf('Nuoseklus požymių atrinkimas kryptimi "%s". ', FS_direction)
+
     t0_start = Sys.time()
 
     # MATLAB:
@@ -87,8 +88,8 @@ for (direction_i in 1:2){
         # Describe the purpose of SWITCH sentence
         # .......
         # ......
-        switch (FSkryptis, # % testuosimų komponentų indeksų vektorius
-            'pridedama' = {
+        switch (FS_direction, # % testuosimų komponentų indeksų vektorius
+            'forward' = {
                 # % Kai yra privalomų (forceToInclude) komponentų testuojamas pradinis
                  # % modelis be papldomų komponentų
                 if (cycle == 1 & kIncluded) {
@@ -101,7 +102,7 @@ for (direction_i in 1:2){
                }
             },
 
-           'atmetama' = {
+           'backward' = {
                 # % Pirmo ciklo metu arba kai yra privalomų (forceToInclude)
                 if (cycle == 1){
                     kToTest = NA;
@@ -127,8 +128,8 @@ for (direction_i in 1:2){
             # %         fprintf('\n')
             s = sprintf('Ciklas %g/%g, iteracija %g/%g ', cycle, nCycles,i,nIters);
             # %         fprintf('\n')
-            switch (FSkryptis, #  % Analizuosimų komponentų pasirintikas
-                'pridedama' = {
+            switch (FS_direction, #  % Analizuosimų komponentų pasirintikas
+                'forward' = {
                     # % Jei yra privalomų komponentų, analizuojame tik juos
                     if (cycle == 1 & kIncluded) {
                         k_i = forceToInclude;
@@ -137,7 +138,7 @@ for (direction_i in 1:2){
                     }
                 } ,
 
-                'atmetama' = {
+                'backward' = {
                     # % Pirmame cikle: nieko nekeičiama, tiriamas visas modelis
                     if (cycle == 1){
                         k_i = k_in
@@ -173,8 +174,8 @@ for (direction_i in 1:2){
 
         k_cur = kToTest[iMax];
 
-        switch (FSkryptis, #  % Analizuosimų komponentų pasirintikas
-                'pridedama' = {
+        switch (FS_direction, #  % Analizuosimų komponentų pasirintikas
+                'forward' = {
                     if (cycle == 1 & kIncluded){
                         k_add = NA;
                     } else {
@@ -184,7 +185,7 @@ for (direction_i in 1:2){
                     k_rem = '-'
                 } ,
 
-                'atmetama' = {
+                'backward' = {
                     if (cycle == nCycles & kIncluded){
                         k_rem = setdiff(k_in,forceToInclude);
                     } else {
@@ -195,15 +196,52 @@ for (direction_i in 1:2){
                 }
         )
         # % ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+        # %% Išvestis
 
+        info_current <- data.frame('cycle' = cycle,
+                              'forced_out' = fOut,
+                              'forced_in'  = fIn,
+                              'in_model'   = paste(k_in, collapse = ", "),
+                              'added'      = k_add,
+                              'removed'    = k_rem,
+                              # ...
+                              'st01_mTPR_mok'  = crit.st01_mTPRmok[iMax],
+                              'st01_mTPR_test' = crit.st01_mTPRtest[iMax],
+                              # ...
+                              'TPR_random' = crit.pRand[1],
+                              # ...
+                              'mTPR_mok'    = crit.mTPRmok[iMax],
+                              'CI_mTPR_mok' = crit.mCImok[iMax,],
+                              # ...
+                              'mTPR_test'    = crit.mTPRtest[iMax],
+                              'CI_mTPR_test' = crit.mCItest[iMax,],
+                              # ...
+                              'nNeurons' = crit.nNeurons[1]
+                              )
 
+        info = rbind(info, info_current)
 
-
-
+        rm(crit)
     }
+
+    # Collect results the results
+    t0_end <- Sys.time()
+    DURATION = time_elapsed(t0_start,t0_end)
+
+    info$Description = 'Sequential feature selection'
+    info$Direction   = FS_direction
+
+    info$Start       = sdate
+    info$Duration    = DURATION
+
+    info$Parameters  = Parameters
+
+
+    # %% Rezultatų išsaugojimas
+    save.image(file = "feature_selection_results(" %++% Sys.time() %++% ").RData")
+
 }
 
 
-
-
+}
 
