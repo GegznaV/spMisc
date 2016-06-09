@@ -23,6 +23,8 @@ revalueMatrix <- function(x, values = NA, byrow = FALSE,
     return(m)
 }
 
+
+#' @rdname revalueMatrix
 #' @export
 newMatrix <- function(x, values = NA, byrow = FALSE,
                       dimnames = NULL) {
