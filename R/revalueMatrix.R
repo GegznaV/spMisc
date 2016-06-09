@@ -10,15 +10,22 @@
 #' @examples
 #'
 #'  x <- matrix(NA, 2, 5)
-#'  newMatrix(x, 1)
+#'  revalueMatrix(x, 1)
 #'
 #' @family matrix operations in \pkg{spMisc}
 #' @author Vilmantas Gegzna
 #'
-newMatrix <- function(x, values = NA, byrow = FALSE,
+revalueMatrix <- function(x, values = NA, byrow = FALSE,
                        dimnames = NULL) {
     x      <- as.matrix(x)
     dims   <- dim(x)
     m      <- matrix(values,nrow = dims[1],ncol = dims[2], byrow, dimnames)
     return(m)
+}
+
+#' @export
+newMatrix <- function(x, values = NA, byrow = FALSE,
+                      dimnames = NULL) {
+    .Deprecated("revalueMatrix")
+    revalueMatrix(x, values, byrow, dimnames)
 }

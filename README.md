@@ -5,6 +5,8 @@
 Development version of package `spMisc`
 =======================================
 
+Package `spMisc`provides with a set of functions (including convenience and wrapper functions) designed to be used for variety of different purposes such as infix operators, Matlab style functions (e.g. that clear objects from environments), funcions that find indices of certain matrix elements, functions that sort elements of matrices in a certain way, functions that modify strings, etc.
+
 **Package is under construction.**
 
 Some functions may be changed significantly.
@@ -21,9 +23,10 @@ Meaning of symbols in function descriptions:
 
 ------------------------------------------------------------------------
 
-Install package:
+Install development version from GitHub:
 
 ``` r
+if (!require(devtools)) install.packages("devtools")
 library(devtools)
 install_github("GegznaV/spMisc")
 ```
@@ -31,5 +34,5 @@ install_github("GegznaV/spMisc")
 ------------------------------------------------------------------------
 
 <p align="right">
-File updated on <b>2016-06-08</b> with version of package <b>0.0.3.1008</b>
+File updated on <b>2016-06-09</b> with version of package <b>0.0.4.1001</b>
 </p>

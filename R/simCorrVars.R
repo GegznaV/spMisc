@@ -40,6 +40,7 @@
 #' # ------------------------------------------------------------
 #' @family simmulation functions in \pkg{spMisc}
 #' @author Vilmantas Gegzna
+#' @importFrom stats rnorm
 #'
 simCorrVars <- function(corrMat, N = 100){
     if (missing(corrMat)) {

@@ -1,7 +1,7 @@
 #' [!] Get indices of minima/maxima
 #'
-#' Determines the location, i.e., index of all minimum or maximum of a
-#' numeric (or logical) vector.
+#' Determines the location, i.e., index of all minimum or maximum values in a
+#' numeric or logical vector.
 #'
 #' @inheritParams base::which.min
 #' @inheritParams base::which

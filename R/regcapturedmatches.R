@@ -3,7 +3,7 @@
 #' regcapturedmatches.R: extracts captured matches from match data obtained
 #'  by regexpr, gregexpr or regexec.
 #'
-#' # @export
+#' 
 #' @param x (A list of) strings.
 #' @param m Parsed data, a result from a regular expression function.
 #'
@@ -22,7 +22,7 @@
 #' m<-regexpr("(.*):(\\d+),([MF])", x, perl=TRUE)
 #' spMisc:::regcapturedmatches(x,m)
 #'
-
+# @export
 regcapturedmatches <- function(x,m) {
   if (length(x) != length(m))
     stop(gettextf("%s and %s must have the same length",

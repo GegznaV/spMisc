@@ -96,7 +96,7 @@ Vilmantas Gegzna
 
 Other matrix operations in \pkg{spMisc}: \code{\link{corr_vec2mat}},
   \code{\link{indMatrix}}, \code{\link{nTri2nDiag}},
-  \code{\link{newMatrix}}, \code{\link{which.in}},
+  \code{\link{revalueMatrix}}, \code{\link{which.in}},
   \code{\link{which.max.all}},
   \code{\link{which.max.perRow}}
 }

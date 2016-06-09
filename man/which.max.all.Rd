@@ -20,8 +20,8 @@ which.min.all(x, useNames = FALSE, ...)
    should have (non-null) dimnames at all.}
 }
 \description{
-Determines the location, i.e., index of all minimum or maximum of a
-numeric (or logical) vector.
+Determines the location, i.e., index of all minimum or maximum values in a
+numeric or logical vector.
 }
 \details{
 Internaly functions \code{\link[base]{which}} and
@@ -42,7 +42,7 @@ Vilmantas Gegzna
 \seealso{
 Other matrix operations in \pkg{spMisc}: \code{\link{Sort_matrix_elements}},
   \code{\link{corr_vec2mat}}, \code{\link{indMatrix}},
-  \code{\link{nTri2nDiag}}, \code{\link{newMatrix}},
+  \code{\link{nTri2nDiag}}, \code{\link{revalueMatrix}},
   \code{\link{which.in}}, \code{\link{which.max.perRow}}
 }
 

@@ -24,7 +24,13 @@ knitr::opts_chunk$set(
   
 Development version of package `spMisc` 
 ==========================================
-
+Package `spMisc`provides with a set of functions (including convenience and 
+wrapper functions)
+designed to be used for variety of different purposes such as
+infix operators, Matlab style functions (e.g. that clear objects
+from environments), funcions that find indices of certain matrix
+elements, functions that sort elements of matrices in a certain way,
+functions that modify strings, etc. 
 
 **Package is under construction.**
 
@@ -43,9 +49,10 @@ Meaning of symbols in function descriptions:
 
 * * *
 
-Install package:
 
-```{r Install package, eval=FALSE}
+Install development version from GitHub:
+```{r Install package from GitHub, eval=FALSE}
+if (!require(devtools)) install.packages("devtools")
 library(devtools)
 install_github("GegznaV/spMisc")
 ```

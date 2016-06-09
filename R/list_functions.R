@@ -13,7 +13,7 @@
 #' list_functions(Package = "magrittr")
 #'
 #' @author Vilmantas Gegzna
-#'
+#' @importFrom utils lsf.str packageVersion
 list_functions <- function(Package = "spMisc")   {
     # Main function
     FunctionList <- unclass(lsf.str(envir = asNamespace(Package),

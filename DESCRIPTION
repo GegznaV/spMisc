@@ -1,30 +1,28 @@
 Package: spMisc
 Type: Package
-Title: Convenience, wrapper and other kind of miscellaneous functions
+Title: Infix Operators, Convenience and Other Kind of Miscellaneous Functions
 Description: A set of functions (including convenience and wrapper functions)
              designed to be used for variety of different purposes such as
-             infix operators, Matlab style functions (e.g. that clear objects
-             from environments), funcions that find indices of certain matrix
+             infix operators, MATLAB style functions (e.g. that clear objects
+             from environments), functions that find indices of certain matrix
              elements, functions that sort elements of matrices in a certain way,
              functions that modify strings, etc.
-Version: 0.0.3.1011
-Date: 2016-06-07
+Version: 0.0.4.1001
+Date: 2016-06-09
 Encoding: UTF-8
 Authors@R: person("Vilmantas", "Gegzna", email = "GegznaV@gmail.com", role = c("aut", "cre"))
-Maintainer: Vilmantas Gegzna <GegeznaV@gmail.com>
 License: GPL (>= 3)
 LazyData: yes
 LazyLoad: yes
 RoxygenNote: 5.0.1
-Remotes:
-    github::jimhester/covr
 Depends:
     R (>= 3.2),
     magrittr
 Imports:
     pander,
     pkgmaker,
-    dplyr
+    dplyr,
+    utils
 Suggests:
     knitr,
     rmarkdown,

@@ -1,4 +1,4 @@
-#' [. will be removed] Standardize values to intervat from 0 to 1
+#' [. will be removed] Standardize (rescale) values to intervat from 0 to 1
 #'
 #' Apply formula: \eqn{(x-MIN)/(MAX-MIN)}{(x-MIN)/(MAX-MIN)}
 #'

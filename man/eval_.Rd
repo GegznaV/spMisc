@@ -4,7 +4,7 @@
 \alias{eval_}
 \title{[!] Parse a string and evaluate expression}
 \usage{
-eval_(X, envir = parent.frame())
+eval_(X, envir = parent.frame(), ...)
 }
 \arguments{
 \item{X}{A string to be evaluated as an expression.}
@@ -12,13 +12,15 @@ eval_(X, envir = parent.frame())
 \item{envir}{the \code{\link{environment}} in which \code{expr} is to
     be evaluated.  May also be \code{NULL}, a list, a data frame,
     a pairlist or an integer as specified to \code{\link{sys.call}}.}
+
+\item{...}{Further parameters to be passed to \code{\link[base]{eval}}.}
 }
 \value{
 Evaluated expression
 }
 \description{
 A wrapper function to parse a string and evaluate it as an expression.
-\code{eval_(X)} is the same as \code{eval(parse(text = X))}.
+\code{eval_(X)} is a wrapper for \code{eval(parse(text = X))}.
 }
 \examples{
 if (any(ls() == "A")) rm(A)
@@ -31,7 +33,7 @@ any(ls() == "A")
 
 }
 \seealso{
-Evaluate an (unevaluated) expression (\link[base]{eval}),
-         Parse expressions (\link[base]{parse})
+Evaluate an (unevaluated) expression (\code{\link[base]{eval}}),
+         Parse expressions (\code{\link[base]{parse}})
 }
 

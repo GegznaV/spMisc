@@ -31,23 +31,6 @@ Capture information in substrings of \code{text} that match \bold{named} and
 \bold{unnamed tokens} of regular expressions and convert the result to a
 data frame.
 }
-\details{
-The syntax how to use \bold{named tokens} is: \cr
-'\emph{...}\bold{(?<}\emph{...}>\emph{...})\emph{...}' \cr
-'\emph{expr1}\bold{(?<}\emph{Name}\bold{>}\emph{expr-to-capture}\bold{)}\emph{expr2}'
-
-\itemize{
-  \item \bold{Name} - the name of the token.\emph{Note:} that spaces and other special symbols,
-  inappropriate for variable names, are not allowed and will result in error.
-  \item \bold{expr-to-capture} - regular expression to be captured as a
-  value of a variable.
-  \item \bold{expr1, expr2} - (optional) expressions, that must match, but
-  that are not captured.
-}\cr
-
-\bold{Unnamed tokens} are simply groups of expressions inside round
-brackets "\code{()}". The expressions outside brackets are not captured.
-}
 \note{
 Call to function \code{gregexpr} with parameter \code{perl = TRUE}
 is used.

@@ -23,9 +23,6 @@ A list with captured matches
 regcapturedmatches.R: extracts captured matches from match data obtained
  by regexpr, gregexpr or regexec.
 }
-\details{
-# @export
-}
 \examples{
 # usage
 

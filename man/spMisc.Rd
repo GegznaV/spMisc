@@ -4,8 +4,16 @@
 \name{spMisc}
 \alias{spMisc}
 \alias{spMisc-package}
-\title{Various functions}
+\title{Convenience, wrapper and other kind of miscellaneous functions}
 \description{
+A set of functions (including convenience and wrapper functions)
+designed to be used for variety of different purposes such as
+infix operators, Matlab style functions (e.g. that clear objects
+ from environments), funcions that find indices #' of certain matrix
+elements, functions that sort elements of matrices in a certain way,
+functions that modify strings, etc. \cr
+
+
 [+] - function is well described. \cr
 [!] - a description is incomplete and needs revision.\cr\cr
 

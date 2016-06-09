@@ -3,7 +3,7 @@
 \name{st01}
 \alias{st01}
 \alias{stMinMax}
-\title{[. will be removed] Standardize values to intervat from 0 to 1}
+\title{[. will be removed] Standardize (rescale) values to intervat from 0 to 1}
 \usage{
 st01(x, MIN = min(x), MAX = 1)
 
