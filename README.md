@@ -34,5 +34,5 @@ install_github("GegznaV/spMisc")
 ------------------------------------------------------------------------
 
 <p align="right">
-File updated on <b>2016-06-09</b> with version of package <b>0.0.4.1002</b>
+File updated on <b>2016-06-11</b> with version of package <b>0.0.4.1004</b>
 </p>

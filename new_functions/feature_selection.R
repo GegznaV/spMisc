@@ -1,28 +1,28 @@
-feature_selection <- function(features, groups, forceToExclude, forceToInclude,
+feature_selection <- function(features, groups,
+                              forceToExclude = NULL,
+                              forceToInclude = NULL,
+                              FSdirections = c('forward','backward'),
                               CV_object){
-
+    
 # R imports ---------------------------------------------------------------
-`%>%` <- magrittr::'%>%'
-
+    require(spMisc)
+    # `%>%` <- magrittr::'%>%'
+    # 
 #  ------------------------------------------------------------------------
-data("Scores2", package = "spHelper")
+    forceToExclude = NULL # požymiai, priverstinai įtraukiami į analizę;
+    forceToInclude = NULL # požymiai, priverstinai pašalinami iš analizės;
+    FSdirections = c('forward','backward')
 #  ------------------------------------------------------------------------
-k_amp <- features <- Scores2[[]]
-gr <- groups <- Scores2$gr
+    fIn  <-  paste(forceToInclude, collapse = ", ") %if_null_or_len0% "-"
+    fOut <-  paste(forceToExclude, collapse = ", ") %if_null_or_len0% "-"
 #  ------------------------------------------------------------------------
-grNames <- levels(gr)
-
-
+    data("Scores2", package = "spHelper")
 #  ------------------------------------------------------------------------
-
-
-forceToExclude = NULL # požymiai, priverstinai įtraukiami į analizę;
-forceToInclude = NULL # požymiai, priverstinai pašalinami iš analizės;
-
-fIn  <-  paste(forceToInclude, collapse = ", ") %if_null_or_len0% "-"
-fOut <-  paste(forceToExclude, collapse = ", ") %if_null_or_len0% "-"
-
-FSdirections = c('forward','backward')
+    k_amp <- features <- Scores2[[]]
+    gr <- groups <- Scores2$gr
+#  ------------------------------------------------------------------------
+    grNames <- levels(gr)
+#  ------------------------------------------------------------------------
 
 # Not prepatred for R
 # x = SpData.Properties.UserData.x;
@@ -153,14 +153,18 @@ for (direction_i in 1:2){
             )
             # %  -----------------------------------------------------------------------
             k_amp_i = k_amp[ ,k_i]
-
+            
+# ========================================================================
             # % Kriterijaus statistikų skaičiavimas
             # MATLAB
             # crit = [crit; cvfun(@klasif_DNT,k_amp_i, gr,cv,mcreps,ParOptions,k_i)];
 
+
             # NOT implemented in R yet
             crit_current_iteration <- cvfun(FUN = klasif_DNT,
                                             k_amp_i, gr,cv,mcreps,ParOptions,k_i)
+# ========================================================================
+
 
             # Bind results of each iteration
             crit = rbind(crit, crit_current_iteration)
