@@ -12,7 +12,7 @@ test_that("which.in.*() works", {
   expect_length(i1, 5)
 
   i2 <- which.in("offdiag", m1)
-  expect_length(i1, 25)
+  expect_length(i2, 25)
 
 
   i3 <- which.in("col", m1, col = 2)
