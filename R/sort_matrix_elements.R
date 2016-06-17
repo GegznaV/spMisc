@@ -16,8 +16,16 @@
 #' tablation by the best match (illustration in section "Expamples"). \cr
 #'
 #' @param M A matrix.
-#' @param na.rm	Logical. Should missing values (including NaN) be omitted from the calculations?
-#' @param decreasing Logical. Should the sort be increasing or decreasing?
+#' @param importance Numecic value (either 1 for rows or 2 for columns) which is used
+#'        to resolve ties when 2 equally important matches are found (i.e., when
+#'        absolute values are equal). If \code{importance = 1}, the element's
+#'        importance is calculated by row-wise proportions, if \code{importance = 2}
+#'        - by column-wise proportions.
+#'         Element with higher proportional value is selected as having higher
+#'         priority.
+#' @param na.rm	Logical. Should missing values (including NaN) be omitted from
+#'        the calculations?
+#' @param decreasing Logical. Should the sort be decreasing?
 #' @export
 #'
 #'
@@ -68,11 +76,38 @@
 #' ##  versicolor    0 48  2
 #' ##  virginica     0 14 36
 #'
+#' #------------------------------------------------------------------
+#' # Parameter `importance` for proportional importance:
+#'
+#'  #>
+#' Matrix <- matrix(c(3,0,0,2,3,0,0,0,5),3,3)
+#' Matrix <- pkgmaker::addnames(Matrix)
+#'  #>          col1 col2 col3
+#'  #>   row1    3    2    0
+#'  #>   row2    0    3    0
+#'  #>   row3    0    0    5
+#'
+#' # Row-wise importance
+#' Matrix_by_row <- sort_descOnDiag(Matrix, importance = 1)
+#' Matrix_by_row
+#'  #>          col3 col2 col1
+#'  #>   row3    5    0    0
+#'  #>   row2    0    3    0
+#'  #>   row1    0    2    3  <---- 2 is in row 3
+#'
+#' # Column-wise importance
+#' Matrix_by_col <- sort_descOnDiag(Matrix, importance = 2)
+#' Matrix_by_col
+#'  #>          col3 col1 col2
+#'  #>   row3    5    0    0
+#'  #>   row1    0    3    2  <---- 2 is in row 2
+#'  #>   row2    0    0    3
+#'
 #'
 #' @author Vilmantas Gegzna
 #' @family matrix operations in \pkg{spMisc}
 #'
-sort_descOnDiag <- function(M, na.rm = TRUE) {
+sort_descOnDiag <- function(M, importance = which.min(dim(M)), na.rm = TRUE) {
 
     # Eliminate rows and columns by converting to `NA`
     RC.elim <- function(x) {
@@ -85,7 +120,7 @@ sort_descOnDiag <- function(M, na.rm = TRUE) {
     iCol <- iRow <- rep(NA, n)
     iM   <- indMatrix(M)
 
-    P <- prop.table(M, which.min(dim(M))) # table of proportions
+    P <- prop.table(M, importance) # table of proportions
 
     Rows <- row(M)
     Cols <- col(M)

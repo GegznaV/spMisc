@@ -3,7 +3,7 @@ context("Functions in file sort_matrix_elements")
 ## TODO: Rename context
 ## TODO: Add more tests
 
-test_that("sort_descOnDiag works", {
+test_that("`sort_descOnDiag` works", {
     set.seed(1)
     Clusters <- kmeans(iris[,-5], 3)$cluster
     Species <- iris$Species
@@ -16,10 +16,23 @@ test_that("sort_descOnDiag works", {
     TABLE_best_match <- sort_descOnDiag(TABLE)
     expect_equal(diag(TABLE_best_match), c(50, 48, 36))
 
-    # If Na values exist
+    # If NA values exist
     TABLE[1,1] = NA
     TABLE_best_match_NA <- sort_descOnDiag(TABLE)
     expect_equal(diag(TABLE_best_match_NA), c(48, 36, NA))
+
+})
+
+test_that("Parameter `ties` in `sort_descOnDiag` works", {
+    # Row-wise importance
+    Matrix <- matrix(c(3,0,0,2,3,0,0,0,5),3,3)
+    MatrixBM1 <- sort_descOnDiag(Matrix, importance = 1)
+    expect_true(all(MatrixBM1[3,] == c(0, 2, 3)))
+
+    # Column-wise importance
+    Matrix <- matrix(c(3,0,0,2,3,0,0,0,5),3,3)
+    MatrixBM2 <- sort_descOnDiag(Matrix, importance = 2)
+    expect_true(all(MatrixBM2[,3] == c(0, 2, 3)))
 
 })
 

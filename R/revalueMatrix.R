@@ -26,10 +26,10 @@ revalueMatrix <- function(x, values = NA, byrow = FALSE,
 }
 
 
-#' @rdname revalueMatrix
-#' @export
-newMatrix <- function(x, values = NA, byrow = FALSE,
-                      dimnames = NULL) {
-    .Deprecated("revalueMatrix")
-    revalueMatrix(x, values, byrow, dimnames)
-}
+# #' @rdname revalueMatrix
+# #' @export
+# newMatrix <- function(x, values = NA, byrow = FALSE,
+#                       dimnames = NULL) {
+#     .Deprecated("revalueMatrix")
+#     revalueMatrix(x, values, byrow, dimnames)
+# }

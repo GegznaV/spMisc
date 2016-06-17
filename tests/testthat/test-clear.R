@@ -111,8 +111,13 @@ test_that("function `clear_fun` works as expected",{
 
 
 #  ------------------------------------------------------------------------
+test_that("function `clear_except` throws warinig",{
+    # Does not clear and warns
+    expect_warning(clear_except())
+})
 
-test_that("function `clear_except` works (A)",{
+#  ------------------------------------------------------------------------
+test_that("function `clear_except` works (quoted inputs)",{
 
     A <- 5
     B <- "s"
@@ -137,7 +142,8 @@ test_that("function `clear_except` works (A)",{
 
 })
 
-test_that("function `clear_except` works (B)",{
+#  ------------------------------------------------------------------------
+test_that("function `clear_except` works (unquoted inputs)",{
 
     A <- 5
     B <- "s"
@@ -157,14 +163,12 @@ test_that("function `clear_except` works (B)",{
     expect_length(ls(all.names = TRUE), 2)
     expect_true( "B"   %in% ls())
 
+
 })
 
 
 #  ------------------------------------------------------------------------
-
-
-
-test_that("function `clear_except` works (list)",{
+test_that("function `clear_except` works (inputs as a list)",{
 
     A <- 5
     B <- "s"
@@ -219,3 +223,30 @@ test_that("function `clear_except_class` works as expected",{
     # Does not clear hidden
     expect_true(".test_clear"   %in% ls(all.names = TRUE))
 })
+
+
+test_that("function `clear_class` works as expected",{
+
+    A <- 5
+    B <- "s"
+    D1 <- "string2"
+    D2 <- "string3"
+    L <- list(A,B)
+    .test_clear    <- function() print(".test")
+    `%test_clear%` <- function(a,b) print(paste(a,b))
+    test_clear     <- function() print("test")
+
+    expect_length(ls(), 7)
+    expect_length(ls(all.names = TRUE), 8)
+
+    # Does not clear and warns
+    expect_warning(clear_class())
+    expect_length(ls(), 7)
+    expect_length(ls(all.names = TRUE), 8)
+
+    # Clear one class
+    clear_class("function")
+    expect_length(ls(), 5)
+    expect_length(ls(all.names = TRUE), 6)
+})
+
