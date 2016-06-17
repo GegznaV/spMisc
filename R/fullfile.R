@@ -34,12 +34,18 @@ fullfile  <- function(..., ext = "", fsep = .Platform$file.sep){
     # Add dot to the extension
     if (length(ext)>0) ext <- gsub("(^[^\\.])", ".\\1", ext)
 
-    file.path(..., fsep = fsep) %>% paste0(ext) %>%
-
+    file.path(..., fsep = fsep)  %>%
         # Convert slashes to default separator
         gsub(pattern = "(\\\\|/)", replacement = fsep)  %>%
 
         # Remove double slashes
-        gsub(pattern = paste0(fsep,"+"), replacement = fsep)
+        gsub(pattern = paste0(fsep,"+"), replacement = fsep) %>%
+
+        gsub(pattern = paste0(fsep,"$"), replacement = "") %>%
+
+        paste0(ext)
+
+
+
 
 }
