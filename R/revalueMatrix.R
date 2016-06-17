@@ -1,4 +1,4 @@
-#' Put new values to the old matrix
+#' Create matrix of the same size just with new values
 #'
 #' A convenience function to create a matrix of the same size as the provided one,
 #' just with new values.
@@ -10,11 +10,13 @@
 #' @examples
 #'
 #'  x <- matrix(NA, 2, 5)
-#'  revalueMatrix(x, 1)
+#'
+#'  x
+#'  revalueMatrix(x, 1:10)
 #'
 #' @family matrix operations in \pkg{spMisc}
 #' @author Vilmantas Gegzna
-#'
+
 revalueMatrix <- function(x, values = NA, byrow = FALSE,
                        dimnames = NULL) {
     x      <- as.matrix(x)

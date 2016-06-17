@@ -32,7 +32,6 @@ Functions in \code{spMisc} by topic
 
 \code{\link{bru}} \cr
 \code{\link{fCap}} \cr
-\code{\link{make_firstCapitals}} \cr
 \code{\link{list_functions}} \cr
 }
 \examples{

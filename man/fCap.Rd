@@ -2,12 +2,9 @@
 % Please edit documentation in R/fCap.R
 \name{fCap}
 \alias{fCap}
-\alias{make_firstCapitals}
 \title{[+] Convert first letters of all words to capitals}
 \usage{
 fCap(x)
-
-make_firstCapitals(x)
 }
 \arguments{
 \item{x}{Either a string or a vector of strings.}

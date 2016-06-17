@@ -5,12 +5,15 @@
 \alias{which.max.perRow}
 \title{[!] Indices of maximum values in each row/column}
 \usage{
-which.max.perRow(x)
+which.max.perRow(x, na.rm = FALSE)
 
-which.max.perCol(x)
+which.max.perCol(x, na.rm = FALSE)
 }
 \arguments{
 \item{x}{A matrix}
+
+\item{na.rm}{a logical indicating whether missing values should be
+    removed.}
 }
 \description{
 [!] Indices of maximum values in each row/column
@@ -19,9 +22,10 @@ which.max.perCol(x)
 Vilmantas Gegzna
 }
 \seealso{
-Other matrix operations in \pkg{spMisc}: \code{\link{Sort_matrix_elements}},
-  \code{\link{corr_vec2mat}}, \code{\link{indMatrix}},
-  \code{\link{nTri2nDiag}}, \code{\link{revalueMatrix}},
+Other matrix operations in \pkg{spMisc}: \code{\link{corr_vec2mat}},
+  \code{\link{indMatrix}}, \code{\link{nTri2nDiag}},
+  \code{\link{revalueMatrix}},
+  \code{\link{sort_matrix_elements}},
   \code{\link{which.in}}, \code{\link{which.max.all}}
 }
 

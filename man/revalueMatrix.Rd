@@ -3,7 +3,7 @@
 \name{revalueMatrix}
 \alias{newMatrix}
 \alias{revalueMatrix}
-\title{Put new values to the old matrix}
+\title{Create matrix of the same size just with new values}
 \usage{
 revalueMatrix(x, values = NA, byrow = FALSE, dimnames = NULL)
 
@@ -30,17 +30,19 @@ just with new values.
 \examples{
 
  x <- matrix(NA, 2, 5)
- revalueMatrix(x, 1)
+
+ x
+ revalueMatrix(x, 1:10)
 
 }
 \author{
 Vilmantas Gegzna
 }
 \seealso{
-Other matrix operations in \pkg{spMisc}: \code{\link{Sort_matrix_elements}},
-  \code{\link{corr_vec2mat}}, \code{\link{indMatrix}},
-  \code{\link{nTri2nDiag}}, \code{\link{which.in}},
-  \code{\link{which.max.all}},
+Other matrix operations in \pkg{spMisc}: \code{\link{corr_vec2mat}},
+  \code{\link{indMatrix}}, \code{\link{nTri2nDiag}},
+  \code{\link{sort_matrix_elements}},
+  \code{\link{which.in}}, \code{\link{which.max.all}},
   \code{\link{which.max.perRow}}
 }
 

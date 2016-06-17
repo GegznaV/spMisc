@@ -1,0 +1,241 @@
+---
+title: "TD 2009: Classification (P vs. D)"
+author: 'Vilmantas Gėgžna'
+output: 
+  html_document: 
+    fig_caption: yes
+    fig_height: 4
+    fig_width: 9
+    highlight: kate
+    keep_md: yes
+    number_sections: yes
+    theme: spacelab
+    toc: yes
+---
+```{r Time of creation, echo = FALSE}
+StartAt <- Sys.time()
+```
+Document created on: `r StartAt`  
+ 
+```{r Load packages, include = FALSE}
+
+knitr::opts_chunk$set(echo = FALSE,
+                      fig.align = "center",
+                      fig.keep  = "all"
+                      )
+
+# library(tidyr)
+# library(dplyr)
+
+library(hyperSpec)
+# library(NMF)
+
+# library(ggthemes)
+library(xtable)
+# library(GGally)
+# library(corrplot)
+library(pander)
+
+library(spHelper)
+library(knitrContainer)
+
+library(rpart)
+library(randomForest)
+library(caret)
+library(rattle)
+library(rfPermute)
+
+library(doParallel)
+cl <- makeCluster(7)
+registerDoParallel(cl)
+
+corrMethod <-  "spearman"
+``` 
+
+Klasifikacija
+==============
+
+Šiame pavyzdyje naudojamas atsitiktinių miškų (*angl.* Random forests)
+klasifikatorius (10 tūkst. sprendimų medžių).   
+
+Rezultatų patikrinimas vykdomas (kryžminio) skaidymo į **5** dalis metodu
+(*angl.* 5-fold cross-validation).
+
+```{r LOAD data}
+# load('2016-01-08.RData')
+# load('2016-01-08 (nRuns = 40).RData')
+# load("TD_2009 (3)komp.RData")
+
+# load("TD_2009 (3)komp.RData")
+load("D:/Dokumentai/R/Spektroskopija/TD_2009/Data/NMF 3 komp (outl).RData")
+```
+
+```{r klasifikacija pre}
+# Set random seed. Don't remove this line.
+set.seed(123)
+
+# k - number of folds
+k = 5
+
+# Initialize the accs vector
+accs <- rep(0, k)
+
+# Indices for training set
+# indeksai cross-validacijai
+ 
+# AMP_obj <- scoresPCAALS 
+AMP_obj <- scoresNMF
+
+# AMP_obj    <- AMP_obj[AMP_obj$gr!= "S",,]
+AMP_obj$gr <- droplevels(AMP_obj$gr)
+
+# AMP_obj$Safranin <- as.factor(AMP_obj$Safranin)
+# 
+# levels(AMP_obj$Safranin) <- c("0-1","0-1","2-3","2-3")
+AMP_obj2  <-  AMP_obj;
+
+
+# AMP_obj2$gr <- factor(AMP_obj2$Safranin)
+# data("Spectra2")
+# AMP_obj2 <- Spectra2
+test_ind <- createFoldsBS(AMP_obj2$.., ID = "ID", gr = "gr",
+                         k = k,
+                         returnTrain = FALSE)
+
+
+# i = 1
+# 
+# conf  = vector("list", k)
+conf2 = vector("list", k)
+```
+```{r fit control}
+    fitControl <- trainControl(
+                           ## 10-fold CV
+                           method = "repeatedcv",
+                           number = 5,
+                           ## repeated n times
+                           repeats = 5,
+                           p = 0.75, # training percentage
+                           
+                           verboseIter = FALSE,
+                           returnData = TRUE,
+                           returnResamp = "all", #"final", #
+                           classProbs = TRUE,
+                           # savePredictions = FALSE,
+                           
+                           
+                           selectionFunction = "best",
+                           # search = "grid",
+
+
+             # # preProcOptions = list(thresh = 0.95, ICAcomp = 3, k = 5),
+             # sampling = NULL, # the type of additional sampling that is conducted after resampling (usually to resolve class imbalances)
+             # index = NULL, #  a list with elements for each resampling
+             #               #  iteration. Each list element is a vector of integers
+             #               #  corresponding to the rows used for training at
+             #               #  that iteration.
+             # indexOut = NULL,
+             # indexFinal = NULL,
+             # predictionBounds = rep(FALSE, 2),
+             # seeds = NA,
+             # adaptive = list(min = 5, alpha = 0.05,
+             # 	               method = "gls", complete = TRUE),
+             trim = FALSE,
+             allowParallel = TRUE
+                           )  
+```
+
+
+
+Rezultatai kiekvienam išskaydymo variantui
+-------------------------------------------
+
+
+```{r klasifikacija }
+REZ <- knitrContainer()
+
+
+for (i in 1:k) {
+
+  REZ %<>% add_as_heading3(paste("Results of Fold",i))
+    
+  # Exclude them from the train set
+  training <- AMP_obj[-test_ind[[i]],]
+  
+  # Include them in the test set
+  test <- AMP_obj[test_ind[[i]],]
+  
+  # A model is learned using each training set
+  my_forest <- train(gr ~  spc + Boos + Safranin,
+                       data = training,
+                       metric = "Kappa",
+                       preProcess = c("center", "scale"),
+                       method = 'parRF',
+                       importance = TRUE,
+                        proximity = TRUE,
+                      
+                       ntree = 1e2,
+                       trControl = fitControl
+                     
+                     )
+  
+  REZ %<>% add_as_data(my_forest)
+  REZ %<>% add_as_code(plot(my_forest))
+  REZ %<>% add_as_printed(my_forest)
+  REZ %<>% add_as_printed(predictors(my_forest))
+  
+  
+ # proximity.plot(my_forest, legend.loc = "topleft")
+
+
+  # Make a prediction on the test set using randomForest
+  pred <- predict(my_forest,test)
+  
+ 
+  REZ %<>% add_as_code(varImpPlot(my_forest$finalModel))
+  
+  # Assign the confusion matrix to conf
+  # conf <- table(test$gr, pred)
+   conf <- table(test$gr, pred)
+  
+  # pander(conf)
+  
+  # print(confusionMatrix(test$gr, pred))
+  REZ %<>% add_as_printed(confusionMatrix(test$gr, pred)) 
+  
+  # Assign the accuracy of this model to the ith index in accs
+  accs[i] <- sum(diag(conf))/sum(conf)
+}
+
+```
+
+```{r results='asis'}
+extract_and_print(REZ)
+```
+
+
+
+Bendro tikslumo apibendrinimas
+------------------------------
+
+```{r}
+
+# Print out the mean of accs
+pander(data.frame(Pakartojimas = factor(c(1:k, 'vidutinis')),
+                  Tikslumas = c(accs,mean(accs))))
+```  
+<font color="red" size = 4>    
+Galutinis atsakymas: **tikslumas = `r mean(accs)`**
+</font>  
+
+
+Pastabos
+------------------------------
+
+Taip pat buvo išbandyti ir keli dirbtinių neuroninių tinklų klasifikatoriai. Rezultatai gavosi analogiški.
+
+
+```{r}
+stopCluster(cl)
+```
+

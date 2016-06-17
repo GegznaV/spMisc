@@ -4,9 +4,8 @@
 \alias{regcapturedmatches}
 \title{[.] Extract regular expression matches captured by names}
 \source{
-\url{https://gist.github.com/danielmarcelino/8209cfdf2cd993eeb1b3}[github.com/danielmarcelino]
-\url{https://gist.github.com/MrFlick/10413321}
-\url{http://stackoverflow.com/questions/33288075/from-matlab-to-r-capture-named-fields-with-regular-expressions-to-a-dataframe}
+\href{https://gist.github.com/MrFlick/10413321}{regcapturedmatches.R} on gist.github.com
+\href{http://stackoverflow.com/questions/33288075/from-matlab-to-r-capture-named-fields-with-regular-expressions-to-a-dataframe}{answer} on stackoverflow.com.
 }
 \usage{
 regcapturedmatches(x, m)
@@ -32,6 +31,6 @@ spMisc:::regcapturedmatches(x,m)
 
 }
 \author{
-Daniel Marcelino (MrFlick)
+\href{http://stackoverflow.com/users/2372064/mrflick?tab=profile}{MrFlick}
 }
 

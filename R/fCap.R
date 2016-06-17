@@ -24,7 +24,3 @@ fCap <- function(x){
     return(S)
 }
 
-
-#' @rdname fCap
-#' @export
-make_firstCapitals <- function(x) {fCap(x)}

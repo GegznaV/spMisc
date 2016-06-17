@@ -110,7 +110,15 @@
 #' dir() %>% regexp2df(expr)
 #'
 #' @family \pkg{spMisc} utilities
-#' @author Vilmantas Gegzna
+#' @section Contribution:
+#' In this function ideas from
+#' \href{http://stackoverflow.com/questions/33288075/from-matlab-to-r-capture-named-fields-with-regular-expressions-to-a-dataframe?answertab=votes#tab-top}{this answer}
+#' on github.com were used.
+#'
+#' @author Author Vilmantas Gegzna,
+#'  contributor
+#'  \href{http://stackoverflow.com/users/2372064/mrflick?tab=profile}{MrFlick},
+#'  as he provided ideas on github.com (see section Contribution).
 
 regexp2df <- function(text, pattern, ignore.case = FALSE,
                       perl = TRUE, ## TRUE not FALSE, see if description is correct

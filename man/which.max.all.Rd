@@ -5,19 +5,22 @@
 \alias{which.min.all}
 \title{[!] Get indices of minima/maxima}
 \usage{
-which.max.all(x, ...)
+which.max.all(x, na.rm = FALSE, useNames = FALSE, ...)
 
-which.min.all(x, useNames = FALSE, ...)
+which.min.all(x, na.rm = FALSE, useNames = FALSE, ...)
 }
 \arguments{
 \item{x}{numeric (logical, integer or double) vector or an \R object
     for which the internal coercion to \code{\link{double}} works whose
     \code{\link{min}} or \code{\link{max}} is searched for.}
 
-\item{...}{Further parameters to be passed to \code{\link[base]{which}}.}
+\item{na.rm}{a logical indicating whether missing values should be
+    removed.}
 
 \item{useNames}{logical indicating if the value of \code{arrayInd()}
    should have (non-null) dimnames at all.}
+
+\item{...}{Further parameters to be passed to \code{\link[base]{which}}.}
 }
 \description{
 Determines the location, i.e., index of all minimum or maximum values in a
@@ -40,9 +43,10 @@ which.min.all(x)
 Vilmantas Gegzna
 }
 \seealso{
-Other matrix operations in \pkg{spMisc}: \code{\link{Sort_matrix_elements}},
-  \code{\link{corr_vec2mat}}, \code{\link{indMatrix}},
-  \code{\link{nTri2nDiag}}, \code{\link{revalueMatrix}},
+Other matrix operations in \pkg{spMisc}: \code{\link{corr_vec2mat}},
+  \code{\link{indMatrix}}, \code{\link{nTri2nDiag}},
+  \code{\link{revalueMatrix}},
+  \code{\link{sort_matrix_elements}},
   \code{\link{which.in}}, \code{\link{which.max.perRow}}
 }
 

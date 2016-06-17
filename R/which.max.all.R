@@ -5,6 +5,8 @@
 #'
 #' @inheritParams base::which.min
 #' @inheritParams base::which
+#' @inheritParams base::min
+#'
 #' @param ... Further parameters to be passed to \code{\link[base]{which}}.
 #' @export
 #' @details Internaly functions \code{\link[base]{which}} and
@@ -20,12 +22,12 @@
 #' @author Vilmantas Gegzna
 #' @family matrix operations in \pkg{spMisc}
 
-which.max.all <- function(x, ...) {
-    which(x == max(x), ...) %>% as.vector()
+which.max.all <- function(x, na.rm = FALSE, useNames = FALSE, ...) {
+    which(x == max(x, na.rm = na.rm), useNames = useNames, ...) %>% as.vector()
 }
 
 #' @rdname which.max.all
 #' @export
-which.min.all <- function(x, useNames = FALSE, ...) {
-    which(x == min(x), ...) %>% as.vector()
+which.min.all <- function(x, na.rm = FALSE, useNames = FALSE, ...) {
+    which(x == min(x, na.rm = na.rm), useNames = useNames,  ...) %>% as.vector()
 }

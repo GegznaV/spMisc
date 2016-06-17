@@ -1,7 +1,8 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/spMisc)](https://cran.r-project.org/package=spMisc)
-[![GitHub version](https://img.shields.io/badge/GitHub-v0.0.4.1005-brightgreen.svg)](https://github.com/GegznaV/spMisc) [![Travis-CI Build Status](https://travis-ci.org/GegznaV/spMisc.png?branch=master)](https://travis-ci.org/GegznaV/spMisc) [![codecov.io](https://codecov.io/github/GegznaV/spMisc/coverage.svg?branch=master)](https://codecov.io/github/GegznaV/spMisc?branch=master)
+
+[![GitHub version](https://img.shields.io/badge/GitHub-v0.0.5-brightgreen.svg)](https://github.com/GegznaV/spMisc) [![Travis-CI Build Status](https://travis-ci.org/GegznaV/spMisc.png?branch=master)](https://travis-ci.org/GegznaV/spMisc) [![codecov.io](https://codecov.io/github/GegznaV/spMisc/coverage.svg?branch=master)](https://codecov.io/github/GegznaV/spMisc?branch=master)
 
 Development version of package `spMisc`
 =======================================
@@ -35,5 +36,5 @@ install_github("GegznaV/spMisc")
 ------------------------------------------------------------------------
 
 <p align="right">
-File updated on <b>2016-06-14</b> with version of package <b>0.0.4.1005</b>
+File updated on <b>2016-06-17</b> with version of package <b>0.0.5</b>
 </p>

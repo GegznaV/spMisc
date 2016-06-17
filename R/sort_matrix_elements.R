@@ -1,4 +1,4 @@
-#' @name Sort_matrix_elements
+#' @name sort_matrix_elements
 #' @title Sort rows and columns of a matrix according to a criterion
 #'
 #' @description
@@ -124,21 +124,21 @@ sort_descOnDiag <- function(M, na.rm = TRUE) {
 }
 
 
-#' @name Sort_matrix_elements
+#' @name sort_matrix_elements
 #' @export
 sort_colSums <- function(M, decreasing = TRUE, na.rm = TRUE){
     ind <- colSums(M, na.rm = na.rm) %>% order(decreasing = decreasing)
     M[,ind]
 }
 
-#' @name Sort_matrix_elements
+#' @name sort_matrix_elements
 #' @export
 sort_rowSums <- function(M, decreasing = TRUE, na.rm = TRUE){
     ind <- rowSums(M, na.rm = na.rm)  %>% order(decreasing = decreasing)
     M[ind,]
 }
 
-#' @name Sort_matrix_elements
+#' @name sort_matrix_elements
 #' @export
 sort_rowMax <- function(M, decreasing = TRUE, na.rm = TRUE){
     MAX <- function(x){base::max(x, na.rm = na.rm)}
@@ -146,7 +146,7 @@ sort_rowMax <- function(M, decreasing = TRUE, na.rm = TRUE){
     M[ind,]
 }
 
-#' @name Sort_matrix_elements
+#' @name sort_matrix_elements
 #' @export
 sort_colMax <- function(M, decreasing = TRUE, na.rm = TRUE){
     MAX <- function(x){base::max(x, na.rm = na.rm)}

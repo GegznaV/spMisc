@@ -1,4 +1,4 @@
-context("functionality of fnction `getVarValues`")
+context("Function `getVarValues`")
 # More tests for `getVarValues` are needed
 
 test_that("`getVarValues()` works", {
@@ -29,6 +29,12 @@ test_that("`getVarValues()` works", {
 })
 
 test_that("`getVarValues()` throws error if inputs are incorrect or missing.", {
+
+
+
+
+    df  <- mtcars[,c("cyl","gear")]
+
     ##  Error
     expect_error(getVarValues("v1", df))
     expect_error(getVarValues(DATA = df)) # c() is a function.

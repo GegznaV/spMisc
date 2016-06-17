@@ -91,9 +91,10 @@ which.in.diag(m2)
 Vilmantas Gegzna
 }
 \seealso{
-Other matrix operations in \pkg{spMisc}: \code{\link{Sort_matrix_elements}},
-  \code{\link{corr_vec2mat}}, \code{\link{indMatrix}},
-  \code{\link{nTri2nDiag}}, \code{\link{revalueMatrix}},
+Other matrix operations in \pkg{spMisc}: \code{\link{corr_vec2mat}},
+  \code{\link{indMatrix}}, \code{\link{nTri2nDiag}},
+  \code{\link{revalueMatrix}},
+  \code{\link{sort_matrix_elements}},
   \code{\link{which.max.all}},
   \code{\link{which.max.perRow}}
 }

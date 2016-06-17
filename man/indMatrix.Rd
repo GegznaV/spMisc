@@ -25,10 +25,10 @@ Vilmantas Gegzna
 \seealso{
 \link[base]{row},\link[base]{col}
 
-Other matrix operations in \pkg{spMisc}: \code{\link{Sort_matrix_elements}},
-  \code{\link{corr_vec2mat}}, \code{\link{nTri2nDiag}},
-  \code{\link{revalueMatrix}}, \code{\link{which.in}},
-  \code{\link{which.max.all}},
+Other matrix operations in \pkg{spMisc}: \code{\link{corr_vec2mat}},
+  \code{\link{nTri2nDiag}}, \code{\link{revalueMatrix}},
+  \code{\link{sort_matrix_elements}},
+  \code{\link{which.in}}, \code{\link{which.max.all}},
   \code{\link{which.max.perRow}}
 }
 

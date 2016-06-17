@@ -55,7 +55,7 @@ and free up system memory. Explanation in section \bold{"Details"}.
 \details{
 \code{clear} removes either listed or, if none is listed, all* not hidden
 (that name does not begin with dot(\code{.})) variables.
-Default is to clear all except hidden objects.\cr\cr
+Default is to \bold{clear all except hidden} objects.\cr\cr
 \code{clear_all} the same as \code{clear} just aditionally clears hidden
  variables (that name begins with dot (\code{.})).\cr\cr
 \code{clear_except} clears variables except listed ones.\cr\cr

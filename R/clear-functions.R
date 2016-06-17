@@ -8,7 +8,7 @@
 #'
 #' \code{clear} removes either listed or, if none is listed, all* not hidden
 #' (that name does not begin with dot(\code{.})) variables.
-#' Default is to clear all except hidden objects.\cr\cr
+#' Default is to \bold{clear all except hidden} objects.\cr\cr
 #' \code{clear_all} the same as \code{clear} just aditionally clears hidden
 #'  variables (that name begins with dot (\code{.})).\cr\cr
 #' \code{clear_except} clears variables except listed ones.\cr\cr
@@ -99,12 +99,14 @@
 
 clear <- function(... , list = NULL, except = NULL, all.names = FALSE,
                   envir = parent.frame()) {
-    if (is.null(list)) {
+    if (length(list)==0) {
         list <- match.call(expand.dots = FALSE)$`...`
         list <- unlist(lapply(list, as.character))
     }
 
-    if (is.null(list)) {list <- ls(name = envir, all.names = all.names)}
+    if (length(list)==0) {
+        list <- ls(name = envir, all.names = all.names)
+    }
     list <- setdiff(list, except)
 
     if (!is.character(list))
@@ -130,12 +132,12 @@ clear_all <- function(... , list = NULL, except = NULL,
 #' @export
 #'
 clear_except <- function(..., list = NULL, all.names = FALSE, envir = parent.frame())  {
-    if (is.null(list)) {
+    if (length(list)==0) {
         list <- match.call(expand.dots = FALSE)$`...`
         list <- sapply(list, as.character)
     }
 
-    if (is.null(list)) {
+    if (length(list)==0) {
         warning("The workspace is not cleared as no variables that must be kept are listed.")
     } else {
         clear(except = list, envir = envir, all.names = all.names)
@@ -169,15 +171,18 @@ clear_class <- function(clrClass = NULL, exceptVar = NULL,
 #  ------------------------------------------------------------------------
 #' @rdname clear
 #' @export
-clear_except_class <- function(exceptClass = NULL, all.names = FALSE, envir = parent.frame()) {
+clear_except_class <- function(exceptClass = NULL, all.names = FALSE,
+                               envir = parent.frame())
+{
     if (is.null(exceptClass)) {
-        warning("The workspace is not cleared as no classes that must be kept are listed.")
+        warning("The workspace was not cleared as no classes that must be kept are listed.")
     } else {
-        clrList <- ls(envir)
+        clrList <- ls(envir, all.names = all.names)
+
         if (length(clrList) > 0) {
             objs  <-  mget(clrList, envir = envir)
             clrList <- names(Filter(function(i) !inherits(i, exceptClass), objs))
-            clear(list = clrList, envir = envir,all.names = all.names)
+            clear(list = clrList, envir = envir, all.names = all.names)
             invisible("Cleared")
         }
 

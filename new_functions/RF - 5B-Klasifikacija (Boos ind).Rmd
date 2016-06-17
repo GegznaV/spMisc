@@ -1,0 +1,175 @@
+---
+title: "TD 2009 analizė - klasifikacija (Boos)"
+author: 'Vilmantas Gėgžna'
+output: 
+  html_document: 
+    fig_caption: yes
+    fig_height: 4
+    fig_width: 9
+    highlight: kate
+    keep_md: yes
+    number_sections: yes
+    theme: spacelab
+    toc: yes
+---
+```{r Load packages, echo = FALSE, message=FALSE,warning=FALSE}
+
+
+
+knitr::opts_chunk$set(echo = FALSE,
+                      fig.align = "center",
+                      fig.keep  = "all"
+                      )
+
+library(tidyr)
+library(dplyr)
+
+library(hyperSpec)
+library(NMF)
+
+library(ggthemes)
+library(xtable)
+library(GGally)
+library(corrplot)
+library(pander)
+
+source('D:/Data/R/R Learning/plotSpFun.R', encoding = 'UTF-8')
+
+library(rpart)
+library(randomForest)
+library(caret)
+library(rattle)
+
+library(doParallel)
+cl <- makeCluster(8)
+registerDoParallel(cl)
+
+
+corrMethod <-  "spearman"
+``` 
+
+ Klasifikacija
+==========================================
+
+Šiame pavizdyje naudojamas atsitiktinių miškų (*angl.* random forests) klasifikatorius (10 tūkst. sprendimų medžių).   
+
+Rezultatų patikrinimas vykdomas kryžminio skaidymo į **5** dalis metodu (*angl.* 5-fold cross-validation).
+
+```{r LOAD data}
+# load('2016-01-08.RData')
+load('2016-01-08 (nRuns = 40).RData')
+```
+
+```{r klasifikacija pre}
+# Set random seed. Don't remove this line.
+set.seed(123)
+
+# k - number of folds
+k = 5
+
+# Initialize the accs vector
+accs <- rep(0, k)
+
+# Indices for training set
+# indeksai cross-validacijai
+# 
+# 
+AMP_obj <- scoresNMF
+
+# AMP_obj    <- AMP_obj[AMP_obj$gr!= "S",,]
+# AMP_obj$BoosGr <- as.factor(AMP_obj$BoosGr)
+ 
+# levels(AMP_obj$Safranin) <- c("0-1","0-1","2-3","2-3")
+# 
+
+
+        BoosGr <- cut(AMP_obj$Boos,breaks = c(8,14,23))
+AMP_obj$BoosGr <- BoosGr
+
+pander(as.data.frame(prop.table(table(BoosGr))))
+
+AMP_obj2  <-  AMP_obj;
+
+AMP_obj2$gr <- factor(AMP_obj2$BoosGr)
+indices     <- createFolds_strat(AMP_obj2$..[,c("ID","gr")],
+                             k = k,
+                             returnTrain = TRUE)
+
+
+ i = 1
+# 
+# conf  = vector("list", k)
+conf2 = vector("list", k)
+```
+
+Rezultatai kiekvienam išskaydymo variantui
+-------------------------------------------
+
+```{r klasifikacija }
+
+for (i in 1:k) {
+  print(i)
+  # Exclude them from the train set
+  training <- AMP_obj[-indices[[i]],]
+  
+  # Include them in the test set
+  test <- AMP_obj[indices[[i]],]
+  
+#   # A model is learned using each training set
+#   tree <- rpart(gr ~ spc, training, method = "class")
+#   
+#   # Draw the decision tree
+#   fancyRpartPlot(tree)
+  
+  # A model is learned using each training set
+  my_forest <- train(BoosGr ~  spc + Safranin,
+                       data = training,
+                       method = 'parRF',
+                       importance = TRUE,
+                       ntree = 1000
+                     )
+
+  # Make a prediction on the test set using randomForest
+  pred <- predict(my_forest,test)
+  
+  
+  varImpPlot(my_forest$finalModel)
+  
+  # Assign the confusion matrix to conf
+  # conf <- table(test$gr, pred)
+   conf <- table(test$BoosGr, pred)
+  
+  # pander(conf)
+  
+  # print(confusionMatrix(test$gr, pred))
+  print(confusionMatrix(test$BoosGr, pred)) 
+  
+  # Assign the accuracy of this model to the ith index in accs
+  accs[i] <- sum(diag(conf))/sum(conf)
+}
+
+```
+
+Bendro tikslumo apibendrinimas
+------------------------------
+
+```{r}
+
+# Print out the mean of accs
+pander(data.frame(Pakartojimas = factor(c(1:k, 'vidutinis')),
+                  Tikslumas = c(accs,mean(accs))))
+```  
+<font color="red" size = 4>    
+Galutinis atsakymas: **tikslumas = `r mean(accs)`**
+</font>  
+
+
+Pastabos
+------------------------------
+
+
+
+```{r}
+stopCluster(cl)
+```
+

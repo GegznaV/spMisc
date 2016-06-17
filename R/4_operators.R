@@ -91,7 +91,6 @@
 #'#> "Alternative"
 #'}}
 `%if.NULL%` <- function(a, b) {
-    .Deprecated("%if_null%")
     if (!is.null(a)) a else b
     }
 
@@ -197,7 +196,7 @@
 #' 1:10 %NOTin% c(1,3,5,9)
 #' #> [1] FALSE  TRUE FALSE  TRUE FALSE  TRUE  TRUE  TRUE FALSE  TRUE
 `%NOTin%` <- function (x, table) {
-    .Deprecated("%!in%")
+    # .Deprecated("%!in%")
     match(x, table, nomatch = 0L) == 0L
     }
 

@@ -1,4 +1,4 @@
-context("function `eval_`")
+context("Function `eval_`")
 
 test_that("`eval_` works as expected",{
     a1 <- 123
