@@ -37,6 +37,7 @@ library(xtable)
 library(pander)
 
 library(spHelper)
+library(spPlot)
 library(knitrContainer)
 
 library(rpart)
@@ -44,6 +45,7 @@ library(randomForest)
 library(caret)
 library(rattle)
 library(rfPermute)
+library(e1071)
 
 library(doParallel)
 cl <- makeCluster(7)
@@ -55,11 +57,6 @@ corrMethod <-  "spearman"
 Klasifikacija
 ==============
 
-Šiame pavyzdyje naudojamas atsitiktinių miškų (*angl.* Random forests)
-klasifikatorius (10 tūkst. sprendimų medžių).   
-
-Rezultatų patikrinimas vykdomas (kryžminio) skaidymo į **5** dalis metodu
-(*angl.* 5-fold cross-validation).
 
 ```{r LOAD data}
 # load('2016-01-08.RData')
@@ -75,7 +72,7 @@ load("D:/Dokumentai/R/Spektroskopija/TD_2009/Data/NMF 3 komp (outl).RData")
 set.seed(123)
 
 # k - number of folds
-k = 5
+k = 3
 
 # Initialize the accs vector
 accs <- rep(0, k)
@@ -111,7 +108,8 @@ conf2 = vector("list", k)
 ```{r fit control}
     fitControl <- trainControl(
                            ## 10-fold CV
-                           method = "repeatedcv",
+                           method = "cv",
+                           # method = "repeatedcv",
                            number = 5,
                            ## repeated n times
                            repeats = 5,
@@ -122,7 +120,6 @@ conf2 = vector("list", k)
                            returnResamp = "all", #"final", #
                            classProbs = TRUE,
                            # savePredictions = FALSE,
-                           
                            
                            selectionFunction = "best",
                            # search = "grid",
@@ -143,12 +140,8 @@ conf2 = vector("list", k)
              trim = FALSE,
              allowParallel = TRUE
                            )  
+
 ```
-
-
-
-Rezultatai kiekvienam išskaydymo variantui
--------------------------------------------
 
 
 ```{r klasifikacija }
@@ -157,7 +150,7 @@ REZ <- knitrContainer()
 
 for (i in 1:k) {
 
-  REZ %<>% add_as_heading3(paste("Results of Fold",i))
+  REZ %<>% add_as_heading3(paste("Results of Fold", i))
     
   # Exclude them from the train set
   training <- AMP_obj[-test_ind[[i]],]
@@ -165,34 +158,43 @@ for (i in 1:k) {
   # Include them in the test set
   test <- AMP_obj[test_ind[[i]],]
   
+# =========================================================================
+# Create Classification Model: Random Forests
+# =========================================================================
   # A model is learned using each training set
-  my_forest <- train(gr ~  spc + Boos + Safranin,
+  set.seed(1)
+  # trained_RF <- train(gr ~  spc + Boos + Safranin + coll_1 + coll_2 + coll_oth,
+  trained_RF <- train(gr ~  Safranin + coll_oth,
                        data = training,
                        metric = "Kappa",
-                       preProcess = c("center", "scale"),
+                       # preProcess = c("center", "scale"),
                        method = 'parRF',
                        importance = TRUE,
                         proximity = TRUE,
                       
                        ntree = 1e2,
+                       tuneGrid  = data.frame(mtry  = 1:3),
                        trControl = fitControl
-                     
                      )
   
-  REZ %<>% add_as_data(my_forest)
-  REZ %<>% add_as_code(plot(my_forest))
-  REZ %<>% add_as_printed(my_forest)
-  REZ %<>% add_as_printed(predictors(my_forest))
+  REZ %<>% add_as_data(trained_RF)
+  REZ %<>% add_as_is(tryCatch(ggplot(trained_RF)+ggLims(c(0,1)),
+                              error = function(cond)return(NULL)) )
   
+  REZ %<>% add_as_code(trained_RF)
+  REZ %<>% add_as_code(predictors(trained_RF))
   
- # proximity.plot(my_forest, legend.loc = "topleft")
-
-
+  REZ %<>% add_as_cmd(tryCatch(varImpPlot(trained_RF$finalModel,
+                                          main = "Variable Importance Plot"),
+                              error = function(cond)return(NULL)))
+  
+  REZ %<>% add_as_pander(importance(trained_RF$finalModel))
+  
   # Make a prediction on the test set using randomForest
-  pred <- predict(my_forest,test)
+  pred <- predict(trained_RF, test)
   
  
-  REZ %<>% add_as_code(varImpPlot(my_forest$finalModel))
+ 
   
   # Assign the confusion matrix to conf
   # conf <- table(test$gr, pred)
@@ -201,38 +203,40 @@ for (i in 1:k) {
   # pander(conf)
   
   # print(confusionMatrix(test$gr, pred))
-  REZ %<>% add_as_printed(confusionMatrix(test$gr, pred)) 
+  REZ %<>% add_as_code(confusionMatrix(test$gr, pred)) 
   
   # Assign the accuracy of this model to the ith index in accs
   accs[i] <- sum(diag(conf))/sum(conf)
+  
+  # Add horizintal rule
+  REZ %<>% add_as_text("***") 
+
 }
 
 ```
 
-```{r results='asis'}
-extract_and_print(REZ)
-```
-
-
-
-Bendro tikslumo apibendrinimas
+Summary of Results
 ------------------------------
 
-```{r}
-
-# Print out the mean of accs
-pander(data.frame(Pakartojimas = factor(c(1:k, 'vidutinis')),
-                  Tikslumas = c(accs,mean(accs))))
-```  
 <font color="red" size = 4>    
-Galutinis atsakymas: **tikslumas = `r mean(accs)`**
+Average Kappa = **`r mean(accs)`**
 </font>  
 
+```{r}
+# Print out the mean of accs
+pander(data.frame(Fold = factor(c(1:k, 'vidutinis')),
+                  Tikslumas = c(accs,mean(accs))))
+```  
 
-Pastabos
-------------------------------
 
-Taip pat buvo išbandyti ir keli dirbtinių neuroninių tinklų klasifikatoriai. Rezultatai gavosi analogiški.
+
+Results for each fold
+----------------------
+
+```{r results='asis'}
+print_all(REZ)
+```
+
 
 
 ```{r}
