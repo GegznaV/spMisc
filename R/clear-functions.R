@@ -131,6 +131,19 @@ clear_all <- function(... , list = NULL, except = NULL,
 #' @rdname clear
 #' @export
 #'
+clear_hidden_only <- function(... , list = NULL, except = NULL,
+                      envir = parent.frame())  {
+
+    list <- setdiff(ls(all.names = TRUE, envir = envir),
+                    ls(envir = envir))
+
+    clear(... , list = list, except = except, envir = envir)
+}
+
+#  ------------------------------------------------------------------------
+#' @rdname clear
+#' @export
+#'
 clear_except <- function(..., list = NULL, all.names = FALSE, envir = parent.frame())  {
     if (length(list)==0) {
         list <- match.call(expand.dots = FALSE)$`...`

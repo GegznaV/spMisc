@@ -17,13 +17,16 @@ knitr::opts_chunk$set(
 )
 ```
 
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/spMisc)](https://cran.r-project.org/package=spMisc)
+***
 
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/spMisc)](https://cran.r-project.org/package=spMisc)
 [![GitHub version](https://img.shields.io/badge/GitHub-v`r packageVersion("spMisc")`-brightgreen.svg)](https://github.com/GegznaV/spMisc)
 [![Travis-CI Build Status](https://travis-ci.org/GegznaV/spMisc.png?branch=master)](https://travis-ci.org/GegznaV/spMisc)
 [![codecov.io](https://codecov.io/github/GegznaV/spMisc/coverage.svg?branch=master)](https://codecov.io/github/GegznaV/spMisc?branch=master)
+[![Last-update](https://img.shields.io/badge/last%20update-`r gsub('-', '--', Sys.Date())`-yellowgreen.svg)](/commits/master)
 
 
+***
   
 Development version of package `spMisc` 
 ==========================================
@@ -63,8 +66,8 @@ install_github("GegznaV/spMisc")
 
 * * *
 
- <p align="right"> 
- File updated on <b>`r Sys.Date()`</b> with version of package  <b>`r packageVersion("spMisc")`</b>
- </p>    
+ <!-- <p align="right">  -->
+ <!-- File updated on <b>`r Sys.Date()`</b> with version of package  <b>`r packageVersion("spMisc")`</b> -->
+ <!-- </p>     -->
 
 

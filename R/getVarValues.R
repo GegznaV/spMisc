@@ -99,6 +99,11 @@
 #'
 #'  getVarValues(c, df) # c() is a function.
 #'  ## function (..., recursive = FALSE)  .Primitive("c")
+#'  
+#'  
+#'  getVarValues(NULL, df) # NULL 
+#'  getVarValues(NA,   df) # NA
+#'  getVarValues(NaN,  df) # NaN
 #' }}
 #' @author Vilmantas Gegzna
 #'

@@ -7,6 +7,7 @@
 \alias{clear_except}
 \alias{clear_except_class}
 \alias{clear_fun}
+\alias{clear_hidden_only}
 \title{[!] Clear variables from workspace (current environment)}
 \usage{
 clear(..., list = NULL, except = NULL, all.names = FALSE,
@@ -14,6 +15,8 @@ clear(..., list = NULL, except = NULL, all.names = FALSE,
 
 clear_all(..., list = NULL, except = NULL, all.names = TRUE,
   envir = parent.frame())
+
+clear_hidden_only(..., list = NULL, except = NULL, envir = parent.frame())
 
 clear_except(..., list = NULL, all.names = FALSE, envir = parent.frame())
 
