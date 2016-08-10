@@ -99,9 +99,9 @@
 #'
 #'  getVarValues(c, df) # c() is a function.
 #'  ## function (..., recursive = FALSE)  .Primitive("c")
-#'  
-#'  
-#'  getVarValues(NULL, df) # NULL 
+#'
+#'
+#'  getVarValues(NULL, df) # NULL
 #'  getVarValues(NA,   df) # NA
 #'  getVarValues(NaN,  df) # NaN
 #' }}
@@ -117,6 +117,9 @@ getVarValues <- function(VAR, DATA,
     if (inherits(DATA,"hyperSpec")){
         DATA <- DATA$..
     }
+
+    # If VAR is NULL --------------------------------------------------------
+    if(is.null(VAR)){return(VAR)}
 
     # Force evaluation of function arguments ----------------------------------
     force(env) # Get parent environment
@@ -148,8 +151,10 @@ getVarValues <- function(VAR, DATA,
         return(DATA[[VAR_value]])
 
     #  ------------------------------------------------------------------------
-
-    DATA_length  <- nrow(DATA) %if_null% length(DATA)  # <<<< this line may need reviewing: length(data.frame) vs. length(matrix)
+    DATA_length  <- nrow(DATA) %if_null% length(DATA)  # <<<< this line may
+                                                       #  need reviewing:
+                                                       #  length(data.frame) vs.
+                                                       #          length(matrix)
     if (VAR_length == DATA_length)
         return(VAR_value)
 

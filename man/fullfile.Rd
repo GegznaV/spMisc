@@ -21,6 +21,7 @@ All slashes are converted to \code{fsep}. Double slashes are removed.
 }
 \description{
 Build full file name from parts and remove repeated slashes.
+Similar to MATLAB's function "fulfile"
 }
 \examples{
 

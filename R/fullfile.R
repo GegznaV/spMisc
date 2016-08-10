@@ -1,6 +1,7 @@
 #' Build full file name from parts
 #'
 #' Build full file name from parts and remove repeated slashes.
+#' Similar to MATLAB's function "fulfile"
 #'
 #' @inheritParams base::file.path
 #' @param ext - extension of file name (e.g. ".txt" or "txt")
@@ -45,7 +46,5 @@ fullfile  <- function(..., ext = "", fsep = .Platform$file.sep){
 
         paste0(ext)
 
-
-
-
 }
+
