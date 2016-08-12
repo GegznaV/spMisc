@@ -160,7 +160,10 @@
 #' #> "Alternative"
 
 `%if_null_or_len0%` <- function(a, b) {
-    if (isTRUE(!is.null(a) & length(a)>0 & nchar(a)>0)) a  else b
+    if (isTRUE(!is.null(a) &
+               length(a)>0 &
+               (if (is.character(a)) nchar(a)>0 else TRUE))
+        ) a  else b
 }
 
 
