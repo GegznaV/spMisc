@@ -59,10 +59,26 @@ printDuration <- function(Start,
     if (returnString == T) return(AnDuration) else  pander::pander(AnDuration)
 }
 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#' @rdname printDuration
+#' @param print (logical) should the result be printed using package \pkg{pander}?
+#' @export
+Duration <- function(Start,
+                          Message = "Analysis completed in",
+                          print = FALSE,
+                          End = Sys.time()){
+    Duration_of_analysis <- End - Start;
+    AnDuration <- paste(Message,
+                        round(Duration_of_analysis, 1),
+                        attributes(Duration_of_analysis)$units
+    )
+
+    if (print == T) pander::pander(AnDuration) else return(AnDuration)
+}
+
+
 #' @rdname printDuration
 #' @export
-#' @family \pkg{spMisc} utilities
-#' @author Vilmantas Gegzna
 time_elapsed <- function(start = stop("'start' is missing"), end = Sys.time()){
     DIFFERENCE <- end - start
     AnDuration <- paste(round(DIFFERENCE, 1),
@@ -71,3 +87,4 @@ time_elapsed <- function(start = stop("'start' is missing"), end = Sys.time()){
 
     return(AnDuration)
 }
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

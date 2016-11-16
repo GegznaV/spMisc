@@ -26,6 +26,7 @@ a1 <- "Default value"
 a2 <- NULL
 a3 <- character()
 b  <- "Alternative"
+VECTOR  <- c("Alternative", "Alternative")
 
  a1 \%if_null_or_len0\% b
 #> [1] "Default value"
@@ -35,5 +36,14 @@ b  <- "Alternative"
 
  a3 \%if_null_or_len0\% b
 #> "Alternative"
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+a1 \%if_null_or_len0\% VECTOR
+#> [1] "Default value"
+
+a2 \%if_null_or_len0\% VECTOR
+#> "Alternative"
+
+VECTOR \%if_null_or_len0\% a1
 }
 
