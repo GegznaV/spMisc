@@ -66,9 +66,6 @@ corr_vec2mat(vector)
 }}
 
 }
-\author{
-Vilmantas Gegzna
-}
 \seealso{
 Other matrix operations in \pkg{spMisc}: \code{\link{indMatrix}},
   \code{\link{nTri2nDiag}}, \code{\link{revalueMatrix}},
@@ -78,4 +75,6 @@ Other matrix operations in \pkg{spMisc}: \code{\link{indMatrix}},
 
 Other simmulation functions in \pkg{spMisc}: \code{\link{simCorrVars}}
 }
-
+\author{
+Vilmantas Gegzna
+}

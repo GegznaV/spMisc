@@ -30,4 +30,3 @@ nDiag2nTri(7)
 \author{
 Vilmantas Gegzna
 }
-

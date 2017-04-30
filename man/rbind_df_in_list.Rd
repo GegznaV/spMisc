@@ -44,4 +44,3 @@ head(new_DF)
 # 6 casein    318 casein
 
 }
-

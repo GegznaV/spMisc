@@ -35,4 +35,3 @@ b  <- "Alternative"
 \seealso{
 \code{\link[spAddins]{insertIfNULL_Addin}}
 }
-

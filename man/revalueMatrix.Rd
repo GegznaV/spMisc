@@ -32,9 +32,6 @@ just with new values.
  revalueMatrix(x, 1:10)
 
 }
-\author{
-Vilmantas Gegzna
-}
 \seealso{
 Other matrix operations in \pkg{spMisc}: \code{\link{corr_vec2mat}},
   \code{\link{indMatrix}}, \code{\link{nTri2nDiag}},
@@ -42,4 +39,6 @@ Other matrix operations in \pkg{spMisc}: \code{\link{corr_vec2mat}},
   \code{\link{which.in}}, \code{\link{which.max.all}},
   \code{\link{which.max.perRow}}
 }
-
+\author{
+Vilmantas Gegzna
+}

@@ -36,4 +36,3 @@ any(ls() == "A")
 Evaluate an (unevaluated) expression (\code{\link[base]{eval}}),
          Parse expressions (\code{\link[base]{parse}})
 }
-

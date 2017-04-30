@@ -49,4 +49,3 @@ Other \pkg{spMisc} utilities: \code{\link{bru}},
   \code{\link{printDuration}}, \code{\link{regexp2df}},
   \code{\link{st01}}
 }
-

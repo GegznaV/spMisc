@@ -17,9 +17,6 @@ A list with added and removed names
 \description{
 [.] Find and display added and removed names
 }
-\author{
-Vilmantas Gegzna
-}
 \seealso{
 Other \pkg{spMisc} utilities: \code{\link{bru}},
   \code{\link{clc}}, \code{\link{clear}},
@@ -28,4 +25,6 @@ Other \pkg{spMisc} utilities: \code{\link{bru}},
   \code{\link{printDuration}}, \code{\link{regexp2df}},
   \code{\link{st01}}
 }
-
+\author{
+Vilmantas Gegzna
+}

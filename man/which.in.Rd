@@ -2,9 +2,9 @@
 % Please edit documentation in R/which.in.R
 \name{which.in}
 \alias{which.in}
-\alias{which.in.col}
 \alias{which.in.diag}
 \alias{which.in.offdiag}
+\alias{which.in.col}
 \alias{which.in.row}
 \alias{which.in.trilow}
 \alias{which.in.triupp}
@@ -87,9 +87,6 @@ which.in.diag(m2)
  which.in(triupp, m1)
 
 }
-\author{
-Vilmantas Gegzna
-}
 \seealso{
 Other matrix operations in \pkg{spMisc}: \code{\link{corr_vec2mat}},
   \code{\link{indMatrix}}, \code{\link{nTri2nDiag}},
@@ -98,4 +95,6 @@ Other matrix operations in \pkg{spMisc}: \code{\link{corr_vec2mat}},
   \code{\link{which.max.all}},
   \code{\link{which.max.perRow}}
 }
-
+\author{
+Vilmantas Gegzna
+}

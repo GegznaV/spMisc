@@ -24,4 +24,3 @@ list_functions(Package = "magrittr")
 \author{
 Vilmantas Gegzna
 }
-

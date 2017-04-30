@@ -33,4 +33,3 @@ spMisc:::regcapturedmatches(x,m)
 \author{
 \href{http://stackoverflow.com/users/2372064/mrflick?tab=profile}{MrFlick}
 }
-

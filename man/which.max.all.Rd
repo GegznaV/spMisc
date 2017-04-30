@@ -39,9 +39,6 @@ which.min.all(x)
 #>  1 3 7
 
 }
-\author{
-Vilmantas Gegzna
-}
 \seealso{
 Other matrix operations in \pkg{spMisc}: \code{\link{corr_vec2mat}},
   \code{\link{indMatrix}}, \code{\link{nTri2nDiag}},
@@ -49,4 +46,6 @@ Other matrix operations in \pkg{spMisc}: \code{\link{corr_vec2mat}},
   \code{\link{sort_matrix_elements}},
   \code{\link{which.in}}, \code{\link{which.max.perRow}}
 }
-
+\author{
+Vilmantas Gegzna
+}

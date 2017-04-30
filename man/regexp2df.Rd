@@ -41,6 +41,7 @@ In this function ideas from
 \href{http://stackoverflow.com/questions/33288075/from-matlab-to-r-capture-named-fields-with-regular-expressions-to-a-dataframe?answertab=votes#tab-top}{this answer}
 on github.com were used.
 }
+
 \examples{
 
 text1 <- c("A_111  B_aaa",
@@ -116,12 +117,6 @@ expr <- paste0('(?<R_file>.*\\\\.[rR]$)|',
 dir() \%>\% regexp2df(expr)
 
 }
-\author{
-Author Vilmantas Gegzna,
- contributor
- \href{http://stackoverflow.com/users/2372064/mrflick?tab=profile}{MrFlick},
- as he provided ideas on github.com (see section Contribution).
-}
 \seealso{
 More about regular expressions used in R: \link[base]{regex}\cr
          Website handy for creating and testing Perl-like regular expressions
@@ -139,4 +134,9 @@ Other \pkg{spMisc} utilities: \code{\link{bru}},
   \code{\link{open_wd}}, \code{\link{printDuration}},
   \code{\link{st01}}
 }
-
+\author{
+Author Vilmantas Gegzna,
+ contributor
+ \href{http://stackoverflow.com/users/2372064/mrflick?tab=profile}{MrFlick},
+ as he provided ideas on github.com (see section Contribution).
+}

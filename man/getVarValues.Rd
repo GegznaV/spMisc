@@ -122,4 +122,3 @@ getVarValues(B, df)
 \author{
 Vilmantas Gegzna
 }
-

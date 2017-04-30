@@ -38,4 +38,3 @@ fullfile("a","b\\\\","c", ext = "txt")
  #> [1] "a/b/c.txt"
 
 }
-

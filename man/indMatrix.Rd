@@ -19,9 +19,6 @@ element represents its index.
  indMatrix(matrix(NA, 5, 2))
 
 }
-\author{
-Vilmantas Gegzna
-}
 \seealso{
 \link[base]{row},\link[base]{col}
 
@@ -31,4 +28,6 @@ Other matrix operations in \pkg{spMisc}: \code{\link{corr_vec2mat}},
   \code{\link{which.in}}, \code{\link{which.max.all}},
   \code{\link{which.max.perRow}}
 }
-
+\author{
+Vilmantas Gegzna
+}

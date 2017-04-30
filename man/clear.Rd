@@ -3,11 +3,11 @@
 \name{clear}
 \alias{clear}
 \alias{clear_all}
-\alias{clear_class}
+\alias{clear_hidden_only}
 \alias{clear_except}
+\alias{clear_class}
 \alias{clear_except_class}
 \alias{clear_fun}
-\alias{clear_hidden_only}
 \title{[!] Clear variables from workspace (current environment)}
 \usage{
 clear(..., list = NULL, except = NULL, all.names = FALSE,
@@ -116,9 +116,6 @@ ls()
 
 
 }
-\author{
-Vilmantas Gegzna
-}
 \seealso{
 Remove objects from a specified environment \code{\link[base]{rm}},
          list objects \code{\link[base]{ls}}.
@@ -130,4 +127,6 @@ Other \pkg{spMisc} utilities: \code{\link{bru}},
   \code{\link{printDuration}}, \code{\link{regexp2df}},
   \code{\link{st01}}
 }
-
+\author{
+Vilmantas Gegzna
+}

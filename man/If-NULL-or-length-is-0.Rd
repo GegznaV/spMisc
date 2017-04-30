@@ -46,4 +46,3 @@ a2 \%if_null_or_len0\% VECTOR
 
 VECTOR \%if_null_or_len0\% a1
 }
-

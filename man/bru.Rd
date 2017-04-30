@@ -94,9 +94,6 @@ bru('*', 10, before = 5) # 5 empty rows are added
 ## **********
 
 }
-\author{
-Vilmantas Gegzna
-}
 \seealso{
 Other \pkg{spMisc} utilities: \code{\link{clc}},
   \code{\link{clear}}, \code{\link{fCap}},
@@ -105,4 +102,6 @@ Other \pkg{spMisc} utilities: \code{\link{clc}},
   \code{\link{printDuration}}, \code{\link{regexp2df}},
   \code{\link{st01}}
 }
-
+\author{
+Vilmantas Gegzna
+}

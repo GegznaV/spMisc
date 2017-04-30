@@ -24,9 +24,6 @@ nTri2nDiag(10)
 nTri2nDiag(6)
 
 }
-\author{
-Vilmantas Gegzna
-}
 \seealso{
 Other matrix operations in \pkg{spMisc}: \code{\link{corr_vec2mat}},
   \code{\link{indMatrix}}, \code{\link{revalueMatrix}},
@@ -34,4 +31,6 @@ Other matrix operations in \pkg{spMisc}: \code{\link{corr_vec2mat}},
   \code{\link{which.in}}, \code{\link{which.max.all}},
   \code{\link{which.max.perRow}}
 }
-
+\author{
+Vilmantas Gegzna
+}

@@ -27,4 +27,3 @@ summary(CO2[,3:4])  \%>\% na.replace() \%>\% pander()
 
 
 }
-

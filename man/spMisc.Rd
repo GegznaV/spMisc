@@ -34,6 +34,7 @@ Functions in \code{spMisc} by topic
 \code{\link{fCap}} \cr
 \code{\link{list_functions}} \cr
 }
+
 \examples{
 
 \donttest{
@@ -65,4 +66,3 @@ sna::gplot(pkgFW$funmat, g = 9,
 \author{
 Vilmantas Gegzna
 }
-

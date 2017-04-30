@@ -39,4 +39,3 @@ Other \pkg{spMisc} utilities: \code{\link{bru}},
   \code{\link{open_wd}}, \code{\link{printDuration}},
   \code{\link{regexp2df}}
 }
-
