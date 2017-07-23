@@ -11,7 +11,7 @@
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/sandstone/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/spacelab/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
@@ -59,7 +59,7 @@
   </a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="../reference/index.html">Functions</a>
 </li>
       </ul>
       
@@ -146,7 +146,7 @@ result.</p></td>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>Start</span> <span class='kw'>&lt;-</span>  <span class='fu'>Sys.time</span>()
 
-<span class='no'>Start</span></div><div class='output co'>#&gt; [1] "2017-07-23 21:43:32 EEST"</div><div class='input'><span class='co'>## [1] "2016-02-12 16:15:09 UTC"</span>
+<span class='no'>Start</span></div><div class='output co'>#&gt; [1] "2017-07-24 00:39:07 EEST"</div><div class='input'><span class='co'>## [1] "2016-02-12 16:15:09 UTC"</span>
 
 <span class='fu'>class</span>(<span class='no'>Start</span>)</div><div class='output co'>#&gt; [1] "POSIXct" "POSIXt" </div><div class='input'><span class='co'>## [1] "POSIXct" "POSIXt"</span>
 
@@ -154,10 +154,10 @@ result.</p></td>
 
 <span class='fu'>printDuration</span>(<span class='no'>Start</span>,<span class='st'>"From start till now"</span>)</div><div class='output co'>#&gt; From start till now 0 secs</div><div class='input'><span class='co'>## From start till now 39.2 secs</span>
 
-<span class='no'>my_duration</span> <span class='kw'>&lt;-</span> <span class='fu'>printDuration</span>(<span class='no'>Start</span>)</div><div class='output co'>#&gt; Analysis completed in 0 secs</div><div class='input'><span class='no'>my_duration</span></div><div class='output co'>#&gt; NULL</div><div class='input'><span class='co'>## NULL</span>
+<span class='no'>my_duration</span> <span class='kw'>&lt;-</span> <span class='fu'>printDuration</span>(<span class='no'>Start</span>)</div><div class='output co'>#&gt; Analysis completed in 0.1 secs</div><div class='input'><span class='no'>my_duration</span></div><div class='output co'>#&gt; NULL</div><div class='input'><span class='co'>## NULL</span>
 
 <span class='no'>my_duration</span> <span class='kw'>&lt;-</span> <span class='fu'>printDuration</span>(<span class='no'>Start</span>, <span class='kw'>returnString</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-<span class='no'>my_duration</span></div><div class='output co'>#&gt; [1] "Analysis completed in 0 secs"</div><div class='input'>## [1] "Analysis completed in 2.4 mins"
+<span class='no'>my_duration</span></div><div class='output co'>#&gt; [1] "Analysis completed in 0.1 secs"</div><div class='input'>## [1] "Analysis completed in 2.4 mins"
 
 </div></pre>
   </div>

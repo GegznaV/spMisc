@@ -7,8 +7,8 @@ Description: A set of functions (including convenience and wrapper functions)
              from environments), functions that find indices of certain matrix
              elements, functions that sort elements of matrices in a certain way,
              functions that modify strings, etc.
-Version: 0.0.17
-Date: 2017-07-23
+Version: 0.0.18
+Date: 2017-07-24
 Encoding: UTF-8
 Authors@R: c(
     person("Vilmantas", "Gegzna", email = "GegznaV@gmail.com", role = c("aut", "cre")))

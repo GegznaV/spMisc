@@ -2,7 +2,7 @@ favicon: "favicon.png"
 
 template:
   params:
-    bootswatch: sandstone
+    bootswatch: spacelab
 
 navbar:
   title: "spMisc | R package"
@@ -10,7 +10,7 @@ navbar:
   left:
   - icon: fa-home fa-lg
     href: /index.html
-  - text: Reference
+  - text: Functions
     href: reference/index.html
   right:
   - icon: fa-github fa-lg
