@@ -187,7 +187,7 @@
 
 # %NOTin%  -----------------------------------------------------------------
 
-#' @name %NOTin%
+#' @name Not_in
 #' @title [!] Operator "not in"
 #'
 #' @description Operator, oposite to \link[base]{\%in\%}.
@@ -208,16 +208,18 @@
 #' 1:10 %!in% c(1,3,5,9)
 #' #> [1] FALSE  TRUE FALSE  TRUE FALSE  TRUE  TRUE  TRUE FALSE  TRUE
 #'
-`%!in%` <- function (x, table) {match(x, table, nomatch = 0L) == 0L}
+`%!in%` <- function(x, table) {
+    match(x, table, nomatch = 0L) == 0L
+}
 
 
-#' @rdname %NOTin%
-#' @export
-#' @examples
-#' 1:10 %NOTin% c(1,3,5,9)
-#' #> [1] FALSE  TRUE FALSE  TRUE FALSE  TRUE  TRUE  TRUE FALSE  TRUE
-`%NOTin%` <- function (x, table) {
+# @rdname %NOTin%
+# @export
+# @examples
+# 1:10 %NOTin% c(1,3,5,9)
+# #> [1] FALSE  TRUE FALSE  TRUE FALSE  TRUE  TRUE  TRUE FALSE  TRUE
+`%NOTin%` <- function(x, table) {
     # .Deprecated("%!in%")
     match(x, table, nomatch = 0L) == 0L
-    }
+}
 

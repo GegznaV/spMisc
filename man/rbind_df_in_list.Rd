@@ -8,8 +8,6 @@ rbind_df_in_list(x)
 }
 \arguments{
 \item{x}{a named list, that contain dataframes that have columns with the same names.}
-
-\item{ID}{Name of a new column, that contains ID of each original list element.}
 }
 \value{
 A data frame.

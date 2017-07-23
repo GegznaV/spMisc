@@ -10,50 +10,71 @@
 #' @return A list with captured matches
 #'
 #'
-#' @author \href{http://stackoverflow.com/users/2372064/mrflick?tab=profile}{MrFlick}
 #' @source
+#' The coded adapted from:
 #' \href{https://gist.github.com/MrFlick/10413321}{regcapturedmatches.R} on gist.github.com
 #' \href{http://stackoverflow.com/questions/33288075/from-matlab-to-r-capture-named-fields-with-regular-expressions-to-a-dataframe}{answer} on stackoverflow.com.
+#' Originally written by:
+#' \href{http://stackoverflow.com/users/2372064/mrflick?tab=profile}{MrFlick}
 #'
 #' @examples
 #' # usage
 #'
-#' x<-c("larry:35,M","alison:22,F","dave","lily:55,F")
-#' m<-regexpr("(.*):(\\d+),([MF])", x, perl=TRUE)
-#' spMisc:::regcapturedmatches(x,m)
+#' x <- c("larry:35,M", "alison:22,F", "dave", "lily:55,F")
+#' m <- regexpr("(.*):(\\d+),([MF])", x, perl = TRUE)
+#' rez <- regcapturedmatches(x, m)
+#' rez
 #'
-# @export
-regcapturedmatches <- function(x,m) {
+#'
+#' regexp2df(x, "(.*):(\\d+),([MF])")
+#'
+#'
+#' m <- regexpr("(?<name>.*):(?<age>\\d+),(?<gender>[MF])",
+#'               x,
+#'               perl = TRUE)
+#' rez2 <- regcapturedmatches(x, m)
+#' rez2
+#'
+#' regexp2df(x, "(?<name>.*):(?<age>\\d+),(?<gender>[MF])")
+#'
+#' @export
+regcapturedmatches <- function(x, m) {
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   if (length(x) != length(m))
-    stop(gettextf("%s and %s must have the same length",
-      sQuote("x"), sQuote("m")), domain = NA)
+    stop("`x` and `m` must have the same length")
 
-  ili <- is.list(m)
-  useBytes <- if (ili) {
-    any(unlist(lapply(m, attr, "useBytes")))
+  is_list <- is.list(m)
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  useBytes <- if (is_list) {
+      any(purrr::map_lgl(m, ~isTRUE(attr(., "useBytes"))))
   } else {
     any(attr(m, "useBytes"))
   }
+
   if (useBytes) {
     asc <- iconv(x, "latin1", "ASCII")
     ind <- is.na(asc) | (asc != x)
-    if (any(ind))
-    Encoding(x[ind]) <- "bytes"
+    if (any(ind)) Encoding(x[ind]) <- "bytes"
   }
-  if (ili) {
-    if (any(sapply(m, function(x) {is.null(attr(x,"capture.start"))}) == T)) {
-      stop("No capture data found (did you use perl=T?)")
-    }
-	  starts <- lapply(m, function(x) {attr(x, "capture.start")})
-	  lengths <- lapply(m, function(x) {attr(x, "capture.length")})
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  if (is_list) {
+      if (any(purrr::map_lgl(m, ~is.null(attr(.,"capture.start"))))) {
+          stop("No capture data found (did you use perl=T?)")
+      }
+
+      starts  <- purrr::map(m, ~attr(., "capture.start"))  # %>% reduce(rbind.data.frame)
+      lengths <- purrr::map(m, ~attr(., "capture.length"))
+
   } else {
-    if (is.null(attr(m,"capture.start"))) {
-      stop("No capture data found (did you use perl=T?)")
-	  }
-    starts <- data.frame(t(attr(m, "capture.start")))
+      if (is.null(attr(m,"capture.start"))) {
+          stop("No capture data found (did you use perl=T?)")
+      }
+
+    starts  <- data.frame(t(attr(m, "capture.start")))
     lengths <- data.frame(t(attr(m, "capture.length")))
   }
 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   cleannames <- function(x) {
     if (!is.null(colnames(x))) {
         colnames(x) <- make.unique(make.names(colnames(x)))
@@ -62,15 +83,19 @@ regcapturedmatches <- function(x,m) {
         x
     }
   }
-  starts <- lapply(starts, cleannames)
-  lengths <- lapply(lengths, cleannames)
 
-  Substring <- function(x,starts,lens) {
+  starts  <- purrr::map(starts,  cleannames)
+  lengths <- purrr::map(lengths, cleannames)
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Substring <- function(x, starts, lens) {
+
     if (all(starts < 0)) {
-      return(character())
+      return(rep(NA, length(starts)))
+      # return(character())
     } else {
       x <- t(
-        mapply(function(x,st,ln) substring(x,st,st + ln - 1),
+          mapply(function(x, st, ln) substring(x, st, st + ln - 1),
 	      x, data.frame(t(starts)), data.frame(t(lens)),
 	      USE.NAMES = F)
       )
@@ -82,13 +107,9 @@ regcapturedmatches <- function(x,m) {
   }
 
   y <- Map(
-    function(x, sos, mls) {
-      Substring(x,sos,mls)
-    },
-    x,
-    starts,
-    lengths,
-    USE.NAMES = FALSE
+      function(x, sos, mls) {Substring(x, sos, mls)},
+      x,    starts,    lengths,
+      USE.NAMES = FALSE
   )
   y
 }

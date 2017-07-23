@@ -1,21 +1,19 @@
 ---
 output: github_document
 ---
-```{r}
 
-```
-
-
+<!-- person("MrFlick", role = "ctb") -->
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
  
-```{r, echo = FALSE}
+```{r setup, echo = FALSE}
 knitr::opts_chunk$set(
   collapse = FALSE,
   comment = "#>",
   fig.path = "README-"
 )
 ```
+
 
 ***
 
@@ -26,8 +24,14 @@ knitr::opts_chunk$set(
 [![Last-update](https://img.shields.io/badge/last%20update-`r gsub('-', '--', Sys.Date())`-yellowgreen.svg)](/commits/master)
 
 
-***
+
   
+```{r, fig.align='center', out.height='30%', out.width='30%', echo=FALSE}
+knitr::include_graphics("http://gegznav.github.io/spMisc/logo.png")
+```
+
+
+
 Development version of package `spMisc` 
 ==========================================
 Package `spMisc`provides with a set of functions (including convenience and 

@@ -4,8 +4,11 @@
 \alias{regcapturedmatches}
 \title{[.] Extract regular expression matches captured by names}
 \source{
+The coded adapted from:
 \href{https://gist.github.com/MrFlick/10413321}{regcapturedmatches.R} on gist.github.com
 \href{http://stackoverflow.com/questions/33288075/from-matlab-to-r-capture-named-fields-with-regular-expressions-to-a-dataframe}{answer} on stackoverflow.com.
+Originally written by:
+\href{http://stackoverflow.com/users/2372064/mrflick?tab=profile}{MrFlick}
 }
 \usage{
 regcapturedmatches(x, m)
@@ -25,11 +28,21 @@ regcapturedmatches.R: extracts captured matches from match data obtained
 \examples{
 # usage
 
-x<-c("larry:35,M","alison:22,F","dave","lily:55,F")
-m<-regexpr("(.*):(\\\\d+),([MF])", x, perl=TRUE)
-spMisc:::regcapturedmatches(x,m)
+x <- c("larry:35,M", "alison:22,F", "dave", "lily:55,F")
+m <- regexpr("(.*):(\\\\d+),([MF])", x, perl = TRUE)
+rez <- regcapturedmatches(x, m)
+rez
 
-}
-\author{
-\href{http://stackoverflow.com/users/2372064/mrflick?tab=profile}{MrFlick}
+
+regexp2df(x, "(.*):(\\\\d+),([MF])")
+
+
+m <- regexpr("(?<name>.*):(?<age>\\\\d+),(?<gender>[MF])",
+              x,
+              perl = TRUE)
+rez2 <- regcapturedmatches(x, m)
+rez2
+
+regexp2df(x, "(?<name>.*):(?<age>\\\\d+),(?<gender>[MF])")
+
 }

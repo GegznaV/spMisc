@@ -1,8 +1,8 @@
+# @param ID Name of a new column, that contains ID of each original list element.
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #' Rowbind dataframes, which are elements of a named list
 #'
 #' @param x a named list, that contain dataframes that have columns with the same names.
-#' @param ID Name of a new column, that contains ID of each original list element.
 #'
 #' @return A data frame.
 #' @export
@@ -34,7 +34,7 @@
 #' # 6 casein    318 casein
 #'
 rbind_df_in_list <- function(x){
-    if(!is.list(x)) stop("`x` must be a list.")
+    if (!is.list(x)) stop("`x` must be a list.")
 
     DF <- x  %>%
         do.call(rbind, .)     %>%
@@ -45,7 +45,7 @@ rbind_df_in_list <- function(x){
                         sep = "\\.\\d*$",
                         extra = "drop") %>%
         # .group as 1-st column
-        select_(.dots = c(".group", colnames(.)[1:(ncol(.)-1)]))
+        dplyr::select_(.dots = c(".group", colnames(.)[1:(ncol(.) - 1)]))
 
     rownames(DF) <- NULL
 

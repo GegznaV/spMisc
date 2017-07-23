@@ -7,13 +7,11 @@ Description: A set of functions (including convenience and wrapper functions)
              from environments), functions that find indices of certain matrix
              elements, functions that sort elements of matrices in a certain way,
              functions that modify strings, etc.
-Version: 0.0.14
-Date: 2017-01-07
+Version: 0.0.17
+Date: 2017-07-23
 Encoding: UTF-8
 Authors@R: c(
-    person("Vilmantas", "Gegzna", email = "GegznaV@gmail.com", role = c("aut", "cre")),
-    person("MrFlick", role = "ctb")
-    )
+    person("Vilmantas", "Gegzna", email = "GegznaV@gmail.com", role = c("aut", "cre")))
 License: GPL (>= 3)
 LazyData: yes
 LazyLoad: yes
@@ -25,8 +23,12 @@ Imports:
     pander,
     pkgmaker,
     dplyr,
+    tidyr,
     utils,
-    visNetwork
+    visNetwork,
+    purrr,
+    stringr,
+    readr
 Suggests:
     knitr,
     rmarkdown,

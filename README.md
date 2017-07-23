@@ -1,11 +1,12 @@
 
+<!-- person("MrFlick", role = "ctb") -->
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ------------------------------------------------------------------------
 
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/spMisc)](https://cran.r-project.org/package=spMisc) [![GitHub version](https://img.shields.io/badge/GitHub-v0.0.14-brightgreen.svg)](https://github.com/GegznaV/spMisc) [![Travis-CI Build Status](https://travis-ci.org/GegznaV/spMisc.png?branch=master)](https://travis-ci.org/GegznaV/spMisc) [![codecov.io](https://codecov.io/github/GegznaV/spMisc/coverage.svg?branch=master)](https://codecov.io/github/GegznaV/spMisc?branch=master) [![Last-update](https://img.shields.io/badge/last%20update-2017--01--07-yellowgreen.svg)](/commits/master)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/spMisc)](https://cran.r-project.org/package=spMisc) [![GitHub version](https://img.shields.io/badge/GitHub-v0.0.16-brightgreen.svg)](https://github.com/GegznaV/spMisc) [![Travis-CI Build Status](https://travis-ci.org/GegznaV/spMisc.png?branch=master)](https://travis-ci.org/GegznaV/spMisc) [![codecov.io](https://codecov.io/github/GegznaV/spMisc/coverage.svg?branch=master)](https://codecov.io/github/GegznaV/spMisc?branch=master) [![Last-update](https://img.shields.io/badge/last%20update-2017--07--23-yellowgreen.svg)](/commits/master)
 
-------------------------------------------------------------------------
+<img src="http://gegznav.github.io/spMisc/logo.png" width="30%" height="30%" style="display: block; margin: auto;" />
 
 Development version of package `spMisc`
 =======================================
@@ -38,4 +39,4 @@ install_github("GegznaV/spMisc")
 
 ------------------------------------------------------------------------
 
-<!-- <p align="right">  --> <!-- File updated on <b>2017-01-07</b> with version of package  <b>0.0.14</b> --> <!-- </p>     -->
+<!-- <p align="right">  --> <!-- File updated on <b>2017-07-23</b> with version of package  <b>0.0.16</b> --> <!-- </p>     -->
