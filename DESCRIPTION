@@ -20,6 +20,7 @@ Depends:
     R (>= 3.2),
     magrittr
 Imports:
+    stringr,
     pander,
     pkgmaker,
     dplyr,
@@ -27,7 +28,6 @@ Imports:
     utils,
     visNetwork,
     purrr,
-    stringr,
     readr
 Suggests:
     knitr,
