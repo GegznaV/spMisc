@@ -15,8 +15,5 @@ Does most of the job converting Sweave .Rnw files to R markdown .Rmd format.
 }
 \examples{
 
-setwd("C:/Users/ViG/Documents/GitHub/hyperSpec2/docs/articles/plotting")
-input   <- "plotting.Rnw"
-output  <- "plotting2.Rmd"
-latex2rmd(input, output)
+# // none //
 }

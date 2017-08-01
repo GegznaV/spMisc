@@ -14,10 +14,12 @@
 #'
 #' @examples
 #'
-#' setwd("C:/Users/ViG/Documents/GitHub/hyperSpec2/docs/articles/plotting")
-#' input   <- "plotting.Rnw"
-#' output  <- "plotting2.Rmd"
-#' latex2rmd(input, output)
+#' # // none //
+#
+# setwd("C:/Users/ViG/Documents/GitHub/hyperSpec2/docs/articles/plotting")
+# input   <- "plotting.Rnw"
+# output  <- "plotting2.Rmd"
+# latex2rmd(input, output)
 
 
 latex2rmd <- function(input, output) {
