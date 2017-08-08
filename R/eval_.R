@@ -1,4 +1,4 @@
-#' [!] Parse a string and evaluate expression
+#' [!] Parse and evaluate expression in a string
 #'
 #' A wrapper function to parse a string and evaluate it as an expression.
 #' \code{eval_(X)} is a wrapper for \code{eval(parse(text = X))}.
@@ -22,6 +22,7 @@
 eval_ <- function(X, envir = parent.frame(), ...) {
     eval(parse(text = X), envir = envir, ...)
 }
+
 
 
 

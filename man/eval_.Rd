@@ -2,7 +2,7 @@
 % Please edit documentation in R/eval_.R
 \name{eval_}
 \alias{eval_}
-\title{[!] Parse a string and evaluate expression}
+\title{[!] Parse and evaluate expression in a string}
 \usage{
 eval_(X, envir = parent.frame(), ...)
 }

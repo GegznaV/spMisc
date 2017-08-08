@@ -132,13 +132,13 @@ test_that("function `clear_fun` works as expected",{
 
 
 #  ------------------------------------------------------------------------
-test_that("function `clear_except` throws warinig",{
+test_that("function `clear_all_except` throws warinig",{
     # Does not clear and warns
-    expect_warning(clear_except())
+    expect_warning(clear_all_except())
 })
 
 #  ------------------------------------------------------------------------
-test_that("function `clear_except` works (quoted inputs)",{
+test_that("function `clear_all_except` works (quoted inputs)",{
 
     A <- 5
     B <- "s"
@@ -153,7 +153,7 @@ test_that("function `clear_except` works (quoted inputs)",{
     expect_length(ls(all.names = TRUE), 8)
 
     # Clear if quoted object name is provided
-    clear_except("A")
+    clear_all_except("A")
     expect_length(ls(), 1)
     expect_length(ls(all.names = TRUE), 2)
     expect_true("A"   %in% ls())
@@ -164,7 +164,7 @@ test_that("function `clear_except` works (quoted inputs)",{
 })
 
 #  ------------------------------------------------------------------------
-test_that("function `clear_except` works (unquoted inputs)",{
+test_that("function `clear_all_except` works (unquoted inputs)",{
 
     A <- 5
     B <- "s"
@@ -179,7 +179,7 @@ test_that("function `clear_except` works (unquoted inputs)",{
     expect_length(ls(all.names = TRUE), 8)
 
     # Clear if unquoted object name is provided
-    clear_except(B)
+    clear_all_except(B)
     expect_length(ls(), 1)
     expect_length(ls(all.names = TRUE), 2)
     expect_true( "B"   %in% ls())
@@ -189,7 +189,7 @@ test_that("function `clear_except` works (unquoted inputs)",{
 
 
 #  ------------------------------------------------------------------------
-test_that("function `clear_except` works (inputs as a list)",{
+test_that("function `clear_all_except` works (inputs as a list)",{
 
     A <- 5
     B <- "s"
@@ -204,7 +204,7 @@ test_that("function `clear_except` works (inputs as a list)",{
     expect_length(ls(all.names = TRUE), 8)
 
     # Clear if unquoted object name is provided
-    clear_except(B, list = c("A", ".test_clear"))
+    clear_all_except(B, list = c("A", ".test_clear"))
     expect_length(ls(), 1)
     expect_length(ls(all.names = TRUE), 2)
     expect_false("B"   %in% ls())
@@ -215,7 +215,7 @@ test_that("function `clear_except` works (inputs as a list)",{
 
 #  ------------------------------------------------------------------------
 
-test_that("function `clear_except_class` works as expected",{
+test_that("function `clear_all_except_class` works as expected",{
 
     A <- 5
     B <- "s"
@@ -230,12 +230,12 @@ test_that("function `clear_except_class` works as expected",{
     expect_length(ls(all.names = TRUE), 8)
 
     # Do not clear if no class is provided
-    expect_warning(clear_except_class())
+    expect_warning(clear_all_except_class())
     expect_length(ls(), 7)
     expect_length(ls(all.names = TRUE), 8)
 
     # Clear functions
-    clear_except_class("character")
+    clear_all_except_class("character")
     expect_length(ls(), 3)
     expect_length(ls(all.names = TRUE), 4)
 

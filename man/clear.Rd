@@ -4,10 +4,11 @@
 \alias{clear}
 \alias{clear_all}
 \alias{clear_hidden_only}
-\alias{clear_except}
+\alias{clear_all_except}
 \alias{clear_class}
-\alias{clear_except_class}
+\alias{clear_all_except_class}
 \alias{clear_fun}
+\alias{clear_except}
 \title{[!] Clear variables from workspace (current environment)}
 \usage{
 clear(..., list = NULL, except = NULL, all.names = FALSE,
@@ -18,15 +19,18 @@ clear_all(..., list = NULL, except = NULL, all.names = TRUE,
 
 clear_hidden_only(..., list = NULL, except = NULL, envir = parent.frame())
 
-clear_except(..., list = NULL, all.names = FALSE, envir = parent.frame())
-
-clear_class(clrClass = NULL, exceptVar = NULL, all.names = FALSE,
+clear_all_except(..., list = NULL, all.names = FALSE,
   envir = parent.frame())
 
-clear_except_class(exceptClass = NULL, all.names = FALSE,
+clear_class(clr_class = NULL, except_var = NULL, all.names = FALSE,
+  envir = parent.frame())
+
+clear_all_except_class(except_class = NULL, all.names = FALSE,
   envir = parent.frame())
 
 clear_fun(all.names = TRUE, envir = parent.frame())
+
+clear_except(...)
 }
 \arguments{
 \item{...}{The objects as names (unquoted) or character strings (quoted).}
@@ -34,7 +38,7 @@ clear_fun(all.names = TRUE, envir = parent.frame())
 \item{list}{A character vector naming objects. Used instead of `\code{...}`.
 If \code{list} is not \code{NULL}, dots `\code{...}` are ignored.}
 
-\item{except, exceptVar}{Names of \bold{variables} (as a character vector)
+\item{except, except_var}{Names of \bold{variables} (as a character vector)
 \bold{to be kept} (to be cleared). Default is \code{NULL}.}
 
 \item{all.names}{a logical value. If \code{TRUE} (default \emph{only}
@@ -45,10 +49,10 @@ with a \code{.} are omitted.}
 \item{envir}{The environment in which function takes action. Default is
 the global environment \code{.GlobalEnv}.}
 
-\item{clrClass}{Names of classes (as a character vector). Objects of
+\item{clr_class}{Names of classes (as a character vector). Objects of
 indicated classes to be removed.}
 
-\item{exceptClass}{Names of classes (as a character vector) that
+\item{except_class}{Names of classes (as a character vector) that
 have \bold{not} to be cleared. Default is \code{NULL}.}
 }
 \description{
@@ -63,8 +67,8 @@ Default is to \bold{clear all except hidden} objects.\cr\cr
  variables (that name begins with dot (\code{.})).\cr\cr
 \code{clear_except} clears variables except listed ones.\cr\cr
 \code{clear_class} removes objects of indicated class(es), except those which
-names provided in list \code{exceptVar}.\cr\cr
-\code{clear_except_class} keeps objects of indicated class(es), others are
+names provided in list \code{except_var}.\cr\cr
+\code{clear_all_except_class} keeps objects of indicated class(es), others are
  cleared.\cr\cr
 \code{clear_fun} removes \emph{all} (including hidden) items that are
   functions. \cr\cr
@@ -108,10 +112,10 @@ My_list <- list("a","A")
 My_string <- "ABC"
 ls()
 
-clear_except_class(c("numeric", "list"))
+clear_all_except_class(c("numeric", "list"))
 ls()
 
-clear_class("numeric", exceptVar = "numeric_1")
+clear_class("numeric", except_var = "numeric_1")
 ls()
 
 

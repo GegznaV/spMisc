@@ -97,15 +97,18 @@ and free up system memory. Explanation in section <b>"Details"</b>.</p>
 
 <span class='fu'>clear_hidden_only</span>(<span class='no'>...</span>, <span class='kw'>list</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>except</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>envir</span> <span class='kw'>=</span> <span class='fu'>parent.frame</span>())
 
-<span class='fu'>clear_except</span>(<span class='no'>...</span>, <span class='kw'>list</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>all.names</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>envir</span> <span class='kw'>=</span> <span class='fu'>parent.frame</span>())
-
-<span class='fu'>clear_class</span>(<span class='kw'>clrClass</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>exceptVar</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>all.names</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+<span class='fu'>clear_all_except</span>(<span class='no'>...</span>, <span class='kw'>list</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>all.names</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>envir</span> <span class='kw'>=</span> <span class='fu'>parent.frame</span>())
 
-<span class='fu'>clear_except_class</span>(<span class='kw'>exceptClass</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>all.names</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+<span class='fu'>clear_class</span>(<span class='kw'>clr_class</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>except_var</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>all.names</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>envir</span> <span class='kw'>=</span> <span class='fu'>parent.frame</span>())
 
-<span class='fu'>clear_fun</span>(<span class='kw'>all.names</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>envir</span> <span class='kw'>=</span> <span class='fu'>parent.frame</span>())</pre>
+<span class='fu'>clear_all_except_class</span>(<span class='kw'>except_class</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>all.names</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>envir</span> <span class='kw'>=</span> <span class='fu'>parent.frame</span>())
+
+<span class='fu'>clear_fun</span>(<span class='kw'>all.names</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>envir</span> <span class='kw'>=</span> <span class='fu'>parent.frame</span>())
+
+<span class='fu'>clear_except</span>(<span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -120,7 +123,7 @@ and free up system memory. Explanation in section <b>"Details"</b>.</p>
 If <code>list</code> is not <code>NULL</code>, dots `<code>...</code>` are ignored.</p></td>
     </tr>
     <tr>
-      <th>except, exceptVar</th>
+      <th>except, except_var</th>
       <td><p>Names of <b>variables</b> (as a character vector)
 <b>to be kept</b> (to be cleared). Default is <code>NULL</code>.</p></td>
     </tr>
@@ -137,12 +140,12 @@ with a <code>.</code> are omitted.</p></td>
 the global environment <code>.GlobalEnv</code>.</p></td>
     </tr>
     <tr>
-      <th>clrClass</th>
+      <th>clr_class</th>
       <td><p>Names of classes (as a character vector). Objects of
 indicated classes to be removed.</p></td>
     </tr>
     <tr>
-      <th>exceptClass</th>
+      <th>except_class</th>
       <td><p>Names of classes (as a character vector) that
 have <b>not</b> to be cleared. Default is <code>NULL</code>.</p></td>
     </tr>
@@ -157,8 +160,8 @@ Default is to <b>clear all except hidden</b> objects.
  variables (that name begins with dot (<code>.</code>)).
 <code>clear_except</code> clears variables except listed ones.
 <code>clear_class</code> removes objects of indicated class(es), except those which
-names provided in list <code>exceptVar</code>.
-<code>clear_except_class</code> keeps objects of indicated class(es), others are
+names provided in list <code>except_var</code>.
+<code>clear_all_except_class</code> keeps objects of indicated class(es), others are
  cleared.
 <code>clear_fun</code> removes <em>all</em> (including hidden) items that are
   functions.</p>
@@ -206,9 +209,9 @@ names provided in list <code>exceptVar</code>.
 <span class='no'>My_list</span> <span class='kw'>&lt;-</span> <span class='fu'>list</span>(<span class='st'>"a"</span>,<span class='st'>"A"</span>)
 <span class='no'>My_string</span> <span class='kw'>&lt;-</span> <span class='st'>"ABC"</span>
 <span class='fu'>ls</span>()</div><div class='output co'>#&gt; [1] "My_list"   "My_string" "numeric_1" "numeric_2" "numeric_3"</div><div class='input'>
-<span class='fu'>clear_except_class</span>(<span class='fu'>c</span>(<span class='st'>"numeric"</span>, <span class='st'>"list"</span>))
+<span class='fu'>clear_all_except_class</span>(<span class='fu'>c</span>(<span class='st'>"numeric"</span>, <span class='st'>"list"</span>))
 <span class='fu'>ls</span>()</div><div class='output co'>#&gt; [1] "My_list"   "numeric_1" "numeric_2" "numeric_3"</div><div class='input'>
-<span class='fu'>clear_class</span>(<span class='st'>"numeric"</span>, <span class='kw'>exceptVar</span> <span class='kw'>=</span> <span class='st'>"numeric_1"</span>)
+<span class='fu'>clear_class</span>(<span class='st'>"numeric"</span>, <span class='kw'>except_var</span> <span class='kw'>=</span> <span class='st'>"numeric_1"</span>)
 <span class='fu'>ls</span>()</div><div class='output co'>#&gt; [1] "My_list"   "numeric_1"</div><div class='input'>
 
 </div></pre>

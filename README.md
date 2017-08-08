@@ -4,7 +4,7 @@
 
 ------------------------------------------------------------------------
 
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/spMisc)](https://cran.r-project.org/package=spMisc) [![GitHub version](https://img.shields.io/badge/GitHub-v0.0.17-brightgreen.svg)](https://github.com/GegznaV/spMisc) [![Travis-CI Build Status](https://travis-ci.org/GegznaV/spMisc.png?branch=master)](https://travis-ci.org/GegznaV/spMisc) [![codecov.io](https://codecov.io/github/GegznaV/spMisc/coverage.svg?branch=master)](https://codecov.io/github/GegznaV/spMisc?branch=master) [![Last-update](https://img.shields.io/badge/last%20update-2017--07--24-yellowgreen.svg)](/commits/master)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/spMisc)](https://cran.r-project.org/package=spMisc) [![GitHub version](https://img.shields.io/badge/GitHub-v0.0.19-brightgreen.svg)](https://github.com/GegznaV/spMisc) [![Travis-CI Build Status](https://travis-ci.org/GegznaV/spMisc.png?branch=master)](https://travis-ci.org/GegznaV/spMisc) [![codecov.io](https://codecov.io/github/GegznaV/spMisc/coverage.svg?branch=master)](https://codecov.io/github/GegznaV/spMisc?branch=master) [![Last-update](https://img.shields.io/badge/last%20update-2017--08--05-yellowgreen.svg)](/commits/master)
 
 <img src="http://gegznav.github.io/spMisc/logo.png" width="30%" height="30%" style="display: block; margin: auto;" />
 
@@ -39,4 +39,4 @@ install_github("GegznaV/spMisc")
 
 ------------------------------------------------------------------------
 
-<!-- <p align="right">  --> <!-- File updated on <b>2017-07-24</b> with version of package  <b>0.0.17</b> --> <!-- </p>     -->
+<!-- <p align="right">  --> <!-- File updated on <b>2017-08-05</b> with version of package  <b>0.0.19</b> --> <!-- </p>     -->

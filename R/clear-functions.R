@@ -13,8 +13,8 @@
 #'  variables (that name begins with dot (\code{.})).\cr\cr
 #' \code{clear_except} clears variables except listed ones.\cr\cr
 #' \code{clear_class} removes objects of indicated class(es), except those which
-#' names provided in list \code{exceptVar}.\cr\cr
-#' \code{clear_except_class} keeps objects of indicated class(es), others are
+#' names provided in list \code{except_var}.\cr\cr
+#' \code{clear_all_except_class} keeps objects of indicated class(es), others are
 #'  cleared.\cr\cr
 #' \code{clear_fun} removes \emph{all} (including hidden) items that are
 #'   functions. \cr\cr
@@ -26,11 +26,11 @@
 #' @param list A character vector naming objects. Used instead of `\code{...}`.
 #'        If \code{list} is not \code{NULL}, dots `\code{...}` are ignored.
 #'
-#' @param except,exceptVar Names of \bold{variables} (as a character vector)
+#' @param except,except_var Names of \bold{variables} (as a character vector)
 #'        \bold{to be kept} (to be cleared). Default is \code{NULL}.
-#' @param clrClass Names of classes (as a character vector). Objects of
+#' @param clr_class Names of classes (as a character vector). Objects of
 #'        indicated classes to be removed.
-#' @param exceptClass Names of classes (as a character vector) that
+#' @param except_class Names of classes (as a character vector) that
 #'         have \bold{not} to be cleared. Default is \code{NULL}.
 #'
 #' @param envir The environment in which function takes action. Default is
@@ -80,10 +80,10 @@
 #' My_string <- "ABC"
 #' ls()
 #'
-#' clear_except_class(c("numeric", "list"))
+#' clear_all_except_class(c("numeric", "list"))
 #' ls()
 #'
-#' clear_class("numeric", exceptVar = "numeric_1")
+#' clear_class("numeric", except_var = "numeric_1")
 #' ls()
 #'
 #'
@@ -97,14 +97,17 @@
 #
 # @param pos The environment as a position in the search list.
 
-clear <- function(... , list = NULL, except = NULL, all.names = FALSE,
+clear <- function(... ,
+                  list = NULL,
+                  except = NULL,
+                  all.names = FALSE,
                   envir = parent.frame()) {
-    if (length(list)==0) {
+    if (length(list) == 0) {
         list <- match.call(expand.dots = FALSE)$`...`
         list <- unlist(lapply(list, as.character))
     }
 
-    if (length(list)==0) {
+    if (length(list) == 0) {
         list <- ls(name = envir, all.names = all.names)
     }
     list <- setdiff(list, except)
@@ -144,14 +147,16 @@ clear_hidden_only <- function(... , list = NULL, except = NULL,
 #' @rdname clear
 #' @export
 #'
-clear_except <- function(..., list = NULL, all.names = FALSE, envir = parent.frame())  {
-    if (length(list)==0) {
+clear_all_except <- function(..., list = NULL,
+                         all.names = FALSE, envir = parent.frame())  {
+    if (length(list) == 0) {
         list <- match.call(expand.dots = FALSE)$`...`
         list <- sapply(list, as.character)
     }
 
-    if (length(list)==0) {
-        warning("The workspace is not cleared as no variables that must be kept are listed.")
+    if (length(list) == 0) {
+        warning("The workspace is not cleared as no variables ",
+                "that must be kept are listed.")
     } else {
         clear(except = list, envir = envir, all.names = all.names)
     }
@@ -159,23 +164,31 @@ clear_except <- function(..., list = NULL, all.names = FALSE, envir = parent.fra
 #  ------------------------------------------------------------------------
 #' @rdname clear
 #' @export
-clear_class <- function(clrClass = NULL, exceptVar = NULL,
-                        all.names = FALSE, envir = parent.frame()) {
-    if (is.null(clrClass)) {
-        warning("The workspace is not cleared as no classes that must be removed are listed.")
+clear_class <- function(clr_class = NULL,
+                        except_var = NULL,
+                        all.names = FALSE,
+                        envir = parent.frame()) {
+
+    if (is.null(clr_class)) {
+        warning("The workspace is not cleared as no classes ",
+                "that must be removed are listed.")
         return()
     } else {
-        clrList <- ls(envir, all.names = all.names)
+        all_variable_names <- objects(envir, all.names = all.names)
 
-    if (length(clrList) > 0) {
-        objs  <-  mget(clrList, envir = envir)
+    if (length(all_variable_names) > 0) {
+        objs  <-  mget(all_variable_names, envir = envir)
         # Objects of classes to remove
-        clrList <- names(Filter(function(i) inherits(i, clrClass), objs))
-        # Objects to keep
-        clrList <- Filter(function(i) i %!in% exceptVar, clrList)
+        clr_list <- purrr::keep(objs, ~inherits(.x, clr_class)) %>%
+            names() %>%
+        # Objects to keep:
+            purrr::keep(~!.x %in% except_var)
+
+        # clr_list <- names(Filter(function(i) inherits(i, clr_class), objs))
+        # clr_list <- Filter(function(i) i %!in% except_var, clr_list)
 
         # Clear
-        clear(list = clrList, envir = envir, all.names = all.names)
+        clear(list = clr_list, envir = envir, all.names = all.names)
 
         invisible("Cleared")
         }
@@ -184,18 +197,20 @@ clear_class <- function(clrClass = NULL, exceptVar = NULL,
 #  ------------------------------------------------------------------------
 #' @rdname clear
 #' @export
-clear_except_class <- function(exceptClass = NULL, all.names = FALSE,
-                               envir = parent.frame())
-{
-    if (is.null(exceptClass)) {
-        warning("The workspace was not cleared as no classes that must be kept are listed.")
-    } else {
-        clrList <- ls(envir, all.names = all.names)
+clear_all_except_class <- function(except_class = NULL, all.names = FALSE,
+                               envir = parent.frame()) {
 
-        if (length(clrList) > 0) {
-            objs  <-  mget(clrList, envir = envir)
-            clrList <- names(Filter(function(i) !inherits(i, exceptClass), objs))
-            clear(list = clrList, envir = envir, all.names = all.names)
+    if (is.null(except_class)) {
+        warning("The workspace was not cleared as no classes ",
+                "that must be kept are listed.")
+
+    } else {
+        clr_list <- ls(envir, all.names = all.names)
+
+        if (length(clr_list) > 0) {
+            objs  <-  mget(clr_list, envir = envir)
+            clr_list <- names(Filter(function(i) !inherits(i, except_class), objs))
+            clear(list = clr_list, envir = envir, all.names = all.names)
             invisible("Cleared")
         }
 
@@ -205,10 +220,16 @@ clear_except_class <- function(exceptClass = NULL, all.names = FALSE,
 #' @rdname clear
 #' @export
 clear_fun <- function(all.names = TRUE, envir = parent.frame()) {
-    clear_class("function", envir = envir, all.names = all.names)
+    clear_class(clr_class = "function", envir = envir, all.names = all.names)
 }
-
-
+# =============================================================================
+# DEPRECATED
+#' @rdname clear
+#' @export
+clear_except <- function(...) {
+    .Deprecated("clear_all_except")
+    clear_all_except(...)
+}
 ##  BUG 1: FIXED
 ##
 ##  Use this to fix BUG with "%>%"
