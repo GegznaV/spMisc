@@ -7,15 +7,15 @@ Description: A set of functions (including convenience and wrapper functions)
              from environments), functions that find indices of certain matrix
              elements, functions that sort elements of matrices in a certain way,
              functions that modify strings, etc.
-Version: 0.0.20
-Date: 2017-08-09
+Version: 0.0.21
+Date: 2019-08-14
 Encoding: UTF-8
 Authors@R: c(
     person("Vilmantas", "Gegzna", email = "GegznaV@gmail.com", role = c("aut", "cre")))
 License: GPL (>= 3)
 LazyData: yes
 LazyLoad: yes
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
 Depends:
     R (>= 3.2),
     magrittr
@@ -29,10 +29,10 @@ Imports:
     visNetwork,
     purrr,
     glue,
+    rmarkdown,
     readr
 Suggests:
     knitr,
-    rmarkdown,
     testthat,
     covr,
     devtools,
