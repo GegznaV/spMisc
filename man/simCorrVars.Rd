@@ -57,3 +57,4 @@ Other simmulation functions in \pkg{spMisc}: \code{\link{corr_vec2mat}}
 \author{
 Vilmantas Gegzna
 }
+\concept{simmulation functions in \pkg{spMisc}}

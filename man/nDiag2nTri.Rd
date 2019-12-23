@@ -30,3 +30,4 @@ nDiag2nTri(7)
 \author{
 Vilmantas Gegzna
 }
+\concept{matrix operations in \pkg{spHelper}}

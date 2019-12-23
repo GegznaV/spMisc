@@ -3,13 +3,9 @@
 \name{sort_matrix_elements}
 \alias{sort_matrix_elements}
 \alias{sort_descOnDiag}
-\alias{sort_matrix_elements}
 \alias{sort_colSums}
-\alias{sort_matrix_elements}
 \alias{sort_rowSums}
-\alias{sort_matrix_elements}
 \alias{sort_rowMax}
-\alias{sort_matrix_elements}
 \alias{sort_colMax}
 \title{Sort rows and columns of a matrix according to a criterion}
 \usage{
@@ -140,3 +136,4 @@ Other matrix operations in \pkg{spMisc}: \code{\link{corr_vec2mat}},
 \author{
 Vilmantas Gegzna
 }
+\concept{matrix operations in \pkg{spMisc}}

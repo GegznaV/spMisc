@@ -78,3 +78,5 @@ Other simmulation functions in \pkg{spMisc}: \code{\link{simCorrVars}}
 \author{
 Vilmantas Gegzna
 }
+\concept{matrix operations in \pkg{spMisc}}
+\concept{simmulation functions in \pkg{spMisc}}

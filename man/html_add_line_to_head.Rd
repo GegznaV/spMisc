@@ -4,7 +4,8 @@
 \alias{html_add_line_to_head}
 \title{Add a line of text in the last line of an HTML file head}
 \usage{
-html_add_line_to_head(filename, line_to_add, locale = readr::default_locale())
+html_add_line_to_head(filename, line_to_add,
+  locale = readr::default_locale())
 }
 \arguments{
 \item{filename}{(string(1)) \cr name of an HTML file.}

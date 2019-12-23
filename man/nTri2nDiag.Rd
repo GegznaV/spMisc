@@ -34,3 +34,4 @@ Other matrix operations in \pkg{spMisc}: \code{\link{corr_vec2mat}},
 \author{
 Vilmantas Gegzna
 }
+\concept{matrix operations in \pkg{spMisc}}

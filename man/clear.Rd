@@ -17,7 +17,8 @@ clear(..., list = NULL, except = NULL, all.names = FALSE,
 clear_all(..., list = NULL, except = NULL, all.names = TRUE,
   envir = parent.frame())
 
-clear_hidden_only(..., list = NULL, except = NULL, envir = parent.frame())
+clear_hidden_only(..., list = NULL, except = NULL,
+  envir = parent.frame())
 
 clear_all_except(..., list = NULL, all.names = FALSE,
   envir = parent.frame())
@@ -134,3 +135,5 @@ Other \pkg{spMisc} utilities: \code{\link{bru}},
 \author{
 Vilmantas Gegzna
 }
+\concept{\pkg{spMisc} \code{clear} family functions}
+\concept{\pkg{spMisc} utilities}

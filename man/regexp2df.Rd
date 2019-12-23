@@ -140,3 +140,4 @@ Author Vilmantas Gegzna,
  \href{http://stackoverflow.com/users/2372064/mrflick?tab=profile}{MrFlick},
  as he provided ideas on github.com (see section Contribution).
 }
+\concept{\pkg{spMisc} utilities}

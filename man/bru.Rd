@@ -5,8 +5,8 @@
 \alias{bru0}
 \title{[+] Generate a string of repeated symbols}
 \usage{
-bru(symbol = "=", n = 60, after = (if (print) 1 else 0), before = 0,
-  print = TRUE)
+bru(symbol = "=", n = 60, after = (if (print) 1 else 0),
+  before = 0, print = TRUE)
 
 bru0(..., print = FALSE)
 }
@@ -105,3 +105,4 @@ Other \pkg{spMisc} utilities: \code{\link{clc}},
 \author{
 Vilmantas Gegzna
 }
+\concept{\pkg{spMisc} utilities}

@@ -28,3 +28,4 @@ Other \pkg{spMisc} utilities: \code{\link{bru}},
 \author{
 Vilmantas Gegzna
 }
+\concept{\pkg{spMisc} utilities}
