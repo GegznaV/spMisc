@@ -1,6 +1,6 @@
-```{r}
+
 # TODO: Continue checking from here...
-```
+
 
 
 
@@ -54,7 +54,7 @@ author:
     corresponding : yes
     affiliation   : |
         1. DIA Raman Spectroscopy Group, University of Trieste/Italy (2005--2008)
-        2. Spectroscopy $\cdot$ Imaging, IPHT, Jena/Germany (2008--2017)
+        2. Spectroscopy $\\cdot$ Imaging, IPHT, Jena/Germany (2008--2017)
         3. ÖPV, JKI, Berlin/Germany (2017--2019)
         4. Arbeitskreis Lebensmittelmikrobiologie und Biotechnologie, Hamburg University, Hamburg/Germany (2019 -- 2020)
         5. Chemometric Consulting and Chemometrix GmbH, Wölfersheim/Germany (since 2016)
@@ -124,8 +124,8 @@ make_bib(
 latex2rmd <- function(input_file, output_file) {
     # Define function `r`, so that regex matches multilines and
     # new line symbols.
-    library(tidyverse)
-    library(magrittr)
+    # library(tidyverse)
+    # library(magrittr)
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     r <- purrr::partial(
         stringr::regex,
