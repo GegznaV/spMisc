@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>[+] Construct a correlation matrix from a coefficients' vector — corr_vec2mat • spMisc</title>
+<title>knit_output_dir — knit_output_dir • spMisc</title>
 
 
 <!-- jquery -->
@@ -35,10 +35,8 @@
 
 
 
-<meta property="og:title" content="[+] Construct a correlation matrix from a coefficients' vector — corr_vec2mat" />
-<meta property="og:description" content="Construct a correlation matrix from a vector vector of coefficients, that
- will be placed in the lower triangle of a matrix (as illustrated in example
- Example 1B) and then mirrored symetrically to the upper triangle." />
+<meta property="og:title" content="knit_output_dir — knit_output_dir" />
+<meta property="og:description" content="knit_output_dir" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -108,107 +106,54 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>[+] Construct a correlation matrix from a coefficients' vector</h1>
+    <h1>knit_output_dir</h1>
     
-    <div class="hidden name"><code>corr_vec2mat.Rd</code></div>
+    <div class="hidden name"><code>knit_output_dir.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Construct a correlation matrix from a vector vector of coefficients, that
- will be placed in the lower triangle of a matrix (as illustrated in example
- Example 1B) and then mirrored symetrically to the upper triangle.</p>
+    <p>knit_output_dir</p>
     </div>
 
-    <pre class="usage"><span class='fu'>corr_vec2mat</span>(<span class='no'>vec</span>)</pre>
+    <pre class="usage"><span class='fu'>knit_output_dir</span>(<span class='kw'>output_dir</span> <span class='kw'>=</span> <span class='st'>"."</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>vec</th>
-      <td><p>A Vector with known correlation coefficients.</p></td>
+      <th>output_dir</th>
+      <td><p>(character)</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>A constructed correlation matrix.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>@details The number of elements in the vector should be equal to the number
- of elements in lower triangle of a n*n matrix. If there's insufficient
- number of elements in vector, hen only first m melements will be used to
- construct(n-1)*(n-1) matrix.</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p>Other matrix operations in <span class="pkg">spMisc</span>: 
-<code><a href='indMatrix.html'>indMatrix</a>()</code>,
-<code><a href='nTri2nDiag.html'>nTri2nDiag</a>()</code>,
-<code><a href='revalueMatrix.html'>revalueMatrix</a>()</code>,
-<code><a href='sort_matrix_elements.html'>sort_matrix_elements</a></code>,
-<code><a href='which.in.html'>which.in</a>()</code>,
-<code><a href='which.max.all.html'>which.max.all</a>()</code>,
-<code><a href='which.max.perRow.html'>which.max.perRow</a>()</code></p>
-<p>Other simmulation functions in <span class="pkg">spMisc</span>: 
-<code><a href='simCorrVars.html'>simCorrVars</a>()</code></p></div>
+    <p>this function does not work as expected!</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='co'># ------------------------------------------------------------</span>
-<span class='co'># Example 1A: Vector into a matrix</span>
+    <pre class="examples"><div class='input'># In YAML header or R markdown file:
+#
+# ---
+# knit: (spMisc::knit_output_dir(output_dir = "some_dir/")(inputFile, encoding))
+# ---
 
-<span class='no'>vector</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>0.2</span>, <span class='fl'>0.3</span>, <span class='fl'>0.4</span>, <span class='fl'>0.5</span>, <span class='fl'>0.6</span>)
-<span class='fu'>corr_vec2mat</span>(<span class='no'>vector</span>)</div><div class='output co'>#&gt;      [,1] [,2] [,3] [,4]
-#&gt; [1,]  1.0  0.1  0.2  0.3
-#&gt; [2,]  0.1  1.0  0.4  0.5
-#&gt; [3,]  0.2  0.4  1.0  0.6
-#&gt; [4,]  0.3  0.5  0.6  1.0</div><div class='input'>
-<span class='co'># ------------------------------------------------------------</span>
+# ---
+# knit: (function(inputFile, encoding, ...) {
+#         rmarkdown::render(inputFile, encoding = encoding,
+#         output_dir = "some_dir/")
+#     })
+# ---
 
-<span class='co'># \donttest{</span>
-<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-
- <span class='co'># Example 1B: Vector is transformed to a matrix by filling</span>
- <span class='co'># it column-wise:</span>
-
-  <span class='co'>## vector = c(0.1, 0.2, 0.3, 0.4, 0.5, 0.6)</span>
-  <span class='co'>##</span>
-  <span class='co'>##  matrix =</span>
-  <span class='co'>##       [,1] [,2] [,3] [,4]</span>
-  <span class='co'>##  [1,]   .     .   .    .</span>
-  <span class='co'>##  [2,]  0.1    .   .    .</span>
-  <span class='co'>##  [3,]  0.2  0.4   .    .</span>
-  <span class='co'>##  [4,]  0.3  0.5  0.6   .</span>
-  <span class='co'>##</span>
-  <span class='co'>## In this example only the matrix elements of interest are shown.</span>
-
- <span class='co'># -----------------------------------------------------------------</span>
- <span class='co'># Example 2: inappropriate number of coefficients - warning appears</span>
-
- <span class='fu'>corr_vec2mat</span>(<span class='no'>vector</span>[<span class='fl'>1</span>:<span class='fl'>5</span>])
-  <span class='co'>## Warning message:</span>
-  <span class='co'>## Only first 3 coefficient(s) out of 5 will be used to construct symmetric matrix with 3 rows.</span>
-
- <span class='co'># ------------------------------------------------------------</span>
- <span class='co'># Example 3: ERROR appears - values of coeffs must be between [-1;1]</span>
-
- <span class='fu'>corr_vec2mat</span>(<span class='fl'>1</span>:<span class='fl'>5</span>)
-  <span class='co'>## Error in corr_vec2mat(1:5) :</span>
-  <span class='co'>## All values in input vector must be between [-1 and 1]</span>
-}<span class='co'># }</span></div></pre>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
       <li><a href="#details">Details</a></li>
-      <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 
-    <h2>Author</h2>
-    <p>Vilmantas Gegzna</p>
   </div>
 </div>
 

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create matrix of the same size just with new values — revalueMatrix • spMisc</title>
+<title>Find missing function references in "_pkgdown.yaml" file — pkgdown_find_missing_references • spMisc</title>
 
 
 <!-- jquery -->
@@ -35,9 +35,8 @@
 
 
 
-<meta property="og:title" content="Create matrix of the same size just with new values — revalueMatrix" />
-<meta property="og:description" content="A convenience function to create a matrix of the same size as the provided one,
-just with new values." />
+<meta property="og:title" content="Find missing function references in "_pkgdown.yaml" file — pkgdown_find_missing_references" />
+<meta property="og:description" content="Find missing function references in &quot;_pkgdown.yaml&quot; file" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -107,76 +106,45 @@ just with new values." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create matrix of the same size just with new values</h1>
+    <h1>Find missing function references in "_pkgdown.yaml" file</h1>
     
-    <div class="hidden name"><code>revalueMatrix.Rd</code></div>
+    <div class="hidden name"><code>pkgdown_find_missing_references.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>A convenience function to create a matrix of the same size as the provided one,
-just with new values.</p>
+    <p>Find missing function references in "_pkgdown.yaml" file</p>
     </div>
 
-    <pre class="usage"><span class='fu'>revalueMatrix</span>(<span class='no'>x</span>, <span class='kw'>values</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>byrow</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>dimnames</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>pkgdown_find_missing_references</span>()
+
+<span class='co'># S3 method for missing_references</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>An old matrix.</p></td>
+      <td><p>an object used to select a method.</p></td>
     </tr>
     <tr>
-      <th>values</th>
-      <td><p>The new values for matrix</p></td>
-    </tr>
-    <tr>
-      <th>byrow</th>
-      <td><p>logical. If <code>FALSE</code> (the default) the matrix is
-    filled by columns, otherwise the matrix is filled by rows.</p></td>
-    </tr>
-    <tr>
-      <th>dimnames</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/dimnames.html'>dimnames</a></code> attribute for the matrix:
-    <code>NULL</code> or a <code>list</code> of length 2 giving the row and column
-    names respectively.  An empty list is treated as <code>NULL</code>, and a
-    list of length one as row names.  The list can be named, and the
-    list names will be used as names for the dimensions.</p></td>
+      <th>...</th>
+      <td><p>further arguments passed to or from other methods.</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <div class='dont-index'><p>Other matrix operations in <span class="pkg">spMisc</span>: 
-<code><a href='corr_vec2mat.html'>corr_vec2mat</a>()</code>,
-<code><a href='indMatrix.html'>indMatrix</a>()</code>,
-<code><a href='nTri2nDiag.html'>nTri2nDiag</a>()</code>,
-<code><a href='sort_matrix_elements.html'>sort_matrix_elements</a></code>,
-<code><a href='which.in.html'>which.in</a>()</code>,
-<code><a href='which.max.all.html'>which.max.all</a>()</code>,
-<code><a href='which.max.perRow.html'>which.max.perRow</a>()</code></p></div>
+    <p>Vector of missing entries</p>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
- <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fl'>NA</span>, <span class='fl'>2</span>, <span class='fl'>5</span>)
-
- <span class='no'>x</span></div><div class='output co'>#&gt;      [,1] [,2] [,3] [,4] [,5]
-#&gt; [1,]   NA   NA   NA   NA   NA
-#&gt; [2,]   NA   NA   NA   NA   NA</div><div class='input'> <span class='fu'>revalueMatrix</span>(<span class='no'>x</span>, <span class='fl'>1</span>:<span class='fl'>10</span>)</div><div class='output co'>#&gt;      [,1] [,2] [,3] [,4] [,5]
-#&gt; [1,]    1    3    5    7    9
-#&gt; [2,]    2    4    6    8   10</div><div class='input'>
-</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#see-also">See also</a></li>
-      <li><a href="#examples">Examples</a></li>
+      <li><a href="#value">Value</a></li>
     </ul>
 
-    <h2>Author</h2>
-    <p>Vilmantas Gegzna</p>
   </div>
 </div>
 

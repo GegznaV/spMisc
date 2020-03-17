@@ -19,9 +19,9 @@ knitr::opts_chunk$set(
 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/spMisc)](https://cran.r-project.org/package=spMisc)
 [![GitHub version](https://img.shields.io/badge/GitHub-v`r packageVersion("spMisc")`-brightgreen.svg)](https://github.com/GegznaV/spMisc)
-[![Travis-CI Build Status](https://travis-ci.org/GegznaV/spMisc.png?branch=master)](https://travis-ci.org/GegznaV/spMisc)
+[![Travis-CI Build Status](https://travis-ci.com/GegznaV/spMisc.png?branch=master)](https://travis-ci.com/GegznaV/spMisc)
 [![codecov.io](https://codecov.io/github/GegznaV/spMisc/coverage.svg?branch=master)](https://codecov.io/github/GegznaV/spMisc?branch=master)
-[![Last-update](https://img.shields.io/badge/last%20update-`r gsub('-', '--', Sys.Date())`-yellowgreen.svg)](/commits/master)
+[![Documentation](https://img.shields.io/badge/Documentation-`r gsub('-', '--', Sys.Date())`-yellowgreen.svg)](/commits/master)
 
 
 
@@ -62,9 +62,8 @@ Meaning of symbols in function descriptions:
 
 Install development version from GitHub:
 ```{r Install package from GitHub, eval=FALSE}
-if (!require(devtools)) install.packages("devtools")
-library(devtools)
-install_github("GegznaV/spMisc")
+if (!require(remotes)) install.packages("remotes")
+remotes::install_github("GegznaV/spMisc")
 ```
 
 
