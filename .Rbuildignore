@@ -6,5 +6,7 @@ README.Rmd
 ^cran-comments\.md$
 ^\.travis\.yml$
 new_functions.*
-^D:\Dokumentai\R\spMisc\docs$
 ^pkgdown$
+^_pkgdown\.yaml$
+^docs$
+^tmp_documentation$
