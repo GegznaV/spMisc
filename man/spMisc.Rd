@@ -3,7 +3,6 @@
 \docType{package}
 \name{spMisc}
 \alias{spMisc}
-\alias{spMisc-package}
 \title{Convenience, wrapper and other kind of miscellaneous functions}
 \description{
 A set of functions (including convenience and wrapper functions)

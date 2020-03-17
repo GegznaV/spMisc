@@ -2,6 +2,7 @@
 % Please edit documentation in R/fCap.R
 \name{fCap}
 \alias{fCap}
+\alias{make_firstCapitals}
 \title{[+] Convert first letters of all words to capitals}
 \usage{
 fCap(x)
@@ -22,11 +23,16 @@ fCap('laa laa laa')
 
 }
 \seealso{
-Other \pkg{spMisc} utilities: \code{\link{bru}},
-  \code{\link{clc}}, \code{\link{clear}},
-  \code{\link{isFALSE}}, \code{\link{list_AddRm}},
-  \code{\link{make.filenames}}, \code{\link{open_wd}},
-  \code{\link{printDuration}}, \code{\link{regexp2df}},
-  \code{\link{st01}}
+Other \pkg{spMisc} utilities: 
+\code{\link{bru}()},
+\code{\link{clc}()},
+\code{\link{clear}()},
+\code{\link{isFALSE}()},
+\code{\link{list_AddRm}()},
+\code{\link{make.filenames}()},
+\code{\link{open_wd}()},
+\code{\link{printDuration}()},
+\code{\link{regexp2df}()},
+\code{\link{st01}()}
 }
 \concept{\pkg{spMisc} utilities}

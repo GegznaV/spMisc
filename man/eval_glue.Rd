@@ -4,15 +4,14 @@
 \alias{eval_glue}
 \title{[!] Format, parse and evaluate expression in a string}
 \usage{
-eval_glue(..., envir = parent.frame(), .sep = "", .open = "{",
-  .close = "}")
+eval_glue(..., envir = parent.frame(), .sep = "", .open = "{", .close = "}")
 }
 \arguments{
 \item{...}{Strings to be formatted and evaluated as an expression.}
 
-\item{envir}{the \code{\link{environment}} in which \code{expr} is to
-    be evaluated.  May also be \code{NULL}, a list, a data frame,
-    a pairlist or an integer as specified to \code{\link{sys.call}}.}
+\item{envir}{[\code{environment}: \code{parent.frame()}]\cr Environment to evaluate each expression in. Expressions are
+evaluated from left to right. If \code{.x} is an environment, the expressions are
+evaluated in that environment and \code{.envir} is ignored.}
 
 \item{.sep}{[\code{character(1)}: \sQuote{""}]\cr Separator used to separate elements.}
 

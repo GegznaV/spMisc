@@ -19,11 +19,14 @@ which.max.perCol(x, na.rm = FALSE)
 [!] Indices of maximum values in each row/column
 }
 \seealso{
-Other matrix operations in \pkg{spMisc}: \code{\link{corr_vec2mat}},
-  \code{\link{indMatrix}}, \code{\link{nTri2nDiag}},
-  \code{\link{revalueMatrix}},
-  \code{\link{sort_matrix_elements}},
-  \code{\link{which.in}}, \code{\link{which.max.all}}
+Other matrix operations in \pkg{spMisc}: 
+\code{\link{corr_vec2mat}()},
+\code{\link{indMatrix}()},
+\code{\link{nTri2nDiag}()},
+\code{\link{revalueMatrix}()},
+\code{\link{sort_matrix_elements}},
+\code{\link{which.in}()},
+\code{\link{which.max.all}()}
 }
 \author{
 Vilmantas Gegzna

@@ -6,11 +6,19 @@
 \alias{time_elapsed}
 \title{[+!] Evaluate how much time passed}
 \usage{
-printDuration(Start, Message = "Analysis completed in",
-  returnString = FALSE, End = Sys.time())
+printDuration(
+  Start,
+  Message = "Analysis completed in",
+  returnString = FALSE,
+  End = Sys.time()
+)
 
-Duration(Start, Message = "Analysis completed in", print = FALSE,
-  End = Sys.time())
+Duration(
+  Start,
+  Message = "Analysis completed in",
+  print = FALSE,
+  End = Sys.time()
+)
 
 time_elapsed(start = stop("'start' is missing"), end = Sys.time())
 }
@@ -65,12 +73,17 @@ my_duration
 \seealso{
 \code{\link[base]{difftime}}
 
-Other \pkg{spMisc} utilities: \code{\link{bru}},
-  \code{\link{clc}}, \code{\link{clear}},
-  \code{\link{fCap}}, \code{\link{isFALSE}},
-  \code{\link{list_AddRm}}, \code{\link{make.filenames}},
-  \code{\link{open_wd}}, \code{\link{regexp2df}},
-  \code{\link{st01}}
+Other \pkg{spMisc} utilities: 
+\code{\link{bru}()},
+\code{\link{clc}()},
+\code{\link{clear}()},
+\code{\link{fCap}()},
+\code{\link{isFALSE}()},
+\code{\link{list_AddRm}()},
+\code{\link{make.filenames}()},
+\code{\link{open_wd}()},
+\code{\link{regexp2df}()},
+\code{\link{st01}()}
 }
 \author{
 Vilmantas Gegzna

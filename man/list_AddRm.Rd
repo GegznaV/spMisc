@@ -18,12 +18,17 @@ A list with added and removed names
 [.] Find and display added and removed names
 }
 \seealso{
-Other \pkg{spMisc} utilities: \code{\link{bru}},
-  \code{\link{clc}}, \code{\link{clear}},
-  \code{\link{fCap}}, \code{\link{isFALSE}},
-  \code{\link{make.filenames}}, \code{\link{open_wd}},
-  \code{\link{printDuration}}, \code{\link{regexp2df}},
-  \code{\link{st01}}
+Other \pkg{spMisc} utilities: 
+\code{\link{bru}()},
+\code{\link{clc}()},
+\code{\link{clear}()},
+\code{\link{fCap}()},
+\code{\link{isFALSE}()},
+\code{\link{make.filenames}()},
+\code{\link{open_wd}()},
+\code{\link{printDuration}()},
+\code{\link{regexp2df}()},
+\code{\link{st01}()}
 }
 \author{
 Vilmantas Gegzna

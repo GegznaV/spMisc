@@ -11,8 +11,8 @@ which.min.all(x, na.rm = FALSE, useNames = FALSE, ...)
 }
 \arguments{
 \item{x}{numeric (logical, integer or double) vector or an \R object
-    for which the internal coercion to \code{\link{double}} works whose
-    \code{\link{min}} or \code{\link{max}} is searched for.}
+    for which the internal coercion to \code{\link[base]{double}} works whose
+    \code{\link[base]{min}} or \code{\link[base]{max}} is searched for.}
 
 \item{na.rm}{a logical indicating whether missing values should be
     removed.}
@@ -40,11 +40,14 @@ which.min.all(x)
 
 }
 \seealso{
-Other matrix operations in \pkg{spMisc}: \code{\link{corr_vec2mat}},
-  \code{\link{indMatrix}}, \code{\link{nTri2nDiag}},
-  \code{\link{revalueMatrix}},
-  \code{\link{sort_matrix_elements}},
-  \code{\link{which.in}}, \code{\link{which.max.perRow}}
+Other matrix operations in \pkg{spMisc}: 
+\code{\link{corr_vec2mat}()},
+\code{\link{indMatrix}()},
+\code{\link{nTri2nDiag}()},
+\code{\link{revalueMatrix}()},
+\code{\link{sort_matrix_elements}},
+\code{\link{which.in}()},
+\code{\link{which.max.perRow}()}
 }
 \author{
 Vilmantas Gegzna

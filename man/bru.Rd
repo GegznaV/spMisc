@@ -5,8 +5,13 @@
 \alias{bru0}
 \title{[+] Generate a string of repeated symbols}
 \usage{
-bru(symbol = "=", n = 60, after = (if (print) 1 else 0),
-  before = 0, print = TRUE)
+bru(
+  symbol = "=",
+  n = 60,
+  after = (if (print) 1 else 0),
+  before = 0,
+  print = TRUE
+)
 
 bru0(..., print = FALSE)
 }
@@ -83,7 +88,7 @@ paste(bru0(":", 5),  bru0("*", 5))
 ## [1] "::::: *****"
 
 bru0('*', 10, before = 5)
-## [1] "\\n\\n\\n\\n\\n**********"
+## [1] "\n\n\n\n\n**********"
 
 bru('*', 10, before = 5) # 5 empty rows are added
 ##
@@ -95,12 +100,17 @@ bru('*', 10, before = 5) # 5 empty rows are added
 
 }
 \seealso{
-Other \pkg{spMisc} utilities: \code{\link{clc}},
-  \code{\link{clear}}, \code{\link{fCap}},
-  \code{\link{isFALSE}}, \code{\link{list_AddRm}},
-  \code{\link{make.filenames}}, \code{\link{open_wd}},
-  \code{\link{printDuration}}, \code{\link{regexp2df}},
-  \code{\link{st01}}
+Other \pkg{spMisc} utilities: 
+\code{\link{clc}()},
+\code{\link{clear}()},
+\code{\link{fCap}()},
+\code{\link{isFALSE}()},
+\code{\link{list_AddRm}()},
+\code{\link{make.filenames}()},
+\code{\link{open_wd}()},
+\code{\link{printDuration}()},
+\code{\link{regexp2df}()},
+\code{\link{st01}()}
 }
 \author{
 Vilmantas Gegzna

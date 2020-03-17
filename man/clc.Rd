@@ -10,11 +10,16 @@ clc()
 Clears console. I.e. does the same as pressing \code{CTRL + L}.
 }
 \seealso{
-Other \pkg{spMisc} utilities: \code{\link{bru}},
-  \code{\link{clear}}, \code{\link{fCap}},
-  \code{\link{isFALSE}}, \code{\link{list_AddRm}},
-  \code{\link{make.filenames}}, \code{\link{open_wd}},
-  \code{\link{printDuration}}, \code{\link{regexp2df}},
-  \code{\link{st01}}
+Other \pkg{spMisc} utilities: 
+\code{\link{bru}()},
+\code{\link{clear}()},
+\code{\link{fCap}()},
+\code{\link{isFALSE}()},
+\code{\link{list_AddRm}()},
+\code{\link{make.filenames}()},
+\code{\link{open_wd}()},
+\code{\link{printDuration}()},
+\code{\link{regexp2df}()},
+\code{\link{st01}()}
 }
 \concept{\pkg{spMisc} utilities}

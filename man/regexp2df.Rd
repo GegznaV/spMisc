@@ -4,8 +4,14 @@
 \alias{regexp2df}
 \title{[!+] Capture information to a dataframe by regular expressions}
 \usage{
-regexp2df(text, pattern, ignore.case = FALSE, perl = TRUE,
-  stringsAsFactors = default.stringsAsFactors(), ...)
+regexp2df(
+  text,
+  pattern,
+  ignore.case = FALSE,
+  perl = TRUE,
+  stringsAsFactors = default.stringsAsFactors(),
+  ...
+)
 }
 \arguments{
 \item{text}{The text to be parsed: a character vector where matches are
@@ -127,12 +133,17 @@ More about regular expressions used in R: \link[base]{regex}\cr
          \code{\link{regcapturedmatches}},
          operator from package \pkg{magrittr} \code{\link[magrittr]{\%>\%}}.
 
-Other \pkg{spMisc} utilities: \code{\link{bru}},
-  \code{\link{clc}}, \code{\link{clear}},
-  \code{\link{fCap}}, \code{\link{isFALSE}},
-  \code{\link{list_AddRm}}, \code{\link{make.filenames}},
-  \code{\link{open_wd}}, \code{\link{printDuration}},
-  \code{\link{st01}}
+Other \pkg{spMisc} utilities: 
+\code{\link{bru}()},
+\code{\link{clc}()},
+\code{\link{clear}()},
+\code{\link{fCap}()},
+\code{\link{isFALSE}()},
+\code{\link{list_AddRm}()},
+\code{\link{make.filenames}()},
+\code{\link{open_wd}()},
+\code{\link{printDuration}()},
+\code{\link{st01}()}
 }
 \author{
 Author Vilmantas Gegzna,

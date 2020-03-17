@@ -14,7 +14,7 @@ revalueMatrix(x, values = NA, byrow = FALSE, dimnames = NULL)
 \item{byrow}{logical. If \code{FALSE} (the default) the matrix is
     filled by columns, otherwise the matrix is filled by rows.}
 
-\item{dimnames}{A \code{\link{dimnames}} attribute for the matrix:
+\item{dimnames}{A \code{\link[base]{dimnames}} attribute for the matrix:
     \code{NULL} or a \code{list} of length 2 giving the row and column
     names respectively.  An empty list is treated as \code{NULL}, and a
     list of length one as row names.  The list can be named, and the
@@ -33,11 +33,14 @@ just with new values.
 
 }
 \seealso{
-Other matrix operations in \pkg{spMisc}: \code{\link{corr_vec2mat}},
-  \code{\link{indMatrix}}, \code{\link{nTri2nDiag}},
-  \code{\link{sort_matrix_elements}},
-  \code{\link{which.in}}, \code{\link{which.max.all}},
-  \code{\link{which.max.perRow}}
+Other matrix operations in \pkg{spMisc}: 
+\code{\link{corr_vec2mat}()},
+\code{\link{indMatrix}()},
+\code{\link{nTri2nDiag}()},
+\code{\link{sort_matrix_elements}},
+\code{\link{which.in}()},
+\code{\link{which.max.all}()},
+\code{\link{which.max.perRow}()}
 }
 \author{
 Vilmantas Gegzna

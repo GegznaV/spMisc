@@ -20,6 +20,3 @@ Vector of missing entries
 \description{
 Find missing function references in "_pkgdown.yaml" file
 }
-\examples{
-pkgdown_find_missing_references()
-}

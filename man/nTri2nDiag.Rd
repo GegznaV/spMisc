@@ -25,11 +25,14 @@ nTri2nDiag(6)
 
 }
 \seealso{
-Other matrix operations in \pkg{spMisc}: \code{\link{corr_vec2mat}},
-  \code{\link{indMatrix}}, \code{\link{revalueMatrix}},
-  \code{\link{sort_matrix_elements}},
-  \code{\link{which.in}}, \code{\link{which.max.all}},
-  \code{\link{which.max.perRow}}
+Other matrix operations in \pkg{spMisc}: 
+\code{\link{corr_vec2mat}()},
+\code{\link{indMatrix}()},
+\code{\link{revalueMatrix}()},
+\code{\link{sort_matrix_elements}},
+\code{\link{which.in}()},
+\code{\link{which.max.all}()},
+\code{\link{which.max.perRow}()}
 }
 \author{
 Vilmantas Gegzna

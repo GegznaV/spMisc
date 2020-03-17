@@ -4,9 +4,13 @@
 \alias{getVarValues}
 \title{[~] Parse arguments of a function and return approriate values for selected variable}
 \usage{
-getVarValues(VAR, DATA, CALL = match.call(definition =
-  sys.function(sys.parent()), call = sys.call(sys.parent())),
-  env = parent.frame(2L))
+getVarValues(
+  VAR,
+  DATA,
+  CALL = match.call(definition = sys.function(sys.parent()), call =
+    sys.call(sys.parent())),
+  env = parent.frame(2L)
+)
 }
 \arguments{
 \item{VAR}{A name of a variable (with or without quotes).}

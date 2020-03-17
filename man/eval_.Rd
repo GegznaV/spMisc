@@ -9,9 +9,9 @@ eval_(X, envir = parent.frame(), ...)
 \arguments{
 \item{X}{A string to be evaluated as an expression.}
 
-\item{envir}{the \code{\link{environment}} in which \code{expr} is to
+\item{envir}{the \code{\link[base]{environment}} in which \code{expr} is to
     be evaluated.  May also be \code{NULL}, a list, a data frame,
-    a pairlist or an integer as specified to \code{\link{sys.call}}.}
+    a pairlist or an integer as specified to \code{\link[base]{sys.call}}.}
 
 \item{...}{Further parameters to be passed to \code{\link[base]{eval}}.}
 }

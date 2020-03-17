@@ -11,23 +11,38 @@
 \alias{clear_except}
 \title{[!] Clear variables from workspace (current environment)}
 \usage{
-clear(..., list = NULL, except = NULL, all.names = FALSE,
-  envir = parent.frame())
+clear(
+  ...,
+  list = NULL,
+  except = NULL,
+  all.names = FALSE,
+  envir = parent.frame()
+)
 
-clear_all(..., list = NULL, except = NULL, all.names = TRUE,
-  envir = parent.frame())
+clear_all(
+  ...,
+  list = NULL,
+  except = NULL,
+  all.names = TRUE,
+  envir = parent.frame()
+)
 
-clear_hidden_only(..., list = NULL, except = NULL,
-  envir = parent.frame())
+clear_hidden_only(..., list = NULL, except = NULL, envir = parent.frame())
 
-clear_all_except(..., list = NULL, all.names = FALSE,
-  envir = parent.frame())
+clear_all_except(..., list = NULL, all.names = FALSE, envir = parent.frame())
 
-clear_class(clr_class = NULL, except_var = NULL, all.names = FALSE,
-  envir = parent.frame())
+clear_class(
+  clr_class = NULL,
+  except_var = NULL,
+  all.names = FALSE,
+  envir = parent.frame()
+)
 
-clear_all_except_class(except_class = NULL, all.names = FALSE,
-  envir = parent.frame())
+clear_all_except_class(
+  except_class = NULL,
+  all.names = FALSE,
+  envir = parent.frame()
+)
 
 clear_fun(all.names = TRUE, envir = parent.frame())
 
@@ -125,12 +140,17 @@ ls()
 Remove objects from a specified environment \code{\link[base]{rm}},
          list objects \code{\link[base]{ls}}.
 
-Other \pkg{spMisc} utilities: \code{\link{bru}},
-  \code{\link{clc}}, \code{\link{fCap}},
-  \code{\link{isFALSE}}, \code{\link{list_AddRm}},
-  \code{\link{make.filenames}}, \code{\link{open_wd}},
-  \code{\link{printDuration}}, \code{\link{regexp2df}},
-  \code{\link{st01}}
+Other \pkg{spMisc} utilities: 
+\code{\link{bru}()},
+\code{\link{clc}()},
+\code{\link{fCap}()},
+\code{\link{isFALSE}()},
+\code{\link{list_AddRm}()},
+\code{\link{make.filenames}()},
+\code{\link{open_wd}()},
+\code{\link{printDuration}()},
+\code{\link{regexp2df}()},
+\code{\link{st01}()}
 }
 \author{
 Vilmantas Gegzna

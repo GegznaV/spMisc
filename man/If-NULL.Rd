@@ -32,6 +32,3 @@ b  <- "Alternative"
 #> "Alternative"
 
 }
-\seealso{
-\code{\link[spAddins]{insertIfNULL_Addin}}
-}

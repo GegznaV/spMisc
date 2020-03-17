@@ -21,13 +21,13 @@ option \code{fixed = TRUE}.
 }
 \examples{
 fixed_to_regexp("\\\\")
-  ## "\\\\\\\\"
+  ## "\\\\"
 
 fixed_to_regexp("||")
 fixed_to_regexp(".\\\\|(){}^$*+?[]")
 
 fixed_to_regexp("(A|B)")
- ## "\\\\(A\\\\|B\\\\)"
+ ## "\\(A\\|B\\)"
 
 fixed_to_regexp("Hello!") # nothing is changed
   ## "Hello!"

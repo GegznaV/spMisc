@@ -127,11 +127,14 @@ Matrix_by_col
 \seealso{
 \code{\link[base]{order}}, \code{\link[base]{sort}}.
 
-Other matrix operations in \pkg{spMisc}: \code{\link{corr_vec2mat}},
-  \code{\link{indMatrix}}, \code{\link{nTri2nDiag}},
-  \code{\link{revalueMatrix}}, \code{\link{which.in}},
-  \code{\link{which.max.all}},
-  \code{\link{which.max.perRow}}
+Other matrix operations in \pkg{spMisc}: 
+\code{\link{corr_vec2mat}()},
+\code{\link{indMatrix}()},
+\code{\link{nTri2nDiag}()},
+\code{\link{revalueMatrix}()},
+\code{\link{which.in}()},
+\code{\link{which.max.all}()},
+\code{\link{which.max.perRow}()}
 }
 \author{
 Vilmantas Gegzna

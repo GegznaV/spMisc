@@ -67,13 +67,17 @@ corr_vec2mat(vector)
 
 }
 \seealso{
-Other matrix operations in \pkg{spMisc}: \code{\link{indMatrix}},
-  \code{\link{nTri2nDiag}}, \code{\link{revalueMatrix}},
-  \code{\link{sort_matrix_elements}},
-  \code{\link{which.in}}, \code{\link{which.max.all}},
-  \code{\link{which.max.perRow}}
+Other matrix operations in \pkg{spMisc}: 
+\code{\link{indMatrix}()},
+\code{\link{nTri2nDiag}()},
+\code{\link{revalueMatrix}()},
+\code{\link{sort_matrix_elements}},
+\code{\link{which.in}()},
+\code{\link{which.max.all}()},
+\code{\link{which.max.perRow}()}
 
-Other simmulation functions in \pkg{spMisc}: \code{\link{simCorrVars}}
+Other simmulation functions in \pkg{spMisc}: 
+\code{\link{simCorrVars}()}
 }
 \author{
 Vilmantas Gegzna

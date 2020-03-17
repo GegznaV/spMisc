@@ -5,8 +5,14 @@
 \alias{file2text}
 \title{Wrapper for function visNetwork}
 \usage{
-visNetwork_(file, width = NULL, height = NULL, main = NULL,
-  encoding = "UTF-8", ...)
+visNetwork_(
+  file,
+  width = NULL,
+  height = NULL,
+  main = NULL,
+  encoding = "UTF-8",
+  ...
+)
 
 file2text(file, encoding = "UTF-8")
 }
@@ -27,7 +33,7 @@ file2text(file, encoding = "UTF-8")
     used to mark character strings as known to be in
     Latin-1 or UTF-8: it is not used to re-encode the input.  To do the
     latter, specify the encoding as part of the connection \code{con} or
-    via \code{\link{options}(encoding=)}: see the examples.
+    via \code{\link[base]{options}(encoding=)}: see the examples.
     See also \sQuote{Details}.
   }
 
