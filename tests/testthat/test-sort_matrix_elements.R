@@ -1,5 +1,4 @@
 context("Functions in file sort_matrix_elements")
-
 ## TODO: Rename context
 ## TODO: Add more tests
 
