@@ -4,7 +4,10 @@
 #' @export
 #'
 #' @examples
+#' \dontrun\donttest{
 #' pkgdown_find_missing_references()
+#' }}
+#'
 pkgdown_find_missing_references <- function() {
     pkgdown_yaml <- "_pkgdown.yaml"
     if (!file.exists(pkgdown_yaml))
