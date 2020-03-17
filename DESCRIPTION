@@ -15,7 +15,9 @@ Authors@R: c(
 License: GPL (>= 3)
 LazyData: yes
 LazyLoad: yes
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0
+Remotes:
+    GegznaV/spAddins
 Depends:
     R (>= 3.2),
     magrittr
