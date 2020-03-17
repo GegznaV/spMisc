@@ -40,5 +40,5 @@ html_enable_favicons <- function(main_dir = "./docs",
         stringr::str_c('<link rel="icon" href="',. ,'" />')
 
     # Add the lines to the files
-    purrr:::map2_chr(html_files, line_to_add, html_add_line_to_head)
+    purrr::map2_chr(html_files, line_to_add, html_add_line_to_head)
 }
