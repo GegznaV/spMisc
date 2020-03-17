@@ -7,11 +7,11 @@ Description: A set of functions (including convenience and wrapper functions)
              from environments), functions that find indices of certain matrix
              elements, functions that sort elements of matrices in a certain way,
              functions that modify strings, etc.
-Version: 0.0.21
+Version: 0.0.22
 Date: 2019-08-14
 Encoding: UTF-8
-Authors@R: c(
-    person("Vilmantas", "Gegzna", email = "GegznaV@gmail.com", role = c("aut", "cre")))
+Authors@R: 
+    person("Vilmantas", "Gegzna", email = "GegznaV@gmail.com", role = c("aut", "cre"))
 License: GPL (>= 3)
 LazyData: yes
 LazyLoad: yes
@@ -32,10 +32,11 @@ Imports:
     purrr,
     glue,
     rmarkdown,
-    readr
+    readr,
+    fs,
+    pkgdown
 Suggests:
     knitr,
     testthat,
     covr,
-    devtools,
-    spAddins
+    devtools
