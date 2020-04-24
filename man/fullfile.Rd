@@ -7,11 +7,11 @@
 fullfile(..., ext = "", fsep = .Platform$file.sep)
 }
 \arguments{
-\item{...}{character vectors.}
+\item{...}{character vectors.  Long vectors are not supported.}
 
 \item{ext}{- extension of file name (e.g. ".txt" or "txt")}
 
-\item{fsep}{the path separator to use.}
+\item{fsep}{the path separator to use (assumed to be ASCII).}
 }
 \value{
 A character vector of the arguments concatenated term-by-term and
