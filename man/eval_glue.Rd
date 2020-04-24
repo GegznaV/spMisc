@@ -11,7 +11,7 @@ eval_glue(..., envir = parent.frame(), .sep = "", .open = "{", .close = "}")
 
 \item{envir}{[\code{environment}: \code{parent.frame()}]\cr Environment to evaluate each expression in. Expressions are
 evaluated from left to right. If \code{.x} is an environment, the expressions are
-evaluated in that environment and \code{.envir} is ignored.}
+evaluated in that environment and \code{.envir} is ignored. If \code{NULL} is passed it is equivalent to \code{\link[=emptyenv]{emptyenv()}}.}
 
 \item{.sep}{[\code{character(1)}: \sQuote{""}]\cr Separator used to separate elements.}
 
